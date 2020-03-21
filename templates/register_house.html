@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Register House</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/f9da0729dd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <style>
+        /**
+        SPACIFIC
+        */
+        #user-header {
+            display: flex;
+        }
+
+        #user-header>div {
+            padding: 5px;
+            border-radius: 5px;
+            margin: 0;
+        }
+
+        #user-header img {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aside -->
+    <aside class="app-sidebar app-sidebar-closed">
+        <div class="app-sidebar-inner">
+            <div class="app-sidebar-header">
+                <div class="app-sidebar-header-brand text-center">
+                    <span class="align-middle">RoomMe </span>
+                </div>
+                <div class="app-sidebar-action-btn">
+                    <a href="#" id="sidebar-btn" class="text-white">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="app-sidebar-body">
+                <ul>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="./dashboard.html" id="">
+                                <i class="fas fa-th"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-home"></i>
+                                <span>Lista de casas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-tasks"></i>
+                                <span>Lista de tareas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Lista de compras</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-user"></i>
+                                <span>Usuario</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-cog"></i>
+                                <span>Ajustes</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm" style="background-color: white;">
+        <a name="" id="" class="btn btn-primary" href="#" role="button">
+            RoomMe
+        </a>
+    </nav>
+
+    <!-- Content -->
+    <div class="app-content">
+        <div class="container">
+            <div class="row">
+               
+                <div class="col-lg-8 content-box">
+                    <div class="content-box-inner">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div><strong>Datos generales </strong>   
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Nombre</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="fa fa-home" aria-hidden="true"></i>
+                                                </div>
+                                           
+                                            <input type="text" class="form-control" id="in-nombre" value=""
+                                                placeholder="Nombre de la casa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="in-username">Tipo de casa</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-2">   
+                                                <select class="custom-select" id="inputGroupSelect01">
+                                                    <option selected>Casa</option>
+                                                    <option value="1">Departamento</option>
+                                                    <option value="2">Hostel</option>
+                                                    <option value="3">Otro</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Dirección</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="fa fa-map" aria-hidden="true"></i>
+                                                </div>
+                                           
+                                            <input type="text" class="form-control" id="in-nombre" value=""
+                                                placeholder="Dirección">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="in-apellido" class="col-sm-2 col-form-label">Código Postal</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="in-apellido" value=""
+                                                placeholder="Código Postal">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="in-phone">Ciudad</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-2">
+                                                
+                                                <input type="text" class="form-control" id="in-phone"
+                                                    placeholder="Ciudad">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="in-username">Estado</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-2">   
+                                                <input type="text" class="form-control" id="in-username"
+                                                    placeholder="Estado">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="in-username">País</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-2">   
+                                                <select class="custom-select" id="inputGroupSelect01">
+                                                    <option selected>Mexico</option>
+                                                    <option value="1">USA</option>
+                                                    <option value="2">Canada</option>
+                                                    <option value="3">Otro</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div><strong>Especificaciones de la casa </strong>   
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Costo mensual</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i>
+                                                </div>
+                                                
+                                            <input type="number" class="form-control" id="in-nombre" value=""
+                                                placeholder="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Capacidad Máxima</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="fas fa-people-carry    "></i>
+                                                </div>
+                                                
+                                            <input type="number" class="form-control" id="in-nombre" value=""
+                                                placeholder="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Descripción</label>
+                                        <div class="col-sm-10">
+                                            
+                                              <textarea class="form-control" name="" id="" rows="3"></textarea>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="">Foto</label>
+                                      <input type="file" class="form-control-file" name="" id="" placeholder="" aria-describedby="fileHelpId">
+                                      <small id="fileHelpId" class="form-text text-muted">Help text</small>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Lista de Reproducción</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="fab fa-spotify    "></i>
+                                                </div>
+                                           
+                                            <input type="text" class="form-control" id="in-nombre" value=""
+                                                placeholder="URL">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <a name="" id="" class="btn btn-success" href="#" role="button">Guardar</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner">
+                        <!-- <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> -->
+                                <div><strong>Servicios </strong>   
+                                </div>
+                            <!-- </li> -->
+                            <!-- <li class="list-gruop-item"> -->
+                                <div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Servicio </label>
+                                        <div class="col-sm-10">
+                                            
+                                                
+                                                <div class="input-group mb-2">   
+                                                    <select class="custom-select" id="inputGroupSelect04">
+                                                        <option selected>Gas</option>
+                                                        <option value="1">Electricidad</option>
+                                                        <option value="2">Agua</option>
+                                                        <option value="3">Netflix</option>
+                                                      </select>
+                                                      <div class="input-group-append">
+                                                        <button class="btn btn-success" type="button">Añadir</button>
+                                                      </div>
+                                                </div>
+                                           
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </li>
+                        </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
