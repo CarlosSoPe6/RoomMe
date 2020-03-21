@@ -1,0 +1,136 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.app-sidebar {
+    background-color: #333333;
+    color: #f5f5f5;
+    position: fixed;
+    height: 100vh;
+    transition: all .2s;
+    display: flex;
+    z-index: 11;
+    overflow: hidden;
+}
+
+.app-sidebar {
+    overflow: hidden;
+    color: #f5f5f5;
+    list-style: none;
+}
+
+.app-sidebar a {
+    color: #ffffff;
+}
+
+.app-sidebar .app-sidebar-inner {
+    width: 100%;
+}
+
+.app-sidebar.app-sidebar-open {
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+}
+
+.app-sidebar.app-sidebar-closed {
+    flex: 0 0 60px;
+    width: 60px;
+    min-width: 60px;
+}
+
+.app-sidebar-header {
+    height: 60px;
+    display: flex;
+    width: 100%;
+
+}
+
+.app-sidebar-header-brand {
+    height: 100%;
+    width: 60%;
+    display: flex;
+}
+
+.app-sidebar-header-brand span,
+.app-sidebar-action-btn a {
+    margin: auto;
+    /* Important */
+    text-align: center;
+}
+
+.app-sidebar-action-btn {
+    height: 100%;
+    display: flex;
+}
+
+.app-sidebar-header,
+.app-sidebar-body {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.app-sidebar-header .app-sidebar-action-btn {
+    width: 40%;
+}
+
+.app-sidebar-body ul {
+    overflow: hidden;
+    list-style: none;
+    padding-left: 0px;
+}
+.app-sidebar-body ul li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.app-sidebar.app-sidebar-closed a>span {
+    display: none;
+}
+
+.app-sidebar.app-sidebar-closed .app-sidebar-body ul {
+    padding: 0px;
+}
+
+.app-sidebar.app-sidebar-closed .app-sidebar-header,
+.app-sidebar.app-sidebar-closed .app-sidebar-body {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.app-sidebar.app-sidebar-closed .app-sidebar-header-brand {
+    display: none;
+}
+
+.app-sidebar.app-sidebar-closed .app-sidebar-action-btn
+{
+    width: 100%;
+}
+
+.navbar {
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+}
+
+.navbar,
+.app-content {
+    padding-left: 76px;
+}
+
+.app-content {
+    padding-top: 10px;
+}
+
+.content-box-inner {
+    
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+}
+
+.content-box-inner > div {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
