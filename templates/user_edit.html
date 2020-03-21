@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>User Edit</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .app-sidebar {
+            background-color: #333333;
+            color: #f5f5f5;
+            position: fixed;
+            height: 100vh;
+            transition: all .2s;
+            display: flex;
+            z-index: 11;
+            overflow: hidden;
+        }
+
+        .app-sidebar {
+            overflow: hidden;
+            color: #f5f5f5;
+            list-style: none;
+        }
+
+        .app-sidebar a {
+            color: #ffffff;
+        }
+
+        .app-sidebar .app-sidebar-inner {
+            width: 100%;
+        }
+
+        .app-sidebar.app-sidebar-open {
+            flex: 0 0 280px;
+            width: 280px;
+            min-width: 280px;
+        }
+
+        .app-sidebar.app-sidebar-closed {
+            flex: 0 0 60px;
+            width: 60px;
+            min-width: 60px;
+        }
+
+        .app-sidebar-header {
+            height: 60px;
+            display: flex;
+            width: 100%;
+
+        }
+
+        .app-sidebar-header-brand {
+            height: 100%;
+            width: 60%;
+            display: flex;
+        }
+
+        .app-sidebar-header-brand span,
+        .app-sidebar-header-action-btn a {
+            margin: auto;
+            /* Important */
+            text-align: center;
+        }
+
+        .app-sidebar-header-action-btn {
+            height: 100%;
+            width: 40%;
+            display: flex;
+        }
+
+        .app-sidebar-header,
+        .app-sidebar-body {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .app-sidebar-body ul {
+            overflow: hidden;
+            list-style: none;
+        }
+
+        .app-sidebar.app-sidebar-closed a>span {
+            display: none;
+        }
+
+        .app-sidebar.app-sidebar-closed .app-sidebar-body ul {
+            padding: 0px;
+        }
+
+        .app-sidebar.app-sidebar-closed .app-sidebar-header,
+        .app-sidebar.app-sidebar-closed .app-sidebar-body {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .app-sidebar.app-sidebar-closed .app-sidebar-header-brand {
+            display: none;
+        }
+
+        .navbar {
+            box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+        }
+
+        .navbar,
+        .app-content {
+            padding-left: 76px;
+        }
+
+        .app-content {
+            padding-top: 10px;
+        }
+
+        .content-box-inner {
+            
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+        }
+
+        .content-box-inner > div {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /**
+        SPACIFIC
+        */
+        #user-header {
+            display: flex;
+        }
+
+        #user-header>div {
+            padding: 5px;
+            border-radius: 5px;
+            margin: 0;
+        }
+
+        #user-header img {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aside -->
+    <aside class="app-sidebar app-sidebar-closed">
+        <div class="app-sidebar-inner">
+            <div class="app-sidebar-header">
+                <div class="app-sidebar-header-brand text-center">
+                    <span class="align-middle">RoomMe </span>
+                </div>
+                <div class="app-sidebar-header-action-btn text-center">
+                    <a href="#" id="sidebar-btn" class="text-white">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="app-sidebar-body">
+                <ul>
+                    <li>
+                        <a href="#" id="">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                            <span>Hola</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm" style="background-color: white;">
+        <a name="" id="" class="btn btn-primary" href="#" role="button">
+            RoomMe
+        </a>
+    </nav>
+
+    <div class="app-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner">
+                        <div id="user-header">
+                            <div id="user-header-image-warper">
+                                <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="">
+                            </div>
+                            <div id="user-header-name-waprer">
+                                <h4>Pedro Páramo</h4>
+                                <p>Personaje de realismo mágico</p>
+                            </div>
+                        </div>
+                        <div>
+                            <span><strong>Correo: </strong>pedro.paramo@llanoenllamas.mx</span>
+                            <span><strong>Localización: </strong>Comala, Colima</span>
+                        </div>
+                        <div>
+                            <ul class="list-group">
+                                <li class="list-group-item active">Información Personal</li>
+                                <li class="list-group-item">Ajustes de Cuenta</li>
+                                <li class="list-group-item">Correo</li>
+                                <li class="list-group-item">PAgos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 content-box">
+                    <div class="content-box-inner">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div>
+                                    <div class="form-group row">
+                                        <label for="in-nombre" class="col-sm-2 col-form-label">Nombre</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="in-nombre" value=""
+                                                placeholder="Nombre">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="in-apellido" class="col-sm-2 col-form-label">Apellido</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="in-apellido" value=""
+                                                placeholder="Apellido">
+                                        </div>
+                                    </div>
+                                    <strong>Información de contacto:</strong>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="in-phone">Teléfono</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-phone"
+                                                            aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="number" class="form-control" id="in-phone"
+                                                    placeholder="Teléfono">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="in-username">Username</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">@</div>
+                                                </div>
+                                                <input type="text" class="form-control" id="in-username"
+                                                    placeholder="Username">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <a name="" id="" class="btn btn-success" href="#" role="button">Guardar</a>
+                                    <a name="" id="" class="btn btn-secondary" href="#" role="button">Descartar</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let sidebarBtn = document.getElementById('sidebar-btn');
+        let sidebar = document.querySelector('.app-sidebar');
+        sidebarBtn.addEventListener('click', e => {
+            sidebar.classList.toggle('app-sidebar-open');
+            sidebar.classList.toggle('app-sidebar-closed');
+        });
+    </script>
+</body>
+
+</html>
