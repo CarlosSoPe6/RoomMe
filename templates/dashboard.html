@@ -13,6 +13,66 @@
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/f9da0729dd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/main.css">
+    <style>
+        .dashboard-activity-header {
+            padding: 20px 12px 20px 12px;
+        }
+
+        .dashboard-activity-body {
+            padding: 20px 12px 20px 12px;
+        }
+
+        .dashboard-activity-body .row {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .dashboard-activity-body .content-box {
+            padding: 5px;
+            color: #333333;
+        }
+
+        .dashboard-activity-body .content-box .content-box-inner {
+            height: 0px;
+            padding-top: 100%;
+        }
+
+        .dashboard-activity-body .content-box .content-box-inner>* {
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+        }
+
+        .dashboard-task-entry {
+            padding: 10px;
+            display: flex;
+            border-left: #0abb87 5px solid;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+
+        .dashboard-task-entry.warning {
+            border-left-color: #fd397a;
+        }
+
+        .dashboard-task-entry>div {
+            padding: 5px;
+        }
+
+        .dashboard-task-entry .daskboard-task-entry-icon {
+            flex-grow: 1;
+        }
+
+        .dashboard-task-entry .daskboard-task-entry-description {
+            flex-grow: 3;
+        }
+
+        .dashboard-task-entry .daskboard-task-entry-options {
+            flex-grow: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,6 +150,120 @@
             RoomMe
         </a>
     </nav>
+
+    <!-- Content -->
+    <div class="app-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner" style="background-color: #fd397a; color:#f5f5f5">
+                        <div class="dashboard-activity-header">
+                            Actividad
+                        </div>
+                        <div class="dashboard-activity-body">
+                            <div class="row">
+                                <div class="col-lg-6 content-box">
+                                    <div class="content-box-inner">
+                                        <div>
+                                            <strong>Notificaciones</strong>
+                                            <br>
+                                            <small>1 notificación</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 content-box">
+                                    <div class="content-box-inner">
+                                        <div>
+                                            <strong>Tareas</strong>
+                                            <br>
+                                            <small>2 tareas</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 content-box">
+                                    <div class="content-box-inner">
+                                        <div>
+                                            <strong>
+                                                Calendario
+                                            </strong>
+                                            <br>
+                                            <small>0 calendarios</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 content-box">
+                                    <div class="content-box-inner">
+                                        <div>
+                                            <strong>
+                                                Mensajes
+                                            </strong>
+                                            <br>
+                                            <small>0 mensajes</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div>
+                                    <strong>Tareas</strong>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="dashboard-task-entry warning">
+                                    <div class="daskboard-task-entry-icon">
+                                        <i class="fas fa-thumbtack"></i>
+                                    </div>
+                                    <div class="daskboard-task-entry-description">
+                                        <a>Ejemplo de tarea</a>
+                                    </div>
+                                    <div class="daskboard-task-entry-options">
+                                        <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                    </div>
+                                </div>
+                                <div class="dashboard-task-entry">
+                                    <div class="daskboard-task-entry-icon">
+                                        <i class="fas fa-thumbtack"></i>
+                                    </div>
+                                    <div class="daskboard-task-entry-description">
+                                        <a>Ejemplo de tarea</a>
+                                    </div>
+                                    <div class="daskboard-task-entry-options">
+                                        <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div><strong>Notificaciones</strong>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="dashboard-task-entry">
+                                    <div>
+                                        Notificación 1
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
