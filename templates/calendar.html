@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Calendario</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Calendar -->
+    <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
+    <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+    <link href='fullcalendar/packages/timegrid//main.css' rel='stylesheet' />
+    <link href='fullcalendar/packages/interaction/main.css' rel='stylesheet' />
+
+    <script src='fullcalendar/packages/core/main.js'></script>
+    <script src='fullcalendar/packages/daygrid/main.js'></script>
+    <script src='fullcalendar/packages/timegrid/main.js'></script>
+    <script src='fullcalendar/packages/interaction/main.js'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['interaction', 'dayGrid', 'timeGrid'],
+                defaultView: 'dayGridMonth',
+                defaultDate: '2020-02-07',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [{
+                        title: 'All Day Event',
+                        start: '2020-02-01'
+                    },
+                    {
+                        title: 'Long Event',
+                        start: '2020-02-07',
+                        end: '2020-02-10'
+                    },
+                    {
+                        groupId: '999',
+                        title: 'Repeating Event',
+                        start: '2020-02-09T16:00:00'
+                    },
+                    {
+                        groupId: '999',
+                        title: 'Repeating Event',
+                        start: '2020-02-16T16:00:00'
+                    },
+                    {
+                        title: 'Conference',
+                        start: '2020-02-11',
+                        end: '2020-02-13'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2020-02-12T10:30:00',
+                        end: '2020-02-12T12:30:00'
+                    },
+                    {
+                        title: 'Lunch',
+                        start: '2020-02-12T12:00:00'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2020-02-12T14:30:00'
+                    },
+                    {
+                        title: 'Birthday Party',
+                        start: '2020-02-13T07:00:00'
+                    },
+                    {
+                        title: 'Click for Google',
+                        url: 'http://google.com/',
+                        start: '2020-02-28'
+                    }
+                ]
+            });
+
+            calendar.render();
+        });
+    </script>
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/f9da0729dd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/dashboard_calendar.css">
+    <style>
+        .dashboard-activity-header {
+            padding: 20px 12px 20px 12px;
+        }
+
+        .dashboard-activity-body {
+            padding: 20px 12px 20px 12px;
+        }
+
+        .dashboard-activity-body .row {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .dashboard-activity-body .content-box {
+            padding: 5px;
+            color: #333333;
+        }
+
+        .dashboard-activity-body .content-box .content-box-inner {
+            height: 0px;
+            padding-top: 100%;
+        }
+
+        .dashboard-activity-body .content-box .content-box-inner>* {
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+        }
+
+        .dashboard-task-entry {
+            padding: 10px;
+            display: flex;
+            border-left: #0abb87 5px solid;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+
+        .dashboard-task-entry.warning {
+            border-left-color: #fd397a;
+        }
+
+        .dashboard-task-entry>div {
+            padding: 5px;
+        }
+
+        .dashboard-task-entry .daskboard-task-entry-icon {
+            flex-grow: 1;
+        }
+
+        .dashboard-task-entry .daskboard-task-entry-description {
+            flex-grow: 3;
+        }
+
+        .dashboard-task-entry .daskboard-task-entry-options {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aside -->
+    <aside class="app-sidebar app-sidebar-closed">
+        <div class="app-sidebar-inner">
+            <div class="app-sidebar-header">
+                <div class="app-sidebar-header-brand text-center">
+                    <span class="align-middle">RoomMe </span>
+                </div>
+                <div class="app-sidebar-action-btn">
+                    <a href="#" id="sidebar-btn" class="text-white">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="app-sidebar-body">
+                <ul>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-th"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-home"></i>
+                                <span>Lista de casas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-tasks"></i>
+                                <span>Lista de tareas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Lista de compras</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-user"></i>
+                                <span>Usuario</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-cog"></i>
+                                <span>Ajustes</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm" style="background-color: white;">
+        <a name="" id="" class="btn btn-primary" href="#" role="button">
+            RoomMe
+        </a>
+    </nav>
+
+    <!-- Content -->
+    <div class="app-content">
+        <div class="container">
+            <div id='calendar'></div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
