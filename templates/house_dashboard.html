@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>House</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/f9da0729dd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/houseDashboard.css">
+    <link rel="stylesheet" href="./css/dashboard_calendar.css">
+</head>
+
+<body>
+    <!-- Aside -->
+    <aside class="app-sidebar app-sidebar-closed">
+        <div class="app-sidebar-inner">
+            <div class="app-sidebar-header">
+                <div class="app-sidebar-header-brand text-center">
+                    <span class="align-middle">RoomMe </span>
+                </div>
+                <div class="app-sidebar-action-btn">
+                    <a href="#" id="sidebar-btn" class="text-white">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="app-sidebar-body">
+                <ul>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-th"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-home"></i>
+                                <span>Lista de casas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-tasks"></i>
+                                <span>Lista de tareas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Lista de compras</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-user"></i>
+                                <span>Usuario</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-cog"></i>
+                                <span>Ajustes</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm" style="background-color: white;">
+        <a name="" id="" class="btn btn-primary" href="#" role="button">
+            RoomMe
+        </a>
+    </nav>
+
+    <!-- Content  -->
+    <div class="app-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner">
+                        <div id="house-header">
+                            <div id="header-image">
+                                <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale"
+                                    alt="" id="houseImg">
+                            </div><br>
+                            <div id="house-desc">
+                                <h4 id="nombreCasa">Casa de Maki</h4>
+                                <p id="descCasa"><i>Esta es la casa de Maki, y sus amigos. Arriba la fiesta!</i></p>
+                            </div>
+                        </div>
+                        <div id="house-members-info">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <h5>Habitantes</h5>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Pedro Paramo</li>
+                                    <li class="list-group-item">Homer Madriz</li>
+                                    <li class="list-group-item">Carlitos Soto</li>
+                                    <li class="list-group-item">Senpai Torrentera</li>
+                                </ul>
+                            </div><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col content-box">
+                    <div class="row">
+                        <div class="col">
+                            <div class="content-box-inner">
+                                <div id="house-info-header">
+                                    <h2>Información general</h2>
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <h6>Dirección</h6>
+                                            <h6><small class="text-muted">Av. Padre Xavier scheifler 755 </small></h6>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <h6>Colonia</h6>
+                                            <h6><small class="text-muted">Parques del Bosque</small></h6>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <h6>Ciudad</h6>
+                                            <h6><small class="text-muted">San Pedro Tlaquepaque, Jalisco</small></h6>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <h6>Contribución mensual</h6>
+                                            <h6><small class="text-muted">$3,300</small></h6>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <h6>Proxima fecha de pago</h6>
+                                            <h6><small class="text-muted">15 de Abril</small></h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col content-box">
+                            <div class="content-box-inner">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div>
+                                            <h2>Notificaciones</h2>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="dashboard-task-entry">
+                                            <div>
+                                                Notificación 1
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="dashboard-task-entry warning">
+                                            <div>
+                                                Notificación 2
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col content-box">
+                            <div class="content-box-inner">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div>
+                                            <h2>Tareas</h2>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="dashboard-task-entry warning">
+                                            <div class="daskboard-task-entry-icon">
+                                                <i class="fas fa-thumbtack"></i>
+                                            </div>
+                                            <div class="daskboard-task-entry-description">
+                                                <a>Ejemplo de tarea</a>
+                                            </div>
+                                            <div class="daskboard-task-entry-options">
+                                                <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="dashboard-task-entry">
+                                            <div class="daskboard-task-entry-icon">
+                                                <i class="fas fa-thumbtack"></i>
+                                            </div>
+                                            <div class="daskboard-task-entry-description">
+                                                <a>Ejemplo de tarea</a>
+                                            </div>
+                                            <div class="daskboard-task-entry-options">
+                                                <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 content-box">
+                    <div class="yellow content-box-inner">
+                        <div id="calendar" style="    border-radius: 5px;">
+                            <div id="toolbar"></div>
+                            <div id="color-picker" class="show"></div>
+                            <div id="dates" class="show">
+                                <div id="lastMt">&lsaquo;</div>
+                                <div id="nextMt">&rsaquo;</div>
+                                <div id="months-cont">
+                                    <div id="months">
+                                        <span class="active month">Enero</span><span class="month">Febrero</span><span
+                                            class="month">Marzo</span><span class="month">Abril</span><span
+                                            class="month">Mayo</span><span class="month">Junio</span><span
+                                            class="month">Julio</span><span class="month">Agosto</span><span
+                                            class="month">Septiembre</span><span class="month">Octubre</span><span
+                                            class="month">Noviembre</span><span class="month">Diciembre</span>
+                                    </div>
+                                </div>
+                                <div id="daysotweek">
+                                    <div class="day">D</div>
+                                    <div class="day">L</div>
+                                    <div class="day">M</div>
+                                    <div class="day">M</div>
+                                    <div class="day">J</div>
+                                    <div class="day">V</div>
+                                    <div class="day">S</div>
+                                </div>
+                                <div id="days">
+                                </div>
+                            </div>
+                            <div id="info" class="hide">
+                                <div id="actual-date"></div>
+                                <div id="back">
+                                </div>
+                                <div id="month-name"></div>
+                                <div id="weather">
+                                    <div id="sun"></div>
+                                    <div id="mountains"></div>
+                                    <div id="rain">
+                                        <div class="raindrop" id="drop-1"></div>
+                                        <div class="raindrop center" id="drop-2"></div>
+                                        <div class="raindrop center" id="drop-3"></div>
+                                        <div class="raindrop" id="drop-4"></div>
+                                    </div>
+                                    <div id="temp">57&deg;<span>F</span></div>
+                                </div>
+                                <div id="bg-card">
+                                    <div class="content"></div>
+                                </div>
+                                <div id="card">
+                                    <div class="content">
+                                        <div id="event-name"></div>
+                                        <div id="event-details">
+                                            <div class="col-3">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                <h3>Location</h3>
+                                                <p>12345 Generic Ave., Some City, Some State, 12345
+                                            </div>
+                                            <div class="col-3">
+                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                <h3>Time</h3>
+                                                <p> 12:00 AM </p>
+                                            </div>
+                                            <div class="col-3">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <h3>Attendee</h3>
+                                                <p>Me, You, and 2+</p>
+                                            </div>
+                                            <div style="clear: both"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="colors" class="hide">
+                                <div id="close">&times;</div>
+                                <p>Choose theme color</p>
+                                <div class="color" id="salmon"></div>
+                                <div class="color" id="dkpink"></div>
+                                <div class="color" id="red"></div>
+                                <div class="color" id="redorg"></div>
+                                <div class="color" id="orange"></div>
+                                <div class="color" id="orgylw"></div>
+                                <div class="color active" id="yellow"></div>
+                                <div class="color" id="green"></div>
+                                <div class="color" id="aqua"></div>
+                                <div class="color" id="teal"></div>
+                                <div class="color" id="sltbl"></div>
+                                <div class="color" id="pwdbl"></div>
+                                <div class="color" id="blue"></div>
+                                <div class="color" id="purple"></div>
+                                <div class="color" id="dkprpl"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div>
+                                    <h2>Chat</h2>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="chat-user">
+                                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/21.jpg" alt="sunil">
+                                    Pedro Páramo
+                                </span>
+                                <span class="badge badge-primary badge-pill">14</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="chat-user">
+                                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/22.jpg" alt="sunil">
+                                    Carlitos Soto
+                                </span>
+                                <span class="badge badge-primary badge-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="chat-user">
+                                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/23.jpg" alt="sunil">
+                                    Senpai Torrentera
+                                </span>
+                                <span class="badge badge-primary badge-pill">1</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 content-box">
+                    <div class="content-box-inner">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div>
+                                    <h2>Playlists</h2>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="playlist-item">
+                                    <img class="playlist-img" src="./images/EndOfLine.png" alt="End of line" srcset="">
+                                    <span class="playlist-title"><strong>End Of Line<br><small>5 canciones</small></strong></span>
+                                </span>
+                                <span><i class="fas fa-play-circle fa-2x"></i></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="playlist-item">
+                                    <img class="playlist-img" src="https://cdn2.iconfinder.com/data/icons/people-3-2/128/Rapper-Rap-Musician-Hip-Hop-Urban-Man-512.png" alt="End of line" srcset="">
+                                    <span class="playlist-title"><strong>Hip-Hop Homie<br><small>15 canciones</small></strong></span>
+                                </span>
+                                <span><i class="fas fa-play-circle fa-2x"></i></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="playlist-item">
+                                    <img class="playlist-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPXepxg32JHWkmbCEdUdunbu6YfnJadopqnA5dp8nS1ZzStRMp" alt="End of line" srcset="">
+                                    <span class="playlist-title"><strong>Maki Jazz<br><small>20 canciones</small></strong></span>
+                                </span>
+                                <span><i class="fas fa-play-circle fa-2x"></i></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="./js/main.js"></script>
+    <script src="./js/dashboard_calendar.js"></script>
+</body>
+
+</html>
