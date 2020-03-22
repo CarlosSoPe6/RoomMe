@@ -132,7 +132,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item active">Información Personal</li>
                                 <li class="list-group-item">Ajustes de Cuenta</li>
-                                <li class="list-group-item">Correo</li>
+                                <li class="list-group-item">Información de Emergencia</li>
                                 <li class="list-group-item">PAgos</li>
                             </ul>
                         </div>
@@ -142,7 +142,7 @@
                     <div class="content-box-inner">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <div><strong>Información personal</strong> Actualiza tu información visible a otros usaurios    
+                                <div><strong>Información personal</strong> Actualiza tu información visible a otros usaurios.
                                 </div>
                             </li>
                             <li class="list-group-item">
@@ -154,14 +154,35 @@
                                                 placeholder="Nombre">
                                         </div>
                                     </div>
+                                    <strong>Información de contacto:</strong>
                                     <div class="form-group row">
-                                        <label for="in-apellido" class="col-sm-2 col-form-label">Apellido</label>
+                                        <label class="col-sm-2 col-form-label" for="in-username">Username</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="in-apellido" value=""
-                                                placeholder="Apellido">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fas fa-at"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="in-username"
+                                                    placeholder="Username">
+                                            </div>
                                         </div>
                                     </div>
-                                    <strong>Información de contacto:</strong>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="in-email">Correo</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="far fa-envelope"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="email" class="form-control" id="in-email"
+                                                    placeholder="Correo">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="in-phone">Teléfono</label>
                                         <div class="col-sm-10">
@@ -171,20 +192,8 @@
                                                             aria-hidden="true"></i>
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control" id="in-phone"
+                                                <input type="tel" class="form-control" id="in-phone"
                                                     placeholder="Teléfono">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label" for="in-username">Username</label>
-                                        <div class="col-sm-10">
-                                            <div class="input-group mb-2">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">@</div>
-                                                </div>
-                                                <input type="text" class="form-control" id="in-username"
-                                                    placeholder="Username">
                                             </div>
                                         </div>
                                     </div>
@@ -194,6 +203,31 @@
                                 <div>
                                     <a name="" id="" class="btn btn-success" href="#" role="button">Guardar</a>
                                     <a name="" id="" class="btn btn-secondary" href="#" role="button">Descartar</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="offset-lg-4 col-lg-8 content-box">
+                    <div class="content-box-inner">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div>
+                                    <strong>Información de Emergencia</strong> Actualiza tu información de emergencia.
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <strong>Juan Preciado</strong>
+                                    <br>
+                                    <span>juan.preciado@llanoenllamas.mx</span>
+                                    <br>
+                                    <small>Hijo</small>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    Nuevo
                                 </div>
                             </li>
                         </ul>
