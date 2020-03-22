@@ -13,6 +13,7 @@
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/f9da0729dd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/dashboard_calendar.css">
     <style>
         .dashboard-activity-header {
             padding: 20px 12px 20px 12px;
@@ -260,22 +261,120 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="col-lg-4 content-box">
+                    <div class="yellow content-box-inner">
+                        <div id="calendar" style="    border-radius: 5px;">
+                            <div id="toolbar"></div>
+                            <div id="color-picker" class="show"></div>
+                            <div id="dates" class="show">
+                                <div id="lastMt">&lsaquo;</div>
+                                <div id="nextMt">&rsaquo;</div>
+                                <div id="months-cont">
+                                    <div id="months">
+                                        <span class="active month">Enero</span><span class="month">Febrero</span><span
+                                            class="month">Marzo</span><span class="month">Abril</span><span
+                                            class="month">Mayo</span><span class="month">Junio</span><span
+                                            class="month">Julio</span><span class="month">Agosto</span><span
+                                            class="month">Septiembre</span><span class="month">Octubre</span><span
+                                            class="month">Noviembre</span><span class="month">Diciembre</span>
+                                    </div>
+                                </div>
+                                <div id="daysotweek">
+                                    <div class="day">D</div>
+                                    <div class="day">L</div>
+                                    <div class="day">M</div>
+                                    <div class="day">M</div>
+                                    <div class="day">J</div>
+                                    <div class="day">V</div>
+                                    <div class="day">S</div>
+                                </div>
+                                <div id="days">
+                                </div>
+                            </div>
+                            <div id="info" class="hide">
+                                <div id="actual-date"></div>
+                                <div id="back">
+                                    << /div>
+                                        <div id="month-name"></div>
+                                        <div id="weather">
+                                            <div id="sun"></div>
+                                            <div id="mountains"></div>
+                                            <div id="rain">
+                                                <div class="raindrop" id="drop-1"></div>
+                                                <div class="raindrop center" id="drop-2"></div>
+                                                <div class="raindrop center" id="drop-3"></div>
+                                                <div class="raindrop" id="drop-4"></div>
+                                            </div>
+                                            <div id="temp">57&deg;<span>F</span></div>
+                                        </div>
+                                        <div id="bg-card">
+                                            <div class="content"></div>
+                                        </div>
+                                        <div id="card">
+                                            <div class="content">
+                                                <div id="event-name"></div>
+                                                <div id="event-details">
+                                                    <div class="col-3">
+                                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                        <h3>Location</h3>
+                                                        <p>12345 Generic Ave., Some City, Some State, 12345
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <h3>Time</h3>
+                                                        <p> 12:00 AM </p>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                                        <h3>Attendee</h3>
+                                                        <p>Me, You, and 2+</p>
+                                                    </div>
+                                                    <div style="clear: both"></div>
+                                                </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="./js/main.js"></script>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div id="colors" class="hide">
+                                    <div id="close">&times;</div>
+                                    <p>Choose theme color</p>
+                                    <div class="color" id="salmon"></div>
+                                    <div class="color" id="dkpink"></div>
+                                    <div class="color" id="red"></div>
+                                    <div class="color" id="redorg"></div>
+                                    <div class="color" id="orange"></div>
+                                    <div class="color" id="orgylw"></div>
+                                    <div class="color active" id="yellow"></div>
+                                    <div class="color" id="green"></div>
+                                    <div class="color" id="aqua"></div>
+                                    <div class="color" id="teal"></div>
+                                    <div class="color" id="sltbl"></div>
+                                    <div class="color" id="pwdbl"></div>
+                                    <div class="color" id="blue"></div>
+                                    <div class="color" id="purple"></div>
+                                    <div class="color" id="dkprpl"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row"></div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/dashboard_calendar.js"></script>
 </body>
 
 </html>

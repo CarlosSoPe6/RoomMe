@@ -114,9 +114,14 @@ body {
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
 }
 
+.content-box {
+    padding-bottom: 20px;
+}
+
 .navbar,
 .app-content {
     padding-left: 76px;
+    padding-bottom: 20px;
 }
 
 .app-content {
