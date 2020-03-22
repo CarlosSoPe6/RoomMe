@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Playlist</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/f9da0729dd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <style>
+        .playlist-header-container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .playlist-header-image>img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #333333;
+        }
+
+        .playlist-search-items-container li {
+            padding: 0px;
+        }
+
+        .playlist-search-item .playlist-search-item-img > img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aside -->
+    <aside class="app-sidebar app-sidebar-closed">
+        <div class="app-sidebar-inner">
+            <div class="app-sidebar-header">
+                <div class="app-sidebar-header-brand text-center">
+                    <span class="align-middle">RoomMe </span>
+                </div>
+                <div class="app-sidebar-action-btn">
+                    <a href="#" id="sidebar-btn" class="text-white">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="app-sidebar-body">
+                <ul>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-th"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-home"></i>
+                                <span>Lista de casas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-tasks"></i>
+                                <span>Lista de tareas</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Lista de compras</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-user"></i>
+                                <span>Usuario</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="app-sidebar-action-btn">
+                            <a href="#" id="">
+                                <i class="fas fa-cog"></i>
+                                <span>Ajustes</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm" style="background-color: white;">
+        <a name="" id="" class="btn btn-primary" href="#" role="button">
+            RoomMe
+        </a>
+    </nav>
+
+    <!-- Content -->
+    <div class="app-content">
+        <div class="container-fluid">
+            <div class="row playlist-header-container">
+                <div class="col-lg-2 playlist-header-image">
+                    <img src="./images/EndOfLine.png" alt="End of line" srcset="">
+                </div>
+                <div class="col-lg-10 playlist-header-text">
+                    <h2>End Of Line</h2>
+                    <p>Lista de reproducción inspirada en la película original de Tron.</p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                        Agregar canción
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Canción</th>
+                            <th scope="col">Artista</th>
+                            <th scope="col">Tiempo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Kung Fury</td>
+                            <td>Mitch Murder</td>
+                            <td>3:12</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>True Survivior - From "Kunk Fury"</td>
+                            <td>David hasselhof</td>
+                            <td>3:42</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>West Side Lane</td>
+                            <td>Lost Years</td>
+                            <td>3:51</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Creation of Tron</td>
+                            <td>London Philarmonic Orchesta</td>
+                            <td>0:49</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Fall</td>
+                            <td>Daft Punk</td>
+                            <td>1:23</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Búsqueda</label>
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                            placeholder="Búsqueda">
+                        <small id="helpId" class="form-text text-muted">¡Busca la canción ideal!</small>
+                    </div>
+                    <ul class="list-group playlist-search-items-container">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class=" row playlist-search-item">
+                                <div class="playlist-search-item-img col-lg-3">
+                                    <img src="./images/butter.jfif" alt="">
+                                </div>
+                                <div class="playlist-search-item-text col-lg-9">
+                                    <p>Orpherus Under The Influence</p>
+                                    <small>The Buttertones</small>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#exampleModal').on('show.bs.modal', event => {
+            var button = $(event.relatedTarget);
+            var modal = $(this);
+            // Use above variables to manipulate the DOM
+
+        });
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
