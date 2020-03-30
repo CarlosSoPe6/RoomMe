@@ -5,6 +5,3 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-
-# Node
-/node_modules
