@@ -52,7 +52,7 @@ class User extends DBClient {
     /**
      * Class constructor
      */
-    constructor(){
+    constructor() {
         super();
     }
 
@@ -60,15 +60,11 @@ class User extends DBClient {
      * @returns {User[]} Array of results
      */
     async getAllUsers() {
-        let conn = await this.getConnection();
+        let conn = await this.adquireConnection();
         let result = await conn.query('select * from [RoomMe].[User];').recordset;
         await this.closeConnection();
         return result;
     }
 }
 
-let test = new User();
-(async () => {
-    let result = await test.getAllUsers();
-    console.log("USERS:", result);
-})();
+module.exports = User;

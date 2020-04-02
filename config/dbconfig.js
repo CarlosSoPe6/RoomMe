@@ -10,14 +10,8 @@ const config = {
 
 let connectionPool = null;
 
-console.log(config);
-
 async function getConnection() {
-    if(connectionPool){
-        return  connectionPool;
-    }
-    connectionPool = await mssql.connect(config);
-    return connectionPool;
+    return await mssql.connect(config);
 }
 
 module.exports = getConnection;

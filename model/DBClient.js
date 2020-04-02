@@ -7,6 +7,10 @@ class DBClient {
         this.__pool = null;
     }
 
+    /**
+     * closes a connection.
+     * @protected
+     */
     async closeConnection() {
         try {
             await this.__pool.close();
@@ -17,7 +21,12 @@ class DBClient {
         this.__pool = null;
     }
 
-    async getConnection() {
+    /**
+     * Returns a connection.
+     * @protected
+     * @returns A connection.
+     */
+    async adquireConnection() {
         try {
             if (this.__pool) {
                 return this.__pool;
