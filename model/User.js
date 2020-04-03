@@ -2,62 +2,75 @@
 
 const DBClient = require('./DBClient');
 
+/**
+ * User model class.
+ */
 class User extends DBClient {
 
     /**
-     * @type {number}
+     * Id database field.
+     * @type number
      */
     Id;
 
     /**
-     * @type {string}
+     * Name database field.
+     * @type string
      */
     Name;
 
     /**
-     * @type {string}
+     * LastName database field.
+     * @type string
      */
     LastName;
 
     /**
-     * @type {string}
+     * Email database field.
+     * @type string
      */
     Email;
 
     /**
-     * @type {string}
+     * Photo database field.
+     * @type string
      */
     Photo;
 
     /**
-     * @type {string}
+     * PasswordHash database field.
+     * @type string
      */
     PasswordHash;
 
     /**
-     * @type {string}
+     * GId database field.
+     * @type string
      */
     GId;
 
     /**
-     * @type {string}
+     * Phone database field.
+     * @type string
      */
     Phone;
 
     /**
-     * @type {boolean}
+     * Verified database field.
+     * @type boolean
      */
     Verified;
 
     /**
-     * Class constructor
+     * Class constructor.
      */
     constructor() {
         super();
     }
 
     /**
-     * @returns {User[]} Array of results
+     * Test method.
+     * @returns {User[]} Array of results.
      */
     async getAllUsers() {
         let conn = await this.adquireConnection();
