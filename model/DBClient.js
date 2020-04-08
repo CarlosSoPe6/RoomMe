@@ -3,6 +3,12 @@
 const dbconfig = require('../config/dbconfig');
 
 class DBClient {
+
+    /**
+     * @private
+     */
+    __pool;
+
     constructor() {
         this.__pool = null;
     }
