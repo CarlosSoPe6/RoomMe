@@ -133,4 +133,4 @@ class ShoppingItem extends DBClient {
     }
 }
 
-module.exports = ShoppingList;
+module.exports = ShoppingItem;
