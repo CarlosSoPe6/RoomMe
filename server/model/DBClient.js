@@ -1,53 +1,64 @@
 'use strict';
 
-const dbconfig = require('../../config/dbconfig');
+const dbconfig = require('./../../config/mongo.conf');
 
 class DBClient {
 
     /**
-     * @private
+     * Mongoose Schema
+     * @type Schema<any>
      */
-    __pool;
+    _schema;
 
-    constructor() {
-        this.__pool = null;
+    /**
+     * Mongoose Model
+     * @type Model<T>
+     */
+    _moddel;
+
+    /**
+     * 
+     * @param {*} query 
+     * @param {*} projection 
+     * @param {*} options 
+     */
+    async query(query, projection = {}, options = {}) {
+        return await this._model.find(query, projection);
     }
 
     /**
-     * closes a connection.
-     * @protected
+     * 
      */
-    async closeConnection() {
-        try {
-            await this.__pool.close();
-        } catch (err) {
-            console.error('Close connection error');
-            console.error(err);
-        }
-        this.__pool = null;
+    async queryOne(query, projection = {}, options = {}) {
+        return await this._model.findOne(query, projection, options);
     }
 
     /**
-     * Returns a connection.
-     * @protected
-     * @returns A connection.
+     * 
+     * @param {*} query 
+     * @param {*} dataObject 
      */
-    async adquireConnection() {
-        try {
-            if (this.__pool) {
-                return this.__pool;
-            }
-            this.__pool = await dbconfig();
-            this.__pool.on('error', async (err) => {
-                console.error('Connection error');
-                console.error(err);
-            });
-            return this.__pool;
-        } catch (err) {
-            console.error('Open connection error');
-            console.error(err);
-            return null;
-        }
+    async update(query, dataObject) {
+        return await this._model.findOneAndUpdate(query, { $set: dataObject }, {
+            new: true
+        });
+    }
+
+    /**
+     * 
+     * @param {*} query 
+     */
+    async exists(query) {
+        let doc = await this._model.findOne(query);
+        return doc != undefined;
+    }
+
+    /**
+     * 
+     * @param {*} document 
+     */
+    async add(document) {
+        return await document.save();
     }
 }
 
