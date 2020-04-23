@@ -1,6 +1,6 @@
 'use strict';
 
-const dbconfig = require('../config/dbconfig');
+const dbconfig = require('../../config/dbconfig');
 
 class DBClient {
 
