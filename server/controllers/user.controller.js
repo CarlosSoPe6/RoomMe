@@ -1,8 +1,14 @@
 'use strict';
 
+const UserModel = require('./../model/User');
+
 class UserController {
+    constructor() {
+        this.userModel = new UserModel();
+    }
+    
     getUser(req, res) {
-        
+
     }
 
     updateUser(req, res) {
