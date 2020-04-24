@@ -4,17 +4,25 @@ const dbconfig = require('./../../config/mongo.conf');
 
 class DBClient {
 
-    /**
-     * Mongoose Schema
-     * @type Schema<any>
-     */
-    _schema;
+    constructor() {
+        /**
+         * Mongoose Schema
+         * @type Schema<any>
+         */
+        this._schema
 
-    /**
-     * Mongoose Model
-     * @type Model<T>
-     */
-    _moddel;
+        /**
+         * Mongoose Model
+         * @type Model<T>
+         */
+        this._model
+
+        /**
+         * Mongoose proyection
+         * @type Object
+         */
+        this._listProjection
+    }
 
     /**
      * 

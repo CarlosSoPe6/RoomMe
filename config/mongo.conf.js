@@ -23,6 +23,8 @@ const config = {
     }
 }
 
+console.log(config.dbUrl);
+
 mongoose.connect(config.dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -33,4 +35,4 @@ mongoose.connect(config.dbUrl, {
     console.log("Not connected to database", err);
 });
 
-module.exports = { mongoose, config };
+module.exports = mongoose;
