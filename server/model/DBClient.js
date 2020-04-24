@@ -14,7 +14,13 @@ class DBClient {
      * Mongoose Model
      * @type Model<T>
      */
-    _moddel;
+    _model;
+
+    /**
+     * Mongoose proyection
+     * @type Object
+     */
+    _listProjection;
 
     /**
      * 
