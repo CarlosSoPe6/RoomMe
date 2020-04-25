@@ -1,0 +1,48 @@
+###
+
+POST http://localhost:3000/house
+Content-Type: application/json
+
+{
+    "title":"el buen hogar",
+    "description":"Un buen hogar",
+    "owner":1,
+    "address":"algun lugar 1234",
+    "zipcode":"44630",
+    "city":1,
+    "cost":1000.23,
+    "paymentday":23,
+    "roomlimit":4,
+    "roomcount":2,
+    "calendar":"test",
+    "playlist":"test",
+    "foto":"test",
+    "services":[]
+}
+
+###
+
+GET http://localhost:3000/house
+
+###
+
+PUT http://localhost:3000/house
+Content-Type: application/json
+
+{
+    "hid":1,
+    "title":"el buen hogar",
+    "description":"Un buen hogar",
+    "owner":1,
+    "address":"algun lugar 1234",
+    "zipcode":"44630",
+    "city":1,
+    "cost":1000.23,
+    "paymentday":23,
+    "roomlimit":4,
+    "roomcount":2,
+    "calendar":"test",
+    "playlist":"test",
+    "foto":"test",
+    "services":[1,2]
+}
