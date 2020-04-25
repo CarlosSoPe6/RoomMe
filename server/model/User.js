@@ -124,7 +124,8 @@ class User extends DBClient {
         return await super.query(query, this._listProjection, options);
     }
 
-    async getSingleUser(query) {
+    async getSingleUser(id) {
+        let query = { 'id': id };
         return await super.queryOne(query, this._listProjection, {});
     }
 
