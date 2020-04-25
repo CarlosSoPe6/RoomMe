@@ -44,7 +44,7 @@ class User extends DBClient {
             },
             verified: {
                 type: Boolean,
-                required: true
+                required: false
             }
         });
         this._model = mongoose.model('User', this._schema);
@@ -139,4 +139,4 @@ class User extends DBClient {
     }
 }
 
-module.exports = User;
+module.exports = new User();
