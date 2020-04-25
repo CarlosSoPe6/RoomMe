@@ -1,3 +1,4 @@
+
 const route = require("express").Router();
 const HouseController = require("../controllers/house.controller");
 
