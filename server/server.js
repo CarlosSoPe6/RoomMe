@@ -10,7 +10,8 @@ const app = express();
 const mongo = require('./../config/mongo.conf');
 
 const userRouter = require('./router/user.router');
-const authRouter = require('./router/auth.router')
+const authRouter = require('./router/auth.router');
+const registerRouter = require('./router/register.router');
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
@@ -23,6 +24,7 @@ app.use(passport.session());
 app.use(bodyParser.json());
 
 app.use('/user', userRouter);
+app.use('/register', registerRouter)
 app.use('/', authRouter);
 
 app.listen(3000, () => console.log("Escuchandote en el puerto " + 3000));
