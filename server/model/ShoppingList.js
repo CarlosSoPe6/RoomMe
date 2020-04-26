@@ -1,46 +1,44 @@
 'use strict';
 
 const DBClient = require('./DBClient');
-const mssql = require('mssql');
+const mongoose = require('../../config/mongo.conf');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 /**
  * ShoppingList model class.
  */
 class ShoppingList extends DBClient {
 
-    /**
-     * @type number
-     */
-    Id;
-
-    /**
-     * @type string
-     */
-    Title;
-
-    /**
-     * @type number
-     */
-    Budget;
-
-    /**
-     * @type number
-     */
-    Cost;
-
-    /**
-     * FK to House
-     * @type number
-     */
-    HouseId;
-
-    
 
     /**
      * Constructor Method.
      */
     constructor() {
         super();
+        this._schema = new mongoose.Schema({
+            slid: {
+                type: Number,
+                unique: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            budget: {
+                type: Number,
+                required: true
+            },
+            cost: {
+                type: Number,
+                required: true
+            },
+            houseId: {
+                type: Number,
+                required: true
+            }
+        });
+        this._schema.plugin(AutoIncrement, {inc_field:'slid'});
+        this._model = mongoose.model('ShoppingList', this._schema);
     }
 
     /**
@@ -48,16 +46,8 @@ class ShoppingList extends DBClient {
      * @param {Object} newHouse
      */
     async addList(newList) {
-        let conn = await super.adquireConnection();
-        let result = await conn
-            .input('id',mssql.Int, newList.id)
-            .input('title',mssql.NVarChar,newList.title)
-            .input('budget', mssql.Money,newList.budget)
-            .input('cost',mssql.Money, newList.cost)
-            .input('house',mssql.Int,newList.house)
-            .query(`insert into [RoomMe].[ShoppingList]
-                    values (@id, @title, @budget, @cost, @house)`);
-        return result;
+        let doc = new this._model(newList);
+        return await this.add(doc);
     }
 
      /**
@@ -65,40 +55,22 @@ class ShoppingList extends DBClient {
      * @param {Object} newHouse
      */
     async updateList(newList) {
-        let conn = await super.adquireConnection();
-        let result = await conn
-            .input('id',mssql.Int, newList.id)
-            .input('title',mssql.NVarChar,newList.title)
-            .input('budget', mssql.Money,newList.budget)
-            .input('cost',mssql.Money, newList.cost)
-            .input('house',mssql.Int,newList.house)
-            .query(`update [RoomMe].[ShoppingList]
-                    set Title=@title,
-                        Budget=@budget,
-                        Cost=@cost
-                    where [RoomMe].[ShoppingList].[Id]=@id`);
-        return result;
+        return await this.update({slid:newList.slid},newList);
     }
 
     async getAllLists(House) {
-        let conn = await super.adquireConnection();
-        let recordset = await conn
-            .input('houseid', mssql.Int, House)
-            .query(
-                `select * from [RoomMe].[ShoppingList] 
-                where [RoomMe].[ShoppingList].[HouseId] = @houseid`
-            ).recordset;
-        return recordset;
+        return await this.query({houseId:House},"",{});
+    }
+
+    
+    async getList(Id) {
+        return await this.queryOne({slid:Id},"",{});
     }
 
     async deleteList(Id) {
-        let conn = await super.adquireConnection();
-        let result = await conn
-            .input('listid',mssql.Int, Id)
-            .query(`delete from [RoomMe].[ShoppingList]
-                    where [RoomMe].[ShoppingList].[Id] = @listid`);
-        return result;
+        return await this.delete({slid:Id});
     }
 }
 
-module.exports = ShoppingList;
+let shoplist = new ShoppingList();
+module.exports = shoplist;

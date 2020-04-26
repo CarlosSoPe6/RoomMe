@@ -88,8 +88,8 @@ class House extends DBClient {
         return await this.update({hid:newHouse.hid},newHouse);
     }
 
-    async getHouseByOwnerId(Id) {
-        return await this.queryOne({ownerId:Id},"",{});
+    async getHouseById(Id) {
+        return await this.queryOne({hid:Id},"",{});
     }
 
 

@@ -8,7 +8,7 @@ class HouseControl {
         let newHouse = {
             title: req.body.title,
             description: req.body.description,
-            ownerId: req.body.owner,//Change later to req.user 
+            ownerId: req.body.owner,//req.user.id 
             addressLine: req.body.address,
             zipCode: req.body.zipcode,
             cityId: req.body.city,
@@ -21,7 +21,6 @@ class HouseControl {
             foto: req.body.foto,
             services: req.body.services
         }
-        console.log(newHouse);
         try{
             await house.addHouse(newHouse);
             res.sendStatus(200);
@@ -36,9 +35,8 @@ class HouseControl {
     }
 
     async getHouse(req, res) {
-        // Check owner
-        // Check house id
-        let h = await house.getHouseByOwnerId(1);
+        // req.user.house
+        let h = await house.getHouseById(1);
         res.json(h);
     }
 

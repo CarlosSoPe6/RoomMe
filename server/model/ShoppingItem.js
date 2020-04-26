@@ -1,7 +1,8 @@
 'use strict';
 
 const DBClient = require('./DBClient');
-const mssql = require('mssql');
+const mongoose = require('../../config/mongo.conf');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 /**
  * ShoppingList model class.
@@ -9,51 +10,45 @@ const mssql = require('mssql');
 class ShoppingItem extends DBClient {
 
     /**
-     * @type number
-     */
-    Id;
-
-    /**
-     * @type string
-     */
-    Product;
-
-    /**
-     * FK to User
-     * @type number
-     */
-    Creator;
-
-    /**
-     * @type string
-     */
-    Qty;
-
-    /**
-     * @type boolean
-     */
-    Completed;
-
-    /**
-     * @type number
-     */
-    Price;
-
-    /**
-     * @type number
-     */
-    Buyer;
-
-    /**
-     * @type number
-     */
-    List;
-
-    /**
      * Constructor Method.
      */
     constructor() {
         super();
+        this._schema = new mongoose.Schema({
+            siid: {
+                type: Number,
+                unique: true
+            },
+            product: {
+                type: String,
+                required: true
+            },
+            creator: {
+                type: Number,
+                required: true
+            },
+            qty: {
+                type: String,
+                required: true
+            },
+            completed: {
+                type: Boolean,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            },
+            buyer: {
+                type: Number
+            },
+            list: {
+                type: Number,
+                required: true
+            }
+        });
+        this._schema.plugin(AutoIncrement,{inc_field:'siid'});
+        this._model = mongoose.model('ShoppingItem',this._schema);
     }
 
     /**
@@ -61,19 +56,8 @@ class ShoppingItem extends DBClient {
      * @param {Object} newHouse
      */
     async addItem(newItem) {
-        let conn = await super.adquireConnection();
-        let result = await conn
-            .input('id',mssql.Int, newItem.id)
-            .input('product',mssql.NVarChar,newItem.product)
-            .input('creator', mssql.Int,newItem.creator)
-            .input('qty',mssql.NVarChar, newItem.qty)
-            .input('completed',mssql.Binary,newItem.completed)
-            .input('price',mssql.Money,newItem.price)
-            .input('buyer',mssql.Int,newItem.buyer)
-            .input('list',mssql.Int,newItem.list)
-            .query(`insert into [RoomMe].[ShoppingItem]
-                    values (@id, @product, @creator, @qty, @completed, @price, @buyer, @list)`);
-        return result;
+        let doc = new this._model(newItem);
+        return await this.add(doc);
     }
 
      /**
@@ -81,56 +65,21 @@ class ShoppingItem extends DBClient {
      * @param {Object} newHouse
      */
     async updateItem(newItem) {
-        let conn = await super.adquireConnection();
-        let result = await conn
-            .input('id',mssql.Int, newItem.id)
-            .input('product',mssql.NVarChar,newItem.product)
-            .input('creator', mssql.Int,newItem.creator)
-            .input('qty',mssql.NVarChar, newItem.qty)
-            .input('completed',mssql.Binary,newItem.completed)
-            .input('price',mssql.Money,newItem.price)
-            .input('buyer',mssql.Int,newItem.buyer)
-            .input('list',mssql.Int,newItem.list)
-            .query(`update [RoomMe].[ShoppingItem]
-                    set Product=@product,
-                        Qty=@qty,
-                        Completed=@completed,
-                        Price=@price,
-                        Buyer=@buyer
-                    where [RoomMe].[ShoppingItem].[Id]=@id`);
-        return result;
+        return await this.update({siid:newItem.siid},newItem);
     }
 
     async getAllItemsByList(List) {
-        let conn = await super.adquireConnection();
-        let recordset = await conn
-            .input('listid', mssql.Int, List)
-            .query(
-                `select * from [RoomMe].[ShoppingItem] 
-                where [RoomMe].[ShoppingItem].[ListId] = @listid`
-            ).recordset;
-        return recordset;
+        return await this.query({list:List},"",{});
     }
 
     async getAllItemsByBuyer(Buyer) {
-        let conn = await super.adquireConnection();
-        let recordset = await conn
-            .input('buyerid', mssql.Int, Buyer)
-            .query(
-                `select * from [RoomMe].[ShoppingItem] 
-                where [RoomMe].[ShoppingItem].[Buyer] = @buyerid`
-            ).recordset;
-        return recordset;
+        return await this.query({buyer:Buyer},"",{});
     }
 
     async deleteItem(Id) {
-        let conn = await super.adquireConnection();
-        let result = await conn
-            .input('itemid',mssql.Int, Id)
-            .query(`delete from [RoomMe].[ShoppingItem]
-                    where [RoomMe].[ShoppingItem].[Id] = @itemid`);
-        return result;
+        return await this.delete({siid:Id});
     }
 }
 
-module.exports = ShoppingItem;
+let shopitem = new ShoppingItem();
+module.exports = shopitem;

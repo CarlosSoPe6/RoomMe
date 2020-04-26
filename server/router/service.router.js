@@ -1,7 +1,7 @@
 const route = require("express").Router();
-const HouseController = require("../controllers/house.controller");
+const ServiceController = require("../controllers/service.controller");
 
-route.get('/', HouseController.getHouse);
-route.post('/', HouseController.add);
+route.get('/', ServiceController.getServices);
+route.get('/:id', ServiceController.getServiceById);
 
 module.exports = route;
