@@ -68,6 +68,10 @@ class DBClient {
     async add(document) {
         return await document.save();
     }
+
+    async delete(query) {
+        return await this._model.findOneAndRemove(query);
+    }
 }
 
 module.exports = DBClient;
