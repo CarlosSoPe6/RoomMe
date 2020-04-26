@@ -4,31 +4,75 @@ const UserModel = require('./../model/User');
 
 class UserController {
     constructor() {
-        
+
     }
     
-    getUser(req, res) {
+    /**
+     * Gets all users.
+     * @param {Express.Request} req 
+     * @param {Express.Response} res 
+     */
+    async getAllUsers(req, res) {
+        let options = {};
+        let query = {};
 
+        if(req.query.limit != undefined){
+            options['limit'] = req.query.limit;
+        }
+        if(req.query.page != undefined){
+            options['skip'] = (req.query.limit != undefined ? req.query.limit * 1 : 1) * req.query.page;
+        }
+        let docs = await UserModel.getAllUsers(query, options);
+        // Convert result to JSON
+        docs = JSON.parse(JSON.stringify(docs));
+        console.log(docs);
+        res.json(docs);
     }
 
-    updateUser(req, res) {
-
+    /**
+     * Gets an user by Id.
+     * @param {Express.Request} req 
+     * @param {Express.Response} res 
+     */
+    async getUser(req, res) {
+        let id = req.params.id;
+        let doc = await UserModel.getSingleUser(id);
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
+        res.json(doc);
     }
 
-    getAllContacts(req, res) {
-
+    /**
+     * Gets the session user.
+     * @param {Express.Request} req 
+     * @param {Express.Response} res 
+     */
+    async getMe(req, res) {
+        doc = JSON.parse(req.user);
+        res.json(doc);
     }
 
-    addContact(req, res) {
-
-    }
-
-    deleteContact(req, res) {
-
-    }
-
-    updateContact(req, res) {
-
+    /**
+     * Updates the session user.
+     * @param {Express.Request} req 
+     * @param {Express.Response} res 
+     */
+    async updateUser(req, res) {
+        let id = req.user.id;
+        let {name, lastName, email, phone}
+            = req.body;
+        let doc = await UserModel.updateUser(id,
+        {
+            name, 
+            lastName, 
+            email,
+            phone
+        });
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
+        res.json(doc);
     }
 }
 

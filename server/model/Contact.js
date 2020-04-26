@@ -52,4 +52,4 @@ class Contact extends DBClient {
     }
 }
 
-module.exports = Contact;
+module.exports = new Contact();

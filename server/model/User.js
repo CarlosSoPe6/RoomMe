@@ -47,15 +47,15 @@ class User extends DBClient {
                 required: false
             }
         });
-        this._model = mongoose.model('User', this._schema);
-        this._listProjection = this._listProjection = {
+        this._model = mongoose.model('users', this._schema);
+        this._listProjection = {
             'uid': 1,
             'name': 1,
             'lastName': 1,
             'email': 1,
             'photo': 1,
             'phone': 1
-        };;
+        };
         /**
           * uid database field.
           * @type number
@@ -117,22 +117,36 @@ class User extends DBClient {
      * @param {Object} options 
      * @returns {User[]} Array of results.
      */
-    async getAllUsers(query = {}, options = { 'limit': 10, 'skip': 0 }) {
+    async getAllUsers(query = {}, options = {}) {
         return await super.query(query, this._listProjection, options);
     }
 
-    async getSingleUser(query) {
+    async getSingleUser(id) {
+        let query = { 'uid': id };
         return await super.queryOne(query, this._listProjection, {});
     }
 
-    async createSelfUser(uid, name, lastName, email, photo, passwordHash, phone) {
-        let record = new this._model({ uid, name, lastName, email, photo, passwordHash, phone });
+    async createSelfUser(id, name, lastName, email, photo, passwordHash, phone) {
+        let record = new this._model({
+            'uid': id,
+            name,
+            lastName,
+            email,
+            photo,
+            passwordHash,
+            phone
+        });
         return await super.add(record);
     }
 
     async updateUser(id, dataObject) {
+        let user = await this.getSingleUser(id);
         let query = { 'uid': id };
-        return await super.update(query, dataObject);
+        // Iterate over the dataObject properties to update queried user.
+        for (const prop in dataObject) {
+            user[prop] = dataObject[prop];
+        }
+        return await super.update(query, user);
     }
 }
 
