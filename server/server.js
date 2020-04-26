@@ -8,20 +8,26 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongo = require('./../config/mongo.conf');
 
-const userRouter = require('./router/user.router');
+//const userRouter = require('./router/user.router');
 const authRouter = require('./router/auth.router')
 const houseRouter = require('./router/house.router');
 const serviceRouter = require('./router/service.router');
 const shopRouter = require('./router/shopping.router');
+const chatRouter = require('./router/chat.router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.use('/user', userRouter);
+//app.use('/user', userRouter);
 app.use('/', authRouter);
 app.use('/house',houseRouter);
 app.use('/service',serviceRouter);
 app.use('/shoplist',shopRouter);
+app.use('/chat',chatRouter);
+
+io.on('connection', function(socket){
+    const chat = require('./router/chat_operation')(socket, io);
+});
 
 
 http.listen(3000, ()=> console.log("Server running!"));

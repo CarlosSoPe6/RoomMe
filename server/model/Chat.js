@@ -1,6 +1,8 @@
 'use strict';
 
 const DBClient = require('./DBClient');
+const mongoose = require('../../config/mongo.conf');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 /**
  * Chat model class.
@@ -8,38 +10,45 @@ const DBClient = require('./DBClient');
 class Chat extends DBClient {
 
     /**
-     * @type number
-     */
-    Id;
-
-    /**
-     * FK to User.
-     * @type number
-     */
-    AuthorId;
-
-    /**
-     * FK to House.
-     * @type number
-     */
-    HouseId;
-
-    /**
-     * @type string
-     */
-    Message;
-
-    /**
-     * @type Date
-     */
-    Time;
-
-    /**
      * Constructor method.
      */
     constructor() {
         super();
+        this._schema = new mongoose.Schema({
+            mid: {
+                type: Number,
+                unique: true
+            },
+            authorId: {
+                type: Number,
+                required: true
+            },
+            houseId: {
+                type: Number,
+                required: true
+            },
+            message: {
+                type: String,
+                required: true
+            },
+            time: {
+                type: Date,
+                required: true
+            }
+        });
+        this._schema.plugin(AutoIncrement,{inc_field:'mid'});
+        this._model = mongoose.model('Messages',this._schema);
+    }
+
+    async addMessage(newMessage) {
+        let doc = new this._model(newMessage);
+        return await this.add(doc);
+    }
+
+    async getMessages(House) {
+        return await this.query({houseId:House},"",{});
     }
 }
 
-module.exports = Chat;
+let chat = new Chat();
+module.exports = chat;
