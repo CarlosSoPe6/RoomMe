@@ -48,17 +48,14 @@ class User extends DBClient {
             }
         });
         this._model = mongoose.model('User', this._schema);
-        this._listProjection = {
+        this._listProjection = this._listProjection = {
             'uid': 1,
             'name': 1,
             'lastName': 1,
             'email': 1,
             'photo': 1,
-            'phone': 1,
-            '_id': 0,
-            'passwordHash': 0,
-            'GId': 0
-        };
+            'phone': 1
+        };;
         /**
           * uid database field.
           * @type number
@@ -128,13 +125,13 @@ class User extends DBClient {
         return await super.queryOne(query, this._listProjection, {});
     }
 
-    async createSelfUser(id, name, lastName, email, photo, passwordHash, phone) {
-        let record = new this._model({ id, name, lastName, email, photo, passwordHash, phone });
+    async createSelfUser(uid, name, lastName, email, photo, passwordHash, phone) {
+        let record = new this._model({ uid, name, lastName, email, photo, passwordHash, phone });
         return await super.add(record);
     }
 
     async updateUser(id, dataObject) {
-        let query = { 'id': id };
+        let query = { 'uid': id };
         return await super.update(query, dataObject);
     }
 }
