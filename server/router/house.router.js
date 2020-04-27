@@ -6,4 +6,6 @@ route.get('/', HouseController.getHouse);
 route.post('/', HouseController.add);
 route.put('/', HouseController.editHouse);
 
+router.get('/:photo',HouseController.getHousePhoto);
+
 module.exports = route;

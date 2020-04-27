@@ -1,6 +1,8 @@
 'use strict'
 
 const house = require('../model/House');
+const download = require('download');
+const path = require('path');
 
 class HouseControl {
     async add(req, res) {
@@ -79,6 +81,12 @@ class HouseControl {
         h.foto = result.url;
         house.updateHouse(h);
         // Edit photo
+    }
+
+    async getHousePhoto(req, res) {
+        let h = await house.getHouseById(req.user.house);
+        await download(h.foto,path.join(__dirname, '../temp/' ));
+        res.sendFile(path.join(__dirname, '../temp/' + req.params.photo));
     }
 }
 
