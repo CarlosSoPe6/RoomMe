@@ -9,7 +9,7 @@ class ShoppingControl {
             title: req.body.title,
             budget: req.body.budget,
             cost: req.body.cost,
-            houseId: 1 //req.user.house
+            houseId: req.user.house //req.user.house
 
         }
         try{
@@ -25,8 +25,8 @@ class ShoppingControl {
     }
 
     async getLists(req, res) {
-        // req.user.house
-        let lists = await sl.getAllLists(1);
+
+        let lists = await sl.getAllLists(req.user.house);
         res.json(lists);
     }
 
@@ -36,7 +36,7 @@ class ShoppingControl {
             title: req.body.title,
             budget: req.body.budget,
             cost: req.body.cost,
-            houseId: 1 //req.user.house
+            houseId: req.user.house
 
         }
         try{
@@ -49,6 +49,11 @@ class ShoppingControl {
                 error:"Error al añadir lista"
             });
         }
+    }
+
+    async deleteList(req, res) {
+        let result = await sl.deleteList(req.body.slid);
+        res.json(result);
     }
 
 };

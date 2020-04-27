@@ -8,7 +8,7 @@ class HouseControl {
         let newHouse = {
             title: req.body.title,
             description: req.body.description,
-            ownerId: req.body.owner,//req.user.id 
+            ownerId: req.user.uid,//req.user.id 
             addressLine: req.body.address,
             zipCode: req.body.zipcode,
             cityId: req.body.city,
@@ -35,8 +35,7 @@ class HouseControl {
     }
 
     async getHouse(req, res) {
-        // req.user.house
-        let h = await house.getHouseById(1);
+        let h = await house.getHouseById(req.user.house);
         res.json(h);
     }
 
@@ -48,7 +47,7 @@ class HouseControl {
             hid: req.body.hid,
             title: req.body.title,
             description: req.body.description,
-            ownerId: req.body.owner,//Change later to req.user 
+            ownerId: req.user.uid,//Change later to req.user 
             addressLine: req.body.address,
             zipCode: req.body.zipcode,
             cityId: req.body.city,

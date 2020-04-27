@@ -3,15 +3,16 @@ const localStrategy = require('passport-local');
 const jwt = require('jsonwebtoken');
 const User = require('../model/User');
 
+
+// User login
 passport.use(new localStrategy({
     usernameField: 'email',
-    passwordField: 'passwordHash'
-}, function(email, password, done) {
-    let usr = User.getSingleUser({
+    passwordField: 'password'
+}, async function(email, password, done) {
+    let usr = await User.getSingleUser({
         email : email,
         passwordHash : password
     });
-    
     if(usr) {
        done(null, usr); 
     } else {
@@ -20,15 +21,29 @@ passport.use(new localStrategy({
 }));
 
 function login(req, res) {
-    passport.authenticate('local', (err, user, info => {
+    console.log(req.body);
+    passport.authenticate('local', (err, user, info) => {
+        if(err) {
+            res.send(401);
+        }
+        console.log(user);
         if(user) {
             let token = jwt.sign({email : user.email}, 'secret', {expiresIn: '1h'});
             res.send({token})
         } else {
             res.status(401).send(info);
         }
-    }))(req, res);
+    })(req, res);
 }
 
+passport.serializeUser((usr, done) => {
+    done(null, usr.email);
+});
+
+passport.deserializeUser(async (email,done) => {
+    let usr = await User.getSingleUser({email});
+    console.log(usr);
+    done(null,usr);
+});
 
 module.exports = {login};

@@ -4,7 +4,7 @@ const chat = require('../model/Chat');
 
 class ChatControl {
     async getChatMessages(req,res) {
-        let messages = await chat.getMessages(1); //req.user.house
+        let messages = await chat.getMessages(req.user.house); 
         res.json(messages);
     }
 }

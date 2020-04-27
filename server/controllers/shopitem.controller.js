@@ -6,7 +6,7 @@ class ShoppingItemControl {
     async add(req, res) {
         let newItem = {
             product: req.body.product,
-            creator: 1, //req.user.id
+            creator: req.user.uid,
             qty: req.body.qty,
             completed: false,
             price: 0,
@@ -56,6 +56,11 @@ class ShoppingItemControl {
                 error:"Error al añadir lista"
             });
         }
+    }
+
+    async deleteItem(req, res) {
+        let result = await si.deleteItem(req.body.siid);
+        res.json(result);
     }
 }
 
