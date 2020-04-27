@@ -1,0 +1,136 @@
+###
+
+POST http://localhost:3000/house
+Content-Type: application/json
+
+{
+    "title":"el buen hogar",
+    "description":"Un buen hogar",
+    "owner":1,
+    "address":"algun lugar 1234",
+    "zipcode":"44630",
+    "city":1,
+    "cost":1000.23,
+    "paymentday":23,
+    "roomlimit":4,
+    "roomcount":2,
+    "calendar":"test",
+    "playlist":"test",
+    "foto":"test",
+    "services":[]
+}
+
+###
+
+GET http://localhost:3000/house
+
+###
+
+PUT http://localhost:3000/house
+Content-Type: application/json
+
+{
+    "hid":1,
+    "title":"el buen hogar",
+    "description":"Un buen hogar",
+    "owner":1,
+    "address":"algun lugar 1234",
+    "zipcode":"44630",
+    "city":1,
+    "cost":1000.23,
+    "paymentday":23,
+    "roomlimit":4,
+    "roomcount":2,
+    "calendar":"test",
+    "playlist":"test",
+    "foto":"test",
+    "services":[1,2]
+}
+
+###
+
+GET http://localhost:3000/service/1
+
+###
+
+POST http://localhost:3000/shoplist
+Content-Type: application/json
+
+{
+    "title":"Fiesta Sorpresa (No digas nada)",
+    "budget":666.66,
+    "cost":0,
+    "houseId":2
+}
+
+###
+
+GET http://localhost:3000/shoplist
+
+###
+
+###
+
+PUT http://localhost:3000/shoplist
+Content-Type: application/json
+
+{   
+    "slid": 3,
+    "title":"Fiesta Sorpresa (No digas nada o si)",
+    "budget":999.99,
+    "cost":500.00,
+    "houseId":2
+}
+
+###
+
+POST http://localhost:3000/shoplist/item
+Content-Type: application/json
+
+{
+    "product":"Agua",
+    "qty":"40 litros",
+    "list":2
+}
+
+###
+
+PUT http://localhost:3000/shoplist/item
+Content-Type: application/json
+
+{
+    "siid": 2,
+    "product":"Agua",
+    "qty":"40 litros",
+    "creator": 1,
+    "completed": true,
+    "price": 0.00,
+    "buyer": 1,
+    "list":2
+}
+
+###
+
+GET http://localhost:3000/shoplist/item/list/2
+
+###
+
+GET http://localhost:3000/shoplist/item/buyer/1
+
+###
+
+DELETE http://localhost:3000/shoplist
+Content-Type: application/json
+
+{
+    "slid":2
+}
+
+###
+
+DELETE http://localhost:3000/shoplist/item
+Content-Type: application/json
+
+{
+    "siid":2
+}

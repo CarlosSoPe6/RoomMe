@@ -47,6 +47,9 @@ class User extends DBClient {
             verified: {
                 type: Boolean,
                 required: false
+            },
+            house: {
+                type: Number
             }
         });
         this._schema.plugin(AutoIncrement, {inc_field : 'uid'});

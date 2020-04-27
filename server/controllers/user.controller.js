@@ -93,6 +93,19 @@ class UserController {
         console.log(doc);
         res.json(doc);
     }
+
+    async updateUserHouse(req, res) {
+        let id = req.user.uid;
+        let house = req.body.house;
+        let doc = await UserModel.updateUser(id,
+        {
+            house
+        });
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
+        res.json(doc);
+    }
 }
 
 module.exports = new UserController();
