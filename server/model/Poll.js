@@ -92,7 +92,16 @@ class Poll extends DBClient {
         this.questions;
     }
 
-    create(title, descrption, createdBy, houseId, createdAt, questions) {
+    /**
+     * Creates a poll record.
+     * @param {string} title
+     * @param {string} descrption
+     * @param {number} createdBy
+     * @param {number} houseId
+     * @param {Date} createdAt
+     * @param {PollQuestion[]} questions
+     */
+    async create(title, descrption, createdBy, houseId, createdAt, questions) {
         let record = new this._model({
             title,
             descrption,
@@ -102,6 +111,31 @@ class Poll extends DBClient {
             questions
         });
         return await super.add(record);
+    }
+
+    async getByHouse(houseId) {
+        let query = {
+            'houseId': houseId
+        }
+        await super.query(query);
+    }
+
+    async getSingle(uid) {
+        let query = {
+            'uid': uid
+        }
+        await super.query(query);
+    }
+
+    async pollUpdate() {
+
+    }
+
+    async pollDelete(uid) {
+        let query = {
+            'uid': uid
+        }
+        await super.delete(query);
     }
 }
 
