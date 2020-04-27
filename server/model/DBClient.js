@@ -70,8 +70,13 @@ class DBClient {
     }
 
     async delete(query) {
-        return await this._model.findOneAndRemove(query);
+        return await this._model.deleteOne(query, (err, obj) => {
+            if (err) throw err;
+            console.log("Document deleted");
+        })
     }
+
+    
 }
 
 module.exports = DBClient;

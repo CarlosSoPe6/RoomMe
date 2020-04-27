@@ -2,6 +2,7 @@
 
 const DBClient = require('./DBClient');
 const mongoose = require('./../../config/mongo.conf');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 /**
  * User model class.
  */
@@ -34,7 +35,8 @@ class User extends DBClient {
                 required: true
             },
             passwordHash: {
-                type: String
+                type: String,
+                required: true
             },
             GId: {
                 type: String
@@ -47,6 +49,7 @@ class User extends DBClient {
                 required: false
             }
         });
+        this._schema.plugin(AutoIncrement, {inc_field : 'uid'});
         this._model = mongoose.model('users', this._schema);
         this._listProjection = {
             'uid': 1,
@@ -126,9 +129,8 @@ class User extends DBClient {
         return await super.queryOne(query, this._listProjection, {});
     }
 
-    async createSelfUser(id, name, lastName, email, photo, passwordHash, phone) {
+    async createSelfUser(name, lastName, email, photo, passwordHash, phone) {
         let record = new this._model({
-            'uid': id,
             name,
             lastName,
             email,
