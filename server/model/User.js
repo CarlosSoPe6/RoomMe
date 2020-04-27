@@ -127,8 +127,7 @@ class User extends DBClient {
         return await super.query(query, this._listProjection, options);
     }
 
-    async getSingleUser(id) {
-        let query = { 'uid': id };
+    async getSingleUser(query) {
         return await super.queryOne(query, this._listProjection, {});
     }
 
@@ -145,7 +144,7 @@ class User extends DBClient {
     }
 
     async updateUser(id, dataObject) {
-        let user = await this.getSingleUser(id);
+        let user = await this.getSingleUser({'uid': id});
         let query = { 'uid': id };
         // Iterate over the dataObject properties to update queried user.
         for (const prop in dataObject) {

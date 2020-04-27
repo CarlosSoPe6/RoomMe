@@ -19,6 +19,8 @@ const shopRouter = require('./router/shopping.router');
 const chatRouter = require('./router/chat.router');
 const userRouter = require('./router/user.router');
 const authRouter = require('./router/auth.router');
+const contactRouter = require('./router/contact.router');
+const pollRouter = require('./router/poll.router');
 const registerRouter = require('./router/register.router');
 const taskRouter = require('./router/task.router');
 
@@ -40,6 +42,9 @@ app.use('/house',houseRouter);
 app.use('/service',serviceRouter);
 app.use('/shoplist',shopRouter);
 app.use('/chat',chatRouter);
+
+app.use('/contact', contactRouter);
+app.use('/poll', pollRouter);
 app.use('/user', userRouter);
 app.use('/register', registerRouter);
 app.use('/api/tasks', taskRouter);

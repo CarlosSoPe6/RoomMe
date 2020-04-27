@@ -1,11 +1,11 @@
 'use strict';
 
 const router = require('express').Router();
+const controller = require('./../controllers/contact.controller');
 
 router.get('/', controller.getAllContacts);
 router.post('/', controller.addContact);
 
-router.get('/:id', controller.getSigngleContact);
 router.patch('/:id', controller.updateContact);
 router.delete('/:id', controller.deleteContact);
 
