@@ -40,7 +40,7 @@ class ContactController {
             res.status(401).json({'error': 'No email or phone'});
             return;
         }
-        let name = requ.body.name;
+        let name = req.body.name;
         let lastName = req.body.lastName;
         let email = req.body.email || '';
         let phone = req.body.phone || '';

@@ -50,7 +50,11 @@ class UserController {
      * @param {Express.Response} res 
      */
     async getMe(req, res) {
-        doc = JSON.parse(req.user);
+        let id = req.user.uid;
+        let doc = await UserModel.getSingleUser({'uid': id});
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
         res.json(doc);
     }
 
