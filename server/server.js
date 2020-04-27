@@ -9,7 +9,6 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const path = require('path');
-const bodyParser = require('body-parser');
 const mongo = require('./../config/mongo.conf');
 
 //const userRouter = require('./router/user.router');
