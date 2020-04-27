@@ -37,7 +37,7 @@ class UserController {
      */
     async getUser(req, res) {
         let id = req.params.id;
-        let doc = await UserModel.getSingleUser(id);
+        let doc = await UserModel.getSingleUser({'uid': id});
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));
         console.log(doc);
