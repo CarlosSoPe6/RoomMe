@@ -29,7 +29,12 @@ function login(req, res) {
         console.log(user);
         if(user) {
             let token = jwt.sign({email : user.email}, 'secret', {expiresIn: '1h'});
-            res.send({token})
+            req.logIn(user, function(err) {
+                if (err) { 
+                    return next(err); 
+                }
+                res.send({token})
+              });
         } else {
             res.status(401).send(info);
         }
