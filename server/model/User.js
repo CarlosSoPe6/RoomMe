@@ -141,7 +141,7 @@ class User extends DBClient {
     }
 
     async updateUser(id, dataObject) {
-        let user = await this.getSingleUser(id);
+        let user = await this.getSingleUser({'uid': id});
         let query = { 'uid': id };
         // Iterate over the dataObject properties to update queried user.
         for (const prop in dataObject) {

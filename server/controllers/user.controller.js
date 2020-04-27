@@ -1,6 +1,7 @@
 'use strict';
 
 const UserModel = require('./../model/User');
+const ContactModel = require('./../model/Contact');
 
 class UserController {
     constructor() {
@@ -36,7 +37,7 @@ class UserController {
      */
     async getUser(req, res) {
         let id = req.params.id;
-        let doc = await UserModel.getSingleUser(id);
+        let doc = await UserModel.getSingleUser({'uid': id});
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));
         console.log(doc);
@@ -49,7 +50,11 @@ class UserController {
      * @param {Express.Response} res 
      */
     async getMe(req, res) {
-        doc = JSON.parse(req.user);
+        let id = req.user.uid;
+        let doc = await UserModel.getSingleUser({'uid': id});
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
         res.json(doc);
     }
 
@@ -59,7 +64,7 @@ class UserController {
      * @param {Express.Response} res 
      */
     async updateUser(req, res) {
-        let id = req.user.id;
+        let id = req.user.uid;
         let {name, lastName, email, phone}
             = req.body;
         let doc = await UserModel.updateUser(id,
@@ -69,6 +74,20 @@ class UserController {
             email,
             phone
         });
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
+        res.json(doc);
+    }
+
+    /**
+     * Gets the contacts of an user.
+     * @param {Expres.Request} req 
+     * @param {Express.Response} res 
+     */
+    async getContacts(req, res) {
+        let id = req.params.id;
+        let doc = await ContactModel.getAllContacts(id);
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));
         console.log(doc);
