@@ -10,6 +10,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const path = require('path');
 const mongo = require('./../config/mongo.conf');
+require('../config/cloudinary.config');
 
 //const userRouter = require('./router/user.router');
 const houseRouter = require('./router/house.router');
@@ -22,6 +23,7 @@ const contactRouter = require('./router/contact.router');
 const pollRouter = require('./router/poll.router');
 const registerRouter = require('./router/register.router');
 const taskRouter = require('./router/task.router');
+const imageRouter = require('./router/images.router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -47,6 +49,7 @@ app.use('/poll', pollRouter);
 app.use('/user', userRouter);
 app.use('/register', registerRouter);
 app.use('/api/tasks', taskRouter);
+app.use('/image', imageRouter);
 
 io.on('connection', function(socket){
     const chat = require('./router/chat_operation')(socket, io);

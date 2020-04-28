@@ -1,10 +1,14 @@
 'use strict'
 
 const house = require('../model/House');
+const download = require('download');
+const path = require('path');
+const cloudinary = require('cloudinary');
 
 class HouseControl {
     async add(req, res) {
         console.log(req.body);
+
         let newHouse = {
             title: req.body.title,
             description: req.body.description,
@@ -70,8 +74,20 @@ class HouseControl {
                 error:"Error al editar casa"
             });
         }
-        
+    }
 
+    async addPhoto(req, res) {
+        const result = await cloudinary.v2.uploader.upload(req.file.path);
+        let h = await house.getHouseById(req.user.house);
+        h.foto = result.url;
+        house.updateHouse(h);
+        res.sendStatus(200);
+    }
+
+    async getHousePhoto(req, res) {
+        let h = await house.getHouseById(req.user.house);
+        await download(h.foto,path.join(__dirname, '../temp/' ));
+        res.sendFile(path.join(__dirname, '../temp/' + req.params.photo));
     }
 }
 
