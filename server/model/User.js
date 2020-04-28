@@ -60,7 +60,8 @@ class User extends DBClient {
             'lastName': 1,
             'email': 1,
             'photo': 1,
-            'phone': 1
+            'phone': 1,
+            'house': 1
         };
         /**
           * uid database field.

@@ -15,7 +15,7 @@ class Poll extends DBClient {
         super();
 
         this._schema = new mongoose.Schema({
-            uid: {
+            pollid: {
                 type: Number,
                 unique: true
             },
@@ -47,13 +47,13 @@ class Poll extends DBClient {
                 }
             ]
         });
-        this._schema.plugin(AutoIncrement, {inc_field : 'uid'});
+        this._schema.plugin(AutoIncrement, {inc_field : 'pollid'});
         this._model = mongoose.model('poll', this._schema);
         /**
          * Id database field.
          * @type number
          */
-        this.uid;
+        this.pollid;
 
         /**
          * Title database field.
@@ -117,25 +117,31 @@ class Poll extends DBClient {
         let query = {
             'houseId': houseId
         }
-        await super.query(query);
+        return await super.query(query);
     }
 
-    async getSingle(uid) {
+    async getSingle(pollid) {
         let query = {
-            'uid': uid
+            'pollid': pollid
         }
-        await super.query(query);
+        return await super.query(query);
     }
 
-    async pollUpdate() {
-
+    async pollUpdate(id, dataObject) {
+        let user = await this.getSingle(id);
+        let query = { 'pollid': id };
+        // Iterate over the dataObject properties to update queried user.
+        for (const prop in dataObject) {
+            user[prop] = dataObject[prop];
+        }
+        return await super.update(query, user);
     }
 
-    async pollDelete(uid) {
+    async pollDelete(pollid) {
         let query = {
-            'uid': uid
+            'pollid': pollid
         }
-        await super.delete(query);
+        return await super.delete(query);
     }
 }
 
@@ -146,4 +152,4 @@ class PollQuestion {
     }
 }
 
-module.exports = Poll;
+module.exports = new Poll();

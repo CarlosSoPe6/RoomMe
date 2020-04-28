@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('./../server');
 
-test('Obtener todos los servicios', async () => {
+test('Obtener todos los contactos de un usuario', async () => {
     let agent = request.agent(app);
     console.log('Loggin in');
     agent.post('/api/login')
@@ -11,6 +11,6 @@ test('Obtener todos los servicios', async () => {
         });
 
         console.log('Execute');
-    let res = agent.get('/service')
+    let res = agent.get('/contact')
         .expect(200);
 });
