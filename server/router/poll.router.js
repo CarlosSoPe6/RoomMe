@@ -11,4 +11,6 @@ router.put('/:id', PollController.pollUpdate);
 router.delete('/:id', PollController.pollDelete);
 router.post('/:id', PollController.pollAnswer);
 
+router.get('/:id/answers', PollController.pollGetAnswers);
+
 module.exports = router;
