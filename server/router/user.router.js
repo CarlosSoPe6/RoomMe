@@ -7,6 +7,7 @@ const requireAuth = require('./../middlewares/requireAuth');
 router.get('/', controller.getAllUsers);
 
 router.get('/me', requireAuth, controller.getMe);
+// router.post('/me', requireAuth, controller.updatePhoto); // TODO: Generalize photo uploading
 router.put('/me', requireAuth, controller.updateUser);
 router.put('/me/house', requireAuth, controller.updateUserHouse);
 

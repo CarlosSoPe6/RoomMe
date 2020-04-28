@@ -117,14 +117,14 @@ class Poll extends DBClient {
         let query = {
             'houseId': houseId
         }
-        await super.query(query);
+        return await super.query(query);
     }
 
     async getSingle(pollid) {
         let query = {
             'pollid': pollid
         }
-        await super.query(query);
+        return await super.query(query);
     }
 
     async pollUpdate(id, dataObject) {
@@ -141,7 +141,7 @@ class Poll extends DBClient {
         let query = {
             'pollid': pollid
         }
-        await super.delete(query);
+        return await super.delete(query);
     }
 }
 

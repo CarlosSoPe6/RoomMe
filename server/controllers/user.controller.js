@@ -2,6 +2,7 @@
 
 const UserModel = require('./../model/User');
 const ContactModel = require('./../model/Contact');
+const cloudinary = require('cloudinary');
 
 class UserController {
     constructor() {
@@ -119,6 +120,24 @@ class UserController {
         {
             house
         });
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
+        res.json(doc);
+    }
+
+    /**
+     * Updates a user photo.
+     * @param {Express.Request} req 
+     * @param {Express.Response} res 
+     */
+    async updatePhoto(req, res) {
+        let userId = req.user.uid;
+        const result = await cloudinary.v2.uploader.upload(req.file.path);
+        let obj = {
+            photo: result.url
+        };
+        let doc = UserModel.updateUser(userId, obj);
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));
         console.log(doc);

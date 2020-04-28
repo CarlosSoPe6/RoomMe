@@ -2,6 +2,7 @@ const route = require("express").Router();
 const multer = require("multer");
 const path = require("path");
 const houseController = require("../controllers/house.controller");
+const userController = require('./../controllers/user.controller');
 
 
 const storage = multer.diskStorage({
@@ -27,5 +28,6 @@ const uploadImage = multer({
 })
 
 route.post('/upload/house', uploadImage.single('image'), houseController.addPhoto);
+route.post('/upload/user', uploadImage.single('image'), userController.updatePhoto);
 
 module.exports = route;

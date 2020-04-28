@@ -16,7 +16,9 @@ class PollController {
     async pollGetByHouse(req, res) {
         let houseId = req.user.house;
         let doc = await PollModel.getByHouse(houseId);
-
+        if(doc == undefined){
+            doc = [];
+        }
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));
         console.log(doc);
@@ -43,7 +45,7 @@ class PollController {
      * @param {*} res 
      */
     async pollCreate(req, res) {
-        let userId = req.user.id;
+        let userId = req.user.uid;
         let houseId = req.user.house;
         if(req.body.title == undefined){
             res.status(400).json({'error': 'tittle'});
