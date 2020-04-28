@@ -3,6 +3,7 @@
 const house = require('../model/House');
 const download = require('download');
 const path = require('path');
+const cloudinary = require('cloudinary');
 
 class HouseControl {
     async add(req, res) {
@@ -80,7 +81,7 @@ class HouseControl {
         let h = await house.getHouseById(req.user.house);
         h.foto = result.url;
         house.updateHouse(h);
-        // Edit photo
+        res.sendStatus(200);
     }
 
     async getHousePhoto(req, res) {

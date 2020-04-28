@@ -26,6 +26,6 @@ const uploadImage = multer({
     fileFilter
 })
 
-route.post('/upload/house', uploadImage('image'), houseController.addPhoto);
+route.post('/upload/house', uploadImage.single('image'), houseController.addPhoto);
 
 module.exports = route;
