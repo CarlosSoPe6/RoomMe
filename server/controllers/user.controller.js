@@ -38,6 +38,10 @@ class UserController {
     async getUser(req, res) {
         let id = req.params.id;
         let doc = await UserModel.getSingleUser({'uid': id});
+        if(doc == undefined) {
+            res.status(404).send('NOT FOUND');
+            return;
+        }
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));
         console.log(doc);
@@ -65,6 +69,20 @@ class UserController {
      */
     async updateUser(req, res) {
         let id = req.user.uid;
+
+        if(req.body.name == undefined) {
+            res.status(400).json({'error': 'No name'});
+            return;
+        }
+        if(req.body.lastName == undefined) {
+            res.status(400).json({'error': 'No last name'});
+            return;
+        }
+        if(req.body.email == undefined && req.body.phone == undefined) {
+            res.status(400).json({'error': 'No email or phone'});
+            return;
+        }
+        
         let {name, lastName, email, phone}
             = req.body;
         let doc = await UserModel.updateUser(id,

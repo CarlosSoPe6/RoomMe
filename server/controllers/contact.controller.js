@@ -76,15 +76,15 @@ class ContactController {
         let id = req.params.id;
 
         if(req.body.name == undefined) {
-            res.status(401).json({'error': 'No name'});
+            res.status(400).json({'error': 'No name'});
             return;
         }
         if(req.body.lastName == undefined) {
-            res.status(401).json({'error': 'No last name'});
+            res.status(400).json({'error': 'No last name'});
             return;
         }
         if(req.body.email == undefined && req.body.phone == undefined) {
-            res.status(401).json({'error': 'No email or phone'});
+            res.status(400).json({'error': 'No email or phone'});
             return;
         }
 
