@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.app-content {
+    padding-left: 76px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
