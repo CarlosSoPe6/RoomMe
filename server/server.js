@@ -25,6 +25,7 @@ const registerRouter = require('./router/register.router');
 const taskRouter = require('./router/task.router');
 const imageRouter = require('./router/images.router');
 const authMiddle = require('./middlewares/requireAuth')
+const cityRouter = require('./router/city.router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -53,6 +54,7 @@ app.use('/user', userRouter);
 app.use('/register', registerRouter);
 app.use('/api/tasks', authMiddle, taskRouter);
 app.use('/image', imageRouter);
+app.use('/city',cityRouter);
 
 io.on('connection', function(socket){
     const chat = require('./router/chat_operation')(socket, io);
