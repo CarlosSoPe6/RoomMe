@@ -24,6 +24,7 @@ const pollRouter = require('./router/poll.router');
 const registerRouter = require('./router/register.router');
 const taskRouter = require('./router/task.router');
 const imageRouter = require('./router/images.router');
+const authMiddle = require('./middlewares/requireAuth')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -37,6 +38,8 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(express.static(__dirname + '/public'));
+
 //app.use('/user', userRouter);
 app.use('/', authRouter);
 app.use('/house',houseRouter);
@@ -48,7 +51,7 @@ app.use('/contact', contactRouter);
 app.use('/poll', pollRouter);
 app.use('/user', userRouter);
 app.use('/register', registerRouter);
-app.use('/api/tasks', taskRouter);
+app.use('/api/tasks', authMiddle, taskRouter);
 app.use('/image', imageRouter);
 
 io.on('connection', function(socket){
