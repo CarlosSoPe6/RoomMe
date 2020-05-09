@@ -2,12 +2,13 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const googleConfig = require('./google-config');
 const User = require('../model/User');
+const jwt = require('jsonwebtoken');
 
 
 passport.use(new GoogleStrategy({
     clientID: googleConfig.clientID,
     clientSecret: googleConfig.clientSecret,
-    callbackURL: 'http://localhost:3000/google/redirect'
+    callbackURL: 'http://localhost:3000/auth/google/redirect'
 }, async function(accessToken, refreshToken, profile, done) {
     if(profile == null) {
         done(null, false, {error: "No fie posible autenticarse"});
@@ -44,8 +45,21 @@ function googleLogin(req, res) {
 
     passport.authenticate('google', (err, user, info) => {
         console.log("Entrando a google strategy");
+        if(err) {
+            res.send(401);
+        }
         console.log(user);
-        res.send(200);
+        if(user) {
+            let token = jwt.sign({email : user.email}, 'secret', {expiresIn: '1h'});
+            req.logIn(user, function(err) {
+                if (err) { 
+                    return next(err); 
+                }
+                res.send({token})
+              });
+        } else {
+            res.status(401).send(info);
+        }
     })(req, res);
 }
 
