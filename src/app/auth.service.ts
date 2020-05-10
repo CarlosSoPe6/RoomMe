@@ -35,4 +35,8 @@ export class AuthService {
       return null;
     }
   }
+
+  public googleLogin(params) {
+
+  }
 }
