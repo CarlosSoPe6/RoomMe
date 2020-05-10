@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -16,6 +18,12 @@ export class LoginComponent implements OnInit {
         return;
       }
     });
+  }
+
+  submit(form: NgForm) {
+    console.log(form.value.email, form.value.password);
+    this.authService.login(form.value.email, form.value.password)
+        .subscribe((data) => {console.log(data)}, (err) => console.log(err));
   }
 
 }

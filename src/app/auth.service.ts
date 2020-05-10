@@ -1,4 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +11,9 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   token = "";
+  logged = new BehaviorSubject<boolean>(false);
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   private saveToken(token: string): void {
     localStorage.setItem('token', token);
@@ -19,8 +25,11 @@ export class AuthService {
     console.log(tokenData);
 
     if(tokenData) {
-      return tokenData.exp > Date.now() / 1000;
+      let log = tokenData.exp > Date.now() / 1000;
+      this.logged.next(true);
+      return log;
     } else {
+      this.logged.next(false);
       return false;
     }
   }
@@ -34,6 +43,27 @@ export class AuthService {
     } else {
       return null;
     }
+  }
+
+  public login(email: string, password: string): Observable<any> {
+    return this.http
+               .post(environment.url + '/api/login', {email, password})
+               .pipe(
+                 map((data: any) => {
+                  if(data.token) {
+                    this.saveToken(data.token);
+                    this.isLoggedIn();
+                  }
+                  return data;
+                 })
+               );
+  }
+
+  public logout() {
+    this.token = '';
+    window.localStorage.removeItem('token');
+    this.router.navigateByUrl('/');
+    this.logged.next(false);
   }
 
   public googleLogin(params) {
