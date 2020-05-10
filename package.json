@@ -25,6 +25,7 @@
     "bootstrap": "^4.4.1",
     "cloudinary": "^1.21.0",
     "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "download": "^8.0.0",
