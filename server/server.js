@@ -30,6 +30,8 @@ const cityRouter = require('./router/city.router');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+console.log(__dirname);
+app.use(express.static(__dirname + '/public'));
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
@@ -38,8 +40,6 @@ app.use(cookieSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(express.static(__dirname + '/public'));
 
 //app.use('/user', userRouter);
 app.use('/', authRouter);
@@ -52,7 +52,7 @@ app.use('/contact', contactRouter);
 app.use('/poll', pollRouter);
 app.use('/user', userRouter);
 app.use('/register', registerRouter);
-app.use('/api/tasks', authMiddle, taskRouter);
+app.use('               ks', authMiddle, taskRouter);
 app.use('/image', imageRouter);
 app.use('/city',cityRouter);
 
@@ -60,6 +60,7 @@ io.on('connection', function(socket){
     const chat = require('./router/chat_operation')(socket, io);
 });
 
+app.get('*', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 
 http.listen(3000, ()=> console.log("Server running!"));
 

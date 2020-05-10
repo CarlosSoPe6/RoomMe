@@ -1,7 +1,7 @@
 'use strict';
 
 const DBClient = require('./DBClient');
-
+const mongoose = require('../../config/mongo.conf');
 /**
  * City model class.
  */
