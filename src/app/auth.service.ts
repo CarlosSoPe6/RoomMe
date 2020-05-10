@@ -67,6 +67,16 @@ export class AuthService {
   }
 
   public googleLogin(params) {
-
+    console.log("Estoy en google login en angular");
+    return this.http.get(environment.url + '/api/google/redirect', {params})
+      .pipe(
+        map((data: any) => {
+          if(data.token) {
+            this.saveToken(data.token);
+            this.isLoggedIn();
+          }
+          return data;
+         })
+      );
   }
 }
