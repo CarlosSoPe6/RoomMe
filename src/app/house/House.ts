@@ -9,6 +9,9 @@ export class House {
     cost: number;
     cap: number;
     description: string;
+    playlist: string;
+    foto: string;
+    services: Array<number>;
 
     constructor(title: string,
                 type: string,
@@ -19,7 +22,10 @@ export class House {
                 country: string,
                 cost: number,
                 cap: number,
-                description: string) {
+                description: string,
+                playlist: string,
+                foto: string,
+                services: Array<number>) {
     this.title = title;
     this.type = type;
     this.direction = direction;
@@ -30,6 +36,9 @@ export class House {
     this.cost = cost;
     this.cap = cap;
     this.description = description;
+    this.playlist = playlist;
+    this.foto = foto;
+    this.services = services;
     }
 
 }
