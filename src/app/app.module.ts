@@ -15,7 +15,6 @@ import { ShoppingComponent } from './shopping/shopping.component';
 import { HouseServicesComponent } from './house/house-services/house-services.component';
 import { HouseUsersComponent } from './house/house-users/house-users.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({

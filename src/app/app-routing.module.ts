@@ -7,7 +7,7 @@ import { ShoppingComponent } from './shopping/shopping.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'google/redirect', component: LoginComponent},
+  {path: 'auth/google/redirect', component: LoginComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'house/register', component: HouseComponent},
   {path: 'house/edit', component: HouseComponent},
