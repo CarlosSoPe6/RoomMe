@@ -17,6 +17,7 @@ export class ServicesService {
 
   constructor(private http: HttpClient) {
     this.services = [];
+    this.houseServices = [];
     this.loadServices();
    }
 
@@ -36,7 +37,9 @@ export class ServicesService {
      return this.services.slice();
    }
 
-   getServicesId(servicesId: Array<any>) {
+   getServicesId(servicesId: Array<number>) {
+     console.log(typeof(servicesId[0]));
+     console.log(this.services.filter((item) => servicesId.includes(item.sid)))
      this.houseServiceSubject.next(this.services.filter((item) => servicesId.includes(item.sid)));
    }
 

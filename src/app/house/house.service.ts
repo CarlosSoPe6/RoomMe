@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HouseService {
-  house: House;
-  houseSubject = new Subject<House>();
+  house;
+  houseSubject = new Subject<any>();
 
   constructor(private http: HttpClient) {
     this.loadHouse();
@@ -16,8 +16,9 @@ export class HouseService {
 
   loadHouse() {
     this.http.get('http://localhost:3000/house').subscribe(
-      (data: House) => {
+      (data) => {
         this.house = data;
+        console.log(data);
         this.houseSubject.next(this.getHouse());
       },
       (err) => console.log(err)
@@ -32,10 +33,17 @@ export class HouseService {
     this.http.post('http://localhost:3000/house', newHouse).subscribe(
       (data) => {
         console.log(data);
-        // maybe load or houseSubject
       },
-      (err) => console.log(err)
+      (err) => {
+        console.log(err);
+      }
     );
+}
+
+  async addImage(image) {
+    const formData = new FormData();
+    formData.append('image', image);
+    this.http.post('image/upload/house', formData).subscribe((res) => console.log(res));
   }
 
   editHouse(newHouse) {

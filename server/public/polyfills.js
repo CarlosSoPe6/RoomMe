@@ -3033,7 +3033,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/omar.madriz/Documents/ITESO/8vo Semestre/Web 2/RoomMe/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\Users\josel\OneDrive - ITESO\Escritorio\ITESO\Programación\Desarrollo WEB 2\Proyecto\RoomMe\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

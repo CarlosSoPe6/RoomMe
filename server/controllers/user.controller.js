@@ -115,10 +115,9 @@ class UserController {
 
     async updateUserHouse(req, res) {
         let id = req.user.uid;
-        let house = req.body.house;
         let doc = await UserModel.updateUser(id,
         {
-            house
+            house: req.body.house
         });
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));

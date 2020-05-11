@@ -1,6 +1,7 @@
 'use strict'
 
 const house = require('../model/House');
+const user = require('../model/User');
 const download = require('download');
 const path = require('path');
 const cloudinary = require('cloudinary');
@@ -20,7 +21,7 @@ class HouseControl {
             state: req.body.state,
             country: req.body.country,
             cost: req.body.cost,
-            roommatesLimit: req.body.roomlimit,
+            roommatesLimit: req.body.cap,
             roommatesCount: 0,
             //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
@@ -29,6 +30,11 @@ class HouseControl {
         }
         try{
             await house.addHouse(newHouse);
+            let house_owner = await house.getHouseByOwner(newHouse.ownerId);
+            await user.updateUser(newHouse.ownerId,
+                {
+                    house: house_owner.hid
+                });
             res.sendStatus(200);
         }
         catch(err){
@@ -83,6 +89,7 @@ class HouseControl {
     async addPhoto(req, res) {
         const result = await cloudinary.v2.uploader.upload(req.file.path);
         let h = await house.getHouseById(req.user.house);
+        console.log(h);
         h.foto = result.url;
         house.updateHouse(h);
         res.sendStatus(200);

@@ -13,6 +13,7 @@ export class HouseComponent implements OnInit {
 
   mode: string;
   house: House;
+  image;
 
   @ViewChild('f') form: NgForm;
 
@@ -35,9 +36,16 @@ export class HouseComponent implements OnInit {
     this.house.services = services;
   }
 
-  submit(forma: NgForm) {
+  obtenerImage(event) {
+    this.image = event.target.files[0];
+  }
+
+  async submit(forma: NgForm) {
     if (this.mode === '/house/register') {
       this.houseService.addHouse(this.house);
+      if (this.image !== undefined) {
+        await this.houseService.addImage(this.image);
+      }
       this.router.navigate(['/']);
     }
 

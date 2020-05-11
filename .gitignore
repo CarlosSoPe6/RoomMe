@@ -50,3 +50,5 @@ Thumbs.db
 
 #API Credentials
 /server/router/google-config.js
+
+/server/temp
