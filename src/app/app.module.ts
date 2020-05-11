@@ -15,6 +15,7 @@ import { ShoppingComponent } from './shopping/shopping.component';
 import { HouseServicesComponent } from './house/house-services/house-services.component';
 import { HouseUsersComponent } from './house/house-users/house-users.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HouseDetailComponent } from './house/house-detail/house-detail.componen
     ShoppingComponent,
     HouseServicesComponent,
     HouseUsersComponent,
-    HouseDetailComponent
+    HouseDetailComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

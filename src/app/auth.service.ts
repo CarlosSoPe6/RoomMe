@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {
     let token = localStorage.getItem('token');
-    if(token != '') {
+    if(token != null) {
       this.token = token;
       this.logged.next(true);
     } else {
@@ -70,6 +70,9 @@ export class AuthService {
   public logout() {
     this.token = '';
     window.localStorage.removeItem('token');
+    this.http.get(environment.url + '/api/logout').subscribe((data) => {
+      console.log(data);
+    });
     this.router.navigateByUrl('/');
     this.logged.next(false);
   }

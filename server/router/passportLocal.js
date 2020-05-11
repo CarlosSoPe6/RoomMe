@@ -33,7 +33,7 @@ function login(req, res) {
                 if (err) { 
                     return next(err); 
                 }
-                res.send({token})
+                res.send({token});
               });
         } else {
             res.status(401).send(info);

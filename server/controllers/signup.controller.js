@@ -3,6 +3,7 @@ const User = require('../model/User');
 class RegisterController {
     async registerUser(req, res) {
         try {
+            console.log(req.body);
             await User.createSelfUser(
                 req.body.name, 
                 req.body.lastName,
@@ -11,7 +12,7 @@ class RegisterController {
                 req.body.password,
                 req.body.phone
             );
-            res.sendStatus(200);
+            res.send({msg : "Succes!"});
         } catch(err) {
             console.log(err);
             res.status(400).send({

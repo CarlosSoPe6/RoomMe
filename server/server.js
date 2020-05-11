@@ -53,7 +53,7 @@ app.use('/chat',chatRouter);
 app.use('/contact', contactRouter);
 app.use('/poll', pollRouter);
 app.use('/user', userRouter);
-app.use('/register', registerRouter);
+app.use('/api/register', registerRouter);
 app.use('/api/tasks', authMiddle, taskRouter);
 app.use('/image', imageRouter);
 app.use('/city',cityRouter);
