@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
@@ -10,12 +10,16 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private authService: AuthService) { }
+  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       if(params.code) {
-        return;
+        this.authService.googleLogin(params).subscribe((data) => {
+          if(this.authService.isLoggedIn()) {
+            this.router.navigateByUrl('/shopping');
+          }
+        });
       }
     });
   }

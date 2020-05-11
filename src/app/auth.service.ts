@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -13,8 +13,17 @@ export class AuthService {
   token = "";
   logged = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient, private router: Router) { }
-
+  constructor(private http: HttpClient, private router: Router) {
+    let token = localStorage.getItem('token');
+    console.log("Checando local storage");
+    if(token != '') {
+      this.token = token;
+      this.logged.next(true);
+    } else {
+      this.logged.next(false);
+    }
+   }
+  
   private saveToken(token: string): void {
     localStorage.setItem('token', token);
     this.token = token;
@@ -67,6 +76,16 @@ export class AuthService {
   }
 
   public googleLogin(params) {
-
+    console.log("Estoy en google login en angular");
+    return this.http.get(environment.url + '/api/google/redirect', {params})
+      .pipe(
+        map((data: any) => {
+          if(data.token) {
+            this.saveToken(data.token);
+            this.isLoggedIn();
+          }
+          return data;
+         })
+      );
   }
 }

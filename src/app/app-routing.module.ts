@@ -6,8 +6,8 @@ import { HouseComponent } from './house/house.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'google/redirect', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'auth/google/redirect', component: LoginComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'house/register', component: HouseComponent},
   {path: 'house/edit', component: HouseComponent},
