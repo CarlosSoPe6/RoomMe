@@ -21,8 +21,10 @@ export class ServicesService {
    }
 
    loadServices() {
-    this.http.get('http://localhost:3000/services').subscribe(
+
+    this.http.get('http://localhost:3000/service').subscribe(
       (data: Service[]) => {
+        console.log(data);
         this.services = data,
       this.servicesSubject.next(this.getServices());
     },

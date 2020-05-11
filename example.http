@@ -57,7 +57,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/service/1
+GET http://localhost:3000/service
 
 ###
 
