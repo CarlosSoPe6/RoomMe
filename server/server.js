@@ -54,7 +54,7 @@ app.use('/contact', contactRouter);
 app.use('/poll', pollRouter);
 app.use('/user', userRouter);
 app.use('/register', registerRouter);
-app.use('               ks', authMiddle, taskRouter);
+app.use('/api/tasks', authMiddle, taskRouter);
 app.use('/image', imageRouter);
 app.use('/city',cityRouter);
 

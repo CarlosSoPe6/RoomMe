@@ -15,7 +15,6 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {
     let token = localStorage.getItem('token');
-    console.log("Checando local storage");
     if(token != '') {
       this.token = token;
       this.logged.next(true);

@@ -242,7 +242,6 @@ class AuthService {
         this.token = "";
         this.logged = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](false);
         let token = localStorage.getItem('token');
-        console.log("Checando local storage");
         if (token != '') {
             this.token = token;
             this.logged.next(true);
@@ -1286,8 +1285,8 @@ class LoginComponent {
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"])); };
-LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 29, vars: 0, consts: [[1, "main"], [1, "sign-in"], [1, "container"], [1, "signin-content"], [1, "signin-image"], ["src", "./images/signin-image.jpg", "alt", "sign up image"], ["href", "#", 1, "signup-image-link"], [1, "signin-form"], [1, "form-title"], ["id", "login-form", 1, "register-form", 3, "ngSubmit"], ["f", "ngForm"], [1, "form-group"], ["for", "your_name"], [1, "zmdi", "zmdi-account", "material-icons-name"], ["type", "text", "ngModel", "", "name", "email", "id", "your_name", "placeholder", "Usuario", "required", ""], ["for", "your_pass"], [1, "zmdi", "zmdi-lock"], ["type", "password", "ngModel", "", "name", "password", "id", "your_pass", "placeholder", "Contrase\u00F1a", "required", ""], [1, "form-group", "form-button"], ["type", "submit", "name", "signin", "id", "signin", "value", "Iniciar Sesi\u00F3n", 1, "form-submit"], [1, "social-login"], [1, "social-label"], ["href", "/api/google/login", "role", "button"], [1, "fab", "fa-google"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
-        const _r88 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginComponent, selectors: [["app-login"]], decls: 29, vars: 0, consts: [[1, "main"], [1, "sign-in"], [1, "container"], [1, "signin-content"], [1, "signin-image"], ["src", "assets/img/signin-image.jpg", "alt", "sign up image"], ["href", "#", 1, "signup-image-link"], [1, "signin-form"], [1, "form-title"], ["id", "login-form", 1, "register-form", 3, "ngSubmit"], ["f", "ngForm"], [1, "form-group"], ["for", "your_name"], [1, "zmdi", "zmdi-account", "material-icons-name"], ["type", "text", "ngModel", "", "name", "email", "id", "your_name", "placeholder", "Usuario", "required", ""], ["for", "your_pass"], [1, "zmdi", "zmdi-lock"], ["type", "password", "ngModel", "", "name", "password", "id", "your_pass", "placeholder", "Contrase\u00F1a", "required", ""], [1, "form-group", "form-button"], ["type", "submit", "name", "signin", "id", "signin", "value", "Iniciar Sesi\u00F3n", 1, "form-submit"], [1, "social-login"], [1, "social-label"], ["href", "/api/google/login", "role", "button"], [1, "fab", "fa-google"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
+        const _r100 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -1305,7 +1304,7 @@ LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Iniciar Sesi\u00F3n");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "form", 9, 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function LoginComponent_Template_form_ngSubmit_12_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r88); const _r87 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](13); return ctx.submit(_r87); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function LoginComponent_Template_form_ngSubmit_12_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r100); const _r99 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](13); return ctx.submit(_r99); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 11);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "label", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "i", 13);
