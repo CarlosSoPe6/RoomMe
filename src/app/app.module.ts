@@ -17,6 +17,7 @@ import { HouseUsersComponent } from './house/house-users/house-users.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { HouseDashboardComponent } from './house-dashboard/house-dashboard.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { TasksComponent } from './tasks/tasks.component';
     HouseUsersComponent,
     HouseDetailComponent,
     RegisterComponent,
-    TasksComponent
+    TasksComponent,
+    HouseDashboardComponent
   ],
   imports: [
     BrowserModule,
