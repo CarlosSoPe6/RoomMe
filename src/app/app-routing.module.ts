@@ -6,7 +6,9 @@ import { HouseComponent } from './house/house.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { RegisterComponent } from './register/register.component';
 import { TasksComponent } from './tasks/tasks.component';
-import { HouseDashboardComponent } from './house-dashboard/house-dashboard.component'
+import { HouseDashboardComponent } from './house-dashboard/house-dashboard.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'tasks', component: TasksComponent},
   {path: 'home', component: HouseDashboardComponent}
+  ,{path: 'me', component: UserEditComponent}
+  ,{path: 'user/:id', component: UserDetailComponent}
 ];
 
 
