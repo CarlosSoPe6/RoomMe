@@ -10,7 +10,8 @@ class RegisterController {
                 req.body.email,
                 req.body.photo,
                 req.body.password,
-                req.body.phone
+                req.body.phone, 
+                req.body.house
             );
             res.send({msg : "Succes!"});
         } catch(err) {

@@ -5,6 +5,7 @@ import { ChatComponent } from './chat/chat.component';
 import { HouseComponent } from './house/house.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { RegisterComponent } from './register/register.component';
+import { TasksComponent } from './tasks/tasks.component'
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'house/register', component: HouseComponent},
   {path: 'house/edit', component: HouseComponent},
   {path: 'shopping', component: ShoppingComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'tasks', component: TasksComponent}
 ];
 
 

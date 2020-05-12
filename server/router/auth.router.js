@@ -11,6 +11,6 @@ router.get('/api/google/redirect', passportGoogle.googleLogin);
 router.get('/api/logout', (req, res) => {
     req.logOut();
     res.send({msg : "Log out"});
-})
+});
 
 module.exports = router;

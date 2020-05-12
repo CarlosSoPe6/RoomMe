@@ -21,7 +21,8 @@ export class RegisterComponent implements OnInit {
       email : form.value.email,
       photo : " ",
       password : form.value.pass,
-      phone : form.value.tel
+      phone : form.value.tel,
+      house : 1
     });
   }
 

@@ -16,6 +16,7 @@ import { HouseServicesComponent } from './house/house-services/house-services.co
 import { HouseUsersComponent } from './house/house-users/house-users.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
 import { RegisterComponent } from './register/register.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RegisterComponent } from './register/register.component';
     HouseServicesComponent,
     HouseUsersComponent,
     HouseDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,
