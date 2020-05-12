@@ -2201,24 +2201,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function TasksComponent_li_15_Template(rf, ctx) { if (rf & 1) {
-    const _r312 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r367 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TasksComponent_li_15_Template_li_click_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r367); const ctx_r366 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r366.checked($event); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TasksComponent_li_15_Template_span_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r312); const task_r310 = ctx.$implicit; const ctx_r311 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r311.removeTask(task_r310.tid); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TasksComponent_li_15_Template_span_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r367); const task_r365 = ctx.$implicit; const ctx_r368 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r368.removeTask(task_r365.tid); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "\u00D7");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const task_r310 = ctx.$implicit;
+    const task_r365 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](task_r310.description);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](task_r365.description);
 } }
 class TasksComponent {
     constructor(taskService) {
         this.taskService = taskService;
         this.taskSubscription = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.newTask = "";
+        this.selected = false;
         this.taskService.taskSubject.subscribe((data) => {
             console.log("Lista de tareas: ", data);
             this.taskList = data;
@@ -2232,9 +2234,19 @@ class TasksComponent {
     addTask() {
         this.taskService.saveTask(this.newTask);
     }
+    checked(ev) {
+        if (ev.target.tagName === 'LI' && !this.selected) {
+            ev.target.classList.add('checked');
+            this.selected = true;
+        }
+        else if (ev.target.tagName === 'LI' && this.selected) {
+            ev.target.classList.remove('checked');
+            this.selected = false;
+        }
+    }
 }
 TasksComponent.ɵfac = function TasksComponent_Factory(t) { return new (t || TasksComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_tasks_service__WEBPACK_IMPORTED_MODULE_2__["TasksService"])); };
-TasksComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TasksComponent, selectors: [["app-tasks"]], decls: 16, vars: 4, consts: [[1, "app-content"], [1, "container"], [1, "row"], [1, "col", "content-box"], [1, "content-box-inner", "header"], ["id", "myDIV"], ["type", "text", "id", "myInput", "placeholder", "Tarea...", 3, "ngModel", "ngModelChange"], ["name", "", "href", "#", "role", "button", 1, "btn", "btn-primary", "addBtn", 3, "routerLink", "click"], [1, "content-box-inner"], ["id", "myUL", 1, "list-group"], ["class", "list-group-item", 4, "ngFor", "ngForOf"], [1, "list-group-item"], [1, "close", 3, "click"]], template: function TasksComponent_Template(rf, ctx) { if (rf & 1) {
+TasksComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TasksComponent, selectors: [["app-tasks"]], decls: 16, vars: 4, consts: [[1, "app-content"], [1, "container"], [1, "row"], [1, "col", "content-box"], [1, "content-box-inner", "header"], ["id", "myDIV"], ["type", "text", "id", "myInput", "placeholder", "Tarea...", 3, "ngModel", "ngModelChange"], ["name", "", "href", "#", "role", "button", 1, "btn", "btn-primary", "addBtn", 3, "routerLink", "click"], [1, "content-box-inner"], ["id", "myUL", 1, "list-group"], ["class", "list-group-item", 3, "click", 4, "ngFor", "ngForOf"], [1, "list-group-item", 3, "click"], [1, "close", 3, "click"]], template: function TasksComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -2325,17 +2337,17 @@ class TasksService {
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].url + '/user/me');
     }
     getTasks(houseId) {
+        console.log("Voy a intentar consultar tareas");
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].url + '/api/tasks/all/house/' + houseId);
     }
     saveTask(desc) {
-        console.log(this.currentUser);
         this.http.post(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].url + '/api/tasks', {
             author: this.currentUser.uid,
             house: this.currentUser.house,
             description: desc
         }).subscribe(data => {
             console.log(data);
-            this.getTasks(this.currentUser.houseId).subscribe((data) => {
+            this.getTasks(this.currentUser.house).subscribe((data) => {
                 console.log("New task list", data);
                 this.tasksList = data;
                 this.taskSubject.next(this.tasksList);
@@ -2349,7 +2361,7 @@ class TasksService {
         this.http.delete(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].url + '/api/tasks', httpOptions).subscribe((data) => {
             console.log(data);
             console.log("Delete current user", this.currentUser);
-            this.getTasks(this.currentUser.houseId).subscribe((data) => {
+            this.getTasks(this.currentUser.house).subscribe((data) => {
                 console.log("New task list", data);
                 this.tasksList = data;
                 this.taskSubject.next(this.tasksList);

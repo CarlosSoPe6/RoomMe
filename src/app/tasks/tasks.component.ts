@@ -13,16 +13,17 @@ export class TasksComponent implements OnInit {
   taskList: Task[];
   taskSubscription = new Subscription();
   newTask = "";
+  selected = false;
 
   constructor(private taskService: TasksService) {
     this.taskService.taskSubject.subscribe((data) => {
       console.log("Lista de tareas: ", data);
       this.taskList = data;
     });
-   }
+  }
 
   ngOnInit(): void {
-    
+
   }
 
   public removeTask(taskId): void {
@@ -31,6 +32,16 @@ export class TasksComponent implements OnInit {
 
   public addTask(): void {
     this.taskService.saveTask(this.newTask);
+  }
+
+  public checked(ev): void {
+    if (ev.target.tagName === 'LI' && !this.selected) {
+      ev.target.classList.add('checked');
+      this.selected = true;
+    } else if (ev.target.tagName === 'LI' && this.selected) {
+      ev.target.classList.remove('checked');
+      this.selected = false;
+    }
   }
 
 }

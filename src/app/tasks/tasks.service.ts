@@ -36,18 +36,18 @@ export class TasksService {
   }
 
   public getTasks(houseId) {
+    console.log("Voy a intentar consultar tareas");
     return this.http.get(environment.url + '/api/tasks/all/house/' + houseId);
   }
 
   public saveTask(desc): void {
-    console.log(this.currentUser);
     this.http.post(environment.url + '/api/tasks', {
       author : this.currentUser.uid,
       house : this.currentUser.house,
       description : desc
     }).subscribe(data => {
       console.log(data);
-      this.getTasks(this.currentUser.houseId).subscribe(
+      this.getTasks(this.currentUser.house).subscribe(
         (data: Task[]) => {
           console.log("New task list", data);
           this.tasksList = data;
@@ -65,7 +65,7 @@ export class TasksService {
       (data) => {
         console.log(data);
         console.log("Delete current user", this.currentUser);
-        this.getTasks(this.currentUser.houseId).subscribe(
+        this.getTasks(this.currentUser.house).subscribe(
           (data: Task[]) => {
             console.log("New task list", data);
             this.tasksList = data;
