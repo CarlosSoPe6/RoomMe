@@ -1,6 +1,7 @@
 'use strict'
 
 const house = require('../model/House');
+const user = require('../model/User');
 const download = require('download');
 const path = require('path');
 const cloudinary = require('cloudinary');
@@ -14,13 +15,13 @@ class HouseControl {
             type: req.body.type,
             description: req.body.description,
             ownerId: req.user.uid,//req.user.id 
-            addressLine: req.body.address,
-            zipCode: req.body.zipcode,
+            addressLine: req.body.addressLine,
+            zipCode: req.body.zipCode,
             city: req.body.city,
             state: req.body.state,
             country: req.body.country,
             cost: req.body.cost,
-            roommatesLimit: req.body.roomlimit,
+            roommatesLimit: req.body.roommatesLimit,
             roommatesCount: 0,
             //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
@@ -29,6 +30,11 @@ class HouseControl {
         }
         try{
             await house.addHouse(newHouse);
+            let house_owner = await house.getHouseByOwner(newHouse.ownerId);
+            await user.updateUser(newHouse.ownerId,
+                {
+                    house: house_owner.hid
+                });
             res.sendStatus(200);
         }
         catch(err){
@@ -55,14 +61,14 @@ class HouseControl {
             type: req.body.type,
             description: req.body.description,
             ownerId: req.user.uid,//req.user.id 
-            addressLine: req.body.address,
-            zipCode: req.body.zipcode,
+            addressLine: req.body.addressLine,
+            zipCode: req.body.zipCode,
             city: req.body.city,
             state: req.body.state,
             country: req.body.country,
             cost: req.body.cost,
-            roommatesLimit: req.body.roomlimit,
-            roommatesCount: req.body.roomCount,
+            roommatesLimit: req.body.roommatesLimit,
+            roommatesCount: 0,
             //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
             foto: req.body.foto,
@@ -83,6 +89,7 @@ class HouseControl {
     async addPhoto(req, res) {
         const result = await cloudinary.v2.uploader.upload(req.file.path);
         let h = await house.getHouseById(req.user.house);
+        console.log(h);
         h.foto = result.url;
         house.updateHouse(h);
         res.sendStatus(200);
@@ -91,7 +98,7 @@ class HouseControl {
     async getHousePhoto(req, res) {
         let h = await house.getHouseById(req.user.house);
         await download(h.foto,path.join(__dirname, '../temp/' ));
-        res.sendFile(path.join(__dirname, '../temp/' + req.params.photo));
+        res.sendFile(path.join(__dirname, '../temp/' + path.basename(h.foto)));
     }
 }
 
