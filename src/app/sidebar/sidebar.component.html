@@ -1,0 +1,66 @@
+<aside [className]="'app-sidebar app-sidebar-closed'" [class.app-sidebar-open]="sidebarCollapsed" [class.app-sidebar-closed]="!sidebarCollapsed">
+    <div class="app-sidebar-inner">
+        <div class="app-sidebar-header">
+            <div class="app-sidebar-header-brand text-center">
+                <span class="align-middle">RoomMe </span>
+            </div>
+            <div class="app-sidebar-action-btn">
+                <a id="sidebar-btn" class="text-white" (click)="sidebarToggle()">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div class="app-sidebar-body">
+            <ul>
+                <li>
+                    <div class="app-sidebar-action-btn">
+                        <a href="./dashboard.html" id="">
+                            <i class="fas fa-th"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="app-sidebar-action-btn">
+                        <a href="#" id="">
+                            <i class="fas fa-home"></i>
+                            <span>Lista de casas</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="app-sidebar-action-btn">
+                        <a href="/tasks" id="">
+                            <i class="fas fa-tasks"></i>
+                            <span>Lista de tareas</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="app-sidebar-action-btn">
+                        <a href="#" id="">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span>Lista de compras</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="app-sidebar-action-btn">
+                        <a routerLink="/me" id="">
+                            <i class="fas fa-user"></i>
+                            <span>Usuario</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="app-sidebar-action-btn">
+                        <a routerLink="/polls" id="">
+                            <i class="fas fa-tasks"></i>
+                            <span>Encuestas</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>

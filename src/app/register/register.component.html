@@ -1,0 +1,46 @@
+<div class="main">
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Registrarse</h2>
+                    <form #f="ngForm" class="register-form" id="register-form" (ngSubmit)="submit(f)">
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="name" id="name" placeholder="Nombre" ngModel required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-odnoklassniki material-icons-name"></i></label>
+                            <input type="text" name="lastName" id="last" placeholder="Apellidos" ngModel required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" name="email" id="email" placeholder="Email" ngModel required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-phone"></i></label>
+                            <input type="tel" name="tel" id="tel" placeholder="Telefono" ngModel />
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="pass" id="pass" placeholder="Contraseña" ngModel required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>He leído y acepto los <a href="#" class="term-service">términos y condiciones de uso</a></label>
+                        </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Registrar"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="assets/img/signup-image.jpg" alt="sing up image"></figure>
+                    <a href="/login" class="signup-image-link">Ya cuento con un usuario</a>
+                    <span class="signup-image-link">O inicia sesión con
+                    <a href="/api/google/login" role="button"><i class="fab fa-google    "></i></a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
