@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.logged.subscribe((val) => {
-      console.log(`De log ${this.logged} a ${val}`)
-      this.logged = val;});
+      console.log(`De log ${this.logged} a ${val}`);
+      this.logged = val; });
   }
 
   logout() {

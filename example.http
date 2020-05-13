@@ -30,8 +30,10 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/house
+GET http://localhost:3000/jojoj
 
+###
+GET http://localhost:3000/user/10000/image
 ###
 
 PUT http://localhost:3000/house
