@@ -1,8 +1,9 @@
+{{validar()}}
 <div class="app-content">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 content-box" *ngIf="mode === '/house/edit'">
-                <app-house-detail ></app-house-detail>
+                <app-house-detail [house] = "house"></app-house-detail>
             </div>
 
                 <div class="col-lg-6 content-box">
@@ -32,10 +33,10 @@
                                     <div class="col-sm-10">
                                         <div class="input-group mb-2">
                                             <select class="custom-select" id="inputGroupSelect01" name = "type" [(ngModel)]="house.type" required>
-                                                <option selected>Casa-Habitación</option>
-                                                <option value="1">Departamento</option>
-                                                <option value="2">Hostel</option>
-                                                <option value="3">Otro</option>
+                                                <option value="Casa-Habitación">Casa-Habitación</option>
+                                                <option value="Departamento">Departamento</option>
+                                                <option value="Hostel">Hostel</option>
+                                                <option value="Otro">Otro</option>
                                               </select>
                                         </div>
                                     </div>
@@ -47,7 +48,7 @@
                                             <div class="input-group-text"><i class="fa fa-map" aria-hidden="true"></i>
                                             </div>
 
-                                        <input type="text" class="form-control" id="in-nombre" value="" name="direction" [(ngModel)]="house.direction"
+                                        <input type="text" class="form-control" id="in-nombre" value="" name="direction" [(ngModel)]="house.addressLine"
                                             placeholder="Dirección" required>
                                         </div>
                                     </div>
@@ -55,7 +56,7 @@
                                 <div class="form-group row">
                                     <label for="in-apellido" class="col-sm-2 col-form-label">Código Postal</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="in-apellido" value="" name="zipcode" [(ngModel)]="house.zipcode"
+                                        <input type="text" class="form-control" id="in-apellido" value="" name="zipcode" [(ngModel)]="house.zipCode"
                                             placeholder="Código Postal" required>
                                     </div>
                                 </div>
@@ -83,10 +84,10 @@
                                     <div class="col-sm-10">
                                         <div class="input-group mb-2">
                                             <select class="custom-select" id="inputGroupSelect01" name="country" [(ngModel)]="house.country" required>
-                                                <option selected>Mexico</option>
-                                                <option value="1">USA</option>
-                                                <option value="2">Canada</option>
-                                                <option value="3">Otro</option>
+                                                <option value="Mexico">Mexico</option>
+                                                <option value="USA">USA</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="Otro">Otro</option>
                                               </select>
                                         </div>
                                     </div>
@@ -120,7 +121,7 @@
                                             <div class="input-group-text"><i class="fas fa-people-carry    "></i>
                                             </div>
 
-                                        <input type="number" class="form-control" id="in-nombre" value="" name="max" [(ngModel)]="house.cap"
+                                        <input type="number" class="form-control" id="in-nombre" value="" name="max" [(ngModel)]="house.roommatesLimit"
                                             placeholder="1" min="1">
                                         </div>
                                     </div>

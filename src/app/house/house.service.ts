@@ -26,7 +26,9 @@ export class HouseService {
   }
 
   getHouse(): House {
-    return JSON.parse(JSON.stringify(this.house));
+    console.log(this.house);
+    return this.house;
+    // return JSON.parse(JSON.stringify(this.house));
   }
 
   addHouse(newHouse) {

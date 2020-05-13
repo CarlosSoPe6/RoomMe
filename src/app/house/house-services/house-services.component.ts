@@ -18,29 +18,28 @@ export class HouseServicesComponent implements OnInit {
   selected: number;
 
   constructor(private serviceService: ServicesService) {
-
    }
 
   ngOnInit(): void {
-    this.services = this.serviceService.getServices();
+    this.serviceService.getServicesId(this.houseServicesId);
     this.serviceService.servicesSubject.subscribe(
       (data) => {
         this.services = data;
+        this.serviceService.getServicesId(this.houseServicesId);
       });
     this.serviceService.houseServiceSubject.subscribe(
       (data) => {
+        console.log(data);
         this.houseServices = data;
       }
     );
-    console.log(this.houseServicesId);
-    this.serviceService.getServicesId(this.houseServicesId);
   }
 
   addService() {
-    console.log(this.houseServices);
     this.houseServicesId.push(Number(this.selected));
     this.serviceService.getServicesId(this.houseServicesId);
     this.updateIds.emit(this.houseServicesId);
+    console.log(this.houseServices);
   }
 
   removeService(removeS) {

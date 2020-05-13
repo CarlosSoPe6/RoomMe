@@ -15,13 +15,13 @@ class HouseControl {
             type: req.body.type,
             description: req.body.description,
             ownerId: req.user.uid,//req.user.id 
-            addressLine: req.body.address,
-            zipCode: req.body.zipcode,
+            addressLine: req.body.addressLine,
+            zipCode: req.body.zipCode,
             city: req.body.city,
             state: req.body.state,
             country: req.body.country,
             cost: req.body.cost,
-            roommatesLimit: req.body.cap,
+            roommatesLimit: req.body.roommatesLimit,
             roommatesCount: 0,
             //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
@@ -61,14 +61,14 @@ class HouseControl {
             type: req.body.type,
             description: req.body.description,
             ownerId: req.user.uid,//req.user.id 
-            addressLine: req.body.address,
-            zipCode: req.body.zipcode,
+            addressLine: req.body.addressLine,
+            zipCode: req.body.zipCode,
             city: req.body.city,
             state: req.body.state,
             country: req.body.country,
             cost: req.body.cost,
-            roommatesLimit: req.body.roomlimit,
-            roommatesCount: req.body.roomCount,
+            roommatesLimit: req.body.roommatesLimit,
+            roommatesCount: 0,
             //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
             foto: req.body.foto,
@@ -98,7 +98,7 @@ class HouseControl {
     async getHousePhoto(req, res) {
         let h = await house.getHouseById(req.user.house);
         await download(h.foto,path.join(__dirname, '../temp/' ));
-        res.sendFile(path.join(__dirname, '../temp/' + req.params.photo));
+        res.sendFile(path.join(__dirname, '../temp/' + path.basename(h.foto)));
     }
 }
 

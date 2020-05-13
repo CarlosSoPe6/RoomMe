@@ -38,9 +38,8 @@ export class ServicesService {
    }
 
    getServicesId(servicesId: Array<number>) {
-     console.log(typeof(servicesId[0]));
-     console.log(this.services.filter((item) => servicesId.includes(item.sid)))
-     this.houseServiceSubject.next(this.services.filter((item) => servicesId.includes(item.sid)));
+    const s = servicesId.map((item) => Number(item));
+    this.houseServiceSubject.next(this.services.filter((item) => s.includes(item.sid)));
    }
 
 
