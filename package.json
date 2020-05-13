@@ -4,7 +4,7 @@
   "description": "MEAN stack",
   "scripts": {
     "ng": "ng",
-    "start": "npm run build && node ./server/server.js",
+    "start": "node ./server/server.js",
     "build": "ng build",
     "test": "jest",
     "lint": "ng lint",
