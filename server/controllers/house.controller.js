@@ -11,16 +11,18 @@ class HouseControl {
 
         let newHouse = {
             title: req.body.title,
+            type: req.body.type,
             description: req.body.description,
             ownerId: req.user.uid,//req.user.id 
             addressLine: req.body.address,
             zipCode: req.body.zipcode,
-            cityId: req.body.city,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
             cost: req.body.cost,
-            paymentday: req.body.paymentday,
             roommatesLimit: req.body.roomlimit,
-            roommatesCount: req.body.roomcount,
-            calendarURL: req.body.calendar,
+            roommatesCount: 0,
+            //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
             foto: req.body.foto,
             services: req.body.services
@@ -50,16 +52,18 @@ class HouseControl {
         let newHouse = {
             hid: req.body.hid,
             title: req.body.title,
+            type: req.body.type,
             description: req.body.description,
-            ownerId: req.user.uid,//Change later to req.user 
+            ownerId: req.user.uid,//req.user.id 
             addressLine: req.body.address,
             zipCode: req.body.zipcode,
-            cityId: req.body.city,
+            city: req.body.city,
+            state: req.body.state,
+            country: req.body.country,
             cost: req.body.cost,
-            paymentday: req.body.paymentday,
             roommatesLimit: req.body.roomlimit,
-            roommatesCount: req.body.roomcount,
-            calendarURL: req.body.calendar,
+            roommatesCount: req.body.roomCount,
+            //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
             foto: req.body.foto,
             services: req.body.services

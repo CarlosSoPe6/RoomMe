@@ -23,6 +23,10 @@ class House extends DBClient {
                 type: String,
                 required: true 
             },
+            type: {
+                type: String,
+                required: true
+            },
             description: {
                 type: String
             },
@@ -36,8 +40,14 @@ class House extends DBClient {
             zipCode: {
                 type: String
             },
-            cityId: {
-                type: Number
+            city: {
+                type: String
+            },
+            state: {
+                type: String
+            },
+            country: {
+                type: String
             },
             cost: {
                 type: Number

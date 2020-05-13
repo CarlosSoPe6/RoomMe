@@ -1,0 +1,173 @@
+<div class="app-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 content-box" *ngIf="mode === '/house/edit'">
+                <app-house-detail ></app-house-detail>
+            </div>
+
+                <div class="col-lg-6 content-box">
+                <div class="content-box-inner">
+                    <form #f = "ngForm" (ngSubmit) = "submit(f)">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div><strong>Datos generales </strong>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Nombre</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-home" aria-hidden="true"></i>
+                                            </div>
+
+                                        <input type="text" class="form-control" id="in-nombre" value="" name = "title"
+                                            placeholder="Nombre de la casa" required [(ngModel)]="house.title">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="in-username">Tipo de casa</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-2">
+                                            <select class="custom-select" id="inputGroupSelect01" name = "type" [(ngModel)]="house.type" required>
+                                                <option selected>Casa-Habitación</option>
+                                                <option value="1">Departamento</option>
+                                                <option value="2">Hostel</option>
+                                                <option value="3">Otro</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Dirección</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-map" aria-hidden="true"></i>
+                                            </div>
+
+                                        <input type="text" class="form-control" id="in-nombre" value="" name="direction" [(ngModel)]="house.direction"
+                                            placeholder="Dirección" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-apellido" class="col-sm-2 col-form-label">Código Postal</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="in-apellido" value="" name="zipcode" [(ngModel)]="house.zipcode"
+                                            placeholder="Código Postal" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="in-phone">Ciudad</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-2">
+
+                                            <input type="text" class="form-control" id="in-phone" name="city" [(ngModel)]="house.city"
+                                                placeholder="Ciudad" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="in-username">Estado</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" id="in-username" name="state" [(ngModel)]="house.state"
+                                                placeholder="Estado" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="in-username">País</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-2">
+                                            <select class="custom-select" id="inputGroupSelect01" name="country" [(ngModel)]="house.country" required>
+                                                <option selected>Mexico</option>
+                                                <option value="1">USA</option>
+                                                <option value="2">Canada</option>
+                                                <option value="3">Otro</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div><strong>Especificaciones de la casa </strong>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Costo mensual</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i>
+                                            </div>
+
+                                        <input type="number" class="form-control" id="in-nombre" value="" name="cost" [(ngModel)]="house.cost"
+                                            placeholder="0" min="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label" >Capacidad Máxima</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fas fa-people-carry    "></i>
+                                            </div>
+
+                                        <input type="number" class="form-control" id="in-nombre" value="" name="max" [(ngModel)]="house.cap"
+                                            placeholder="1" min="1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Descripción</label>
+                                    <div class="col-sm-10">
+
+                                        <textarea class="form-control" name="des" id="" rows="3" [(ngModel)]="house.description"></textarea>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="">Foto</label>
+                                  <input type="file" class="form-control-file" name="" id="" placeholder="" aria-describedby="fileHelpId">
+                                  <small id="fileHelpId" class="form-text text-muted">Help text</small>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Lista de Reproducción</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fab fa-spotify    "></i>
+                                            </div>
+
+                                        <input type="text" class="form-control" id="in-nombre" value=""
+                                            placeholder="URL">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div>
+                                <input type="submit" class="btn btn-primary"  value="Guardar" [disabled]="!validar() || f.invalid">
+                                <a name="" id="" class="btn btn-secondary" href="#" role="button" [routerLink] = "['/']">Descartar</a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </form>
+                </div>
+                </div>
+
+            <div class="col-lg-4 content-box" *ngIf="mode === '/house/register'">
+                <app-house-services [houseServicesId] = "house.services" (updateIds) = "uodateServiceHouse($event)"></app-house-services>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.mini-img-usr {
+    height: 100%;
+    width: 18%;
+}
+
+#user-header {
+    display: flex;
+}
+
+#user-header>div {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+#user-header img {
+    border-radius: 5px;
+}
