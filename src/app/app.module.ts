@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,9 @@ import { RegisterComponent } from './register/register.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { HouseDashboardComponent } from './house-dashboard/house-dashboard.component';
 import { PollComponent } from './poll/poll/poll.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RecievedComponent } from './chat/recieved/recieved.component';
+import { SendComponent } from './chat/send/send.component';
 
 
 @NgModule({
@@ -47,7 +50,9 @@ import { PollComponent } from './poll/poll/poll.component';
     RegisterComponent,
     TasksComponent,
     HouseDashboardComponent,
-    PollComponent
+    PollComponent,
+    RecievedComponent,
+    SendComponent
   ],
   imports: [
     BrowserModule,
