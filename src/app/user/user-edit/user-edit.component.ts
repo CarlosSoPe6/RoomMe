@@ -3,6 +3,7 @@ import { UserServiceService } from '../user-service.service';
 import { Subscription } from 'rxjs';
 import { User } from '../User';
 import { Contact } from '../Contact';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-edit',
@@ -18,6 +19,7 @@ export class UserEditComponent implements OnInit {
   username = '';
   email = '';
   phone = '';
+  photo = '';
   emergencyContacts = [];
 
   // Contact input
@@ -38,6 +40,7 @@ export class UserEditComponent implements OnInit {
     this.lastName = this.user.lastName;
     this.email = this.user.email;
     this.phone = this.user.phone;
+    this.photo = this.user.photo;
   }
 
   onContactsChange(data: Contact[]) {
@@ -61,7 +64,17 @@ export class UserEditComponent implements OnInit {
   }
 
   onNewContact() {
+    this.showInput = true;
+  }
 
+  saveContact(form: NgForm) {
+    this.showInput = false;
+    console.log(form);
+    const name = form.value.name;
+    const lastName = form.value.lastName;
+    const email = form.value.email;
+    const phone = form.value.phone;
+    this.userService.newContact(name, lastName, email, phone, this.user.uid);
   }
 
 }

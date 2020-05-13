@@ -49,7 +49,7 @@ export class UserServiceService {
   }
 
   loadContacts() {
-    this.http.get(environment.url + '/contacts').subscribe((data: Contact[]) => {
+    this.http.get(environment.url + '/contact').subscribe((data: Contact[]) => {
       this.contacts = data;
       this.contactSubject.next(this.getContacts());
     }, (err: any) => {
@@ -80,6 +80,7 @@ export class UserServiceService {
       phone
     }).subscribe((data: Contact) => {
       this.contacts.push(data);
+      this.contactSubject.next(this.getContacts());
     }, err => {
       console.error(err);
     });

@@ -37,7 +37,8 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: [config.cookieKey]  
+    keys: [config.cookieKey],
+    secure: false
 }));
 
 app.use(passport.initialize());

@@ -23,6 +23,7 @@ import { HouseDetailComponent } from './house/house-detail/house-detail.componen
 import { RegisterComponent } from './register/register.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { HouseDashboardComponent } from './house-dashboard/house-dashboard.component';
+import { PollComponent } from './poll/poll/poll.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { HouseDashboardComponent } from './house-dashboard/house-dashboard.compo
     HouseDetailComponent,
     RegisterComponent,
     TasksComponent,
-    HouseDashboardComponent
+    HouseDashboardComponent,
+    PollComponent
   ],
   imports: [
     BrowserModule,

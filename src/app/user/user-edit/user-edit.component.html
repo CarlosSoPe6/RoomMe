@@ -4,17 +4,14 @@
             <div class="content-box-inner">
                 <div id="user-header">
                     <div id="user-header-image-warper">
-                        <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="">
+                        <img src="{{photo}}" alt="">
                     </div>
                     <div id="user-header-name-waprer">
-                        <h4>Pedro Páramo</h4>
-                        <p>Personaje de realismo mágico</p>
+                        <h4>{{name}} {{lastName}}</h4>
                     </div>
                 </div>
                 <div>
-                    <span><strong>Correo: </strong>pedro.paramo@llanoenllamas.mx</span>
-                    <br>
-                    <span><strong>Localización: </strong>Comala, Colima</span>
+                    <span><strong>Correo: </strong>{{email}}</span>
                 </div>
             </div>
         </div>
@@ -42,20 +39,6 @@
                                 </div>
                             </div>
                             <strong>Información de contacto:</strong>
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" for="in-username">Username</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="fas fa-at"></i>
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" id="in-username" placeholder="Username"
-                                            required [(ngModel)]="username" disabled>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label" for="in-email">Correo</label>
                                 <div class="col-sm-10">
@@ -87,8 +70,10 @@
                     </li>
                     <li class="list-group-item">
                         <div>
-                            <a name="" id="" class="btn btn-success" href="#" role="button" (click)="onSaveChanges()">Guardar</a>
-                            <a name="" id="" class="btn btn-secondary" href="#" role="button" (click)="onDiscarChanges()">Descartar</a>
+                            <a name="" id="" class="btn btn-success" href="#" role="button"
+                                (click)="onSaveChanges()">Guardar</a>
+                            <a name="" id="" class="btn btn-secondary" href="#" role="button"
+                                (click)="onDiscarChanges()">Descartar</a>
                         </div>
                     </li>
                 </ul>
@@ -106,17 +91,50 @@
                         <div *ngFor="let contact of emergencyContacts">
                             <strong>{{contact.name}} {{contact.lastName}}</strong>
                             <br>
-                            <span>{{contact.email}}</span>
+                            <span>{{contact.email || ''}}</span>
                             <br>
-                            <small>{{contact.phone}}</small>
+                            <small>{{contact.phone || ''}}</small>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div *ngIf="!showInput">
-                            <button type="button" name="new-contact" id="new-contact" class="btn btn-primary" (click)="onNewContact()">Nuevo</button>
+                            <button type="button" name="new-contact" id="new-contact" class="btn btn-primary"
+                                (click)="onNewContact()">Nuevo</button>
                         </div>
                         <div *ngIf="showInput">
-                            Input
+                            <form #f="ngForm" (ngSubmit)="saveContact(f)">
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Nombre</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="contact-nombre" required
+                                            placeholder="Nombre" ngModel name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Apellido</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="contact-lastname" required
+                                            placeholder="Apellido" ngModel name="lastName">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Correo</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="contact-email" required
+                                            placeholder="Correo" ngModel name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="in-nombre" class="col-sm-2 col-form-label">Teléfono</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="contact-phone" required
+                                            placeholder="Teléfono" ngModel name="phone">
+                                    </div>
+                                </div>
+                                <div class="form-group form-button">
+                                    <input type="submit" name="save" id="save" class="form-submit" value="Guardar" />
+                                  </div>
+                            </form>
                         </div>
                     </li>
                 </ul>
