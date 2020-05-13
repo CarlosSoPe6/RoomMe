@@ -21,8 +21,7 @@ const routes: Routes = [
   {path: 'tasks', component: TasksComponent},
   {path: 'home', component: HouseDashboardComponent}
   ,{path: 'me', component: UserEditComponent}
-  ,{path: 'user/:id', component: UserDetailComponent}
-  ,{path: 'poll', }
+  ,{path: 'usr/:id', component: UserDetailComponent}
 ];
 
 

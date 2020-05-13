@@ -19,7 +19,6 @@ export class UserServiceService {
     this.userSubject = new Subject<User>();
     this.contactSubject = new Subject<Contact[]>();
     this.loadUser();
-    this.loadContacts();
   }
 
   getUser() {
@@ -43,13 +42,15 @@ export class UserServiceService {
     this.http.get(environment.url + '/user/me').subscribe((data: User) => {
       this.user = data;
       this.userSubject.next(this.getUser());
+      this.loadContacts();
     }, (err: any) => {
       console.error(err);
     });
   }
 
   loadContacts() {
-    this.http.get(environment.url + '/contact').subscribe((data: Contact[]) => {
+    const id = this.user.uid;
+    this.http.get(environment.url + '/user/' + id + '/contacts').subscribe((data: Contact[]) => {
       this.contacts = data;
       this.contactSubject.next(this.getContacts());
     }, (err: any) => {
@@ -87,8 +88,15 @@ export class UserServiceService {
   }
 
   updateContact(id, name, lastName, email, phone) {
-
+    this.http.patch(environment.url + '/contact/' + id, {
+      name,
+      lastName,
+      phone,
+      email
+    }).subscribe((data: Contact) => {
+      this.loadContacts();
+    }, err => {
+      console.error(err);
+    });
   }
-
-  deleteContact(id) {}
 }

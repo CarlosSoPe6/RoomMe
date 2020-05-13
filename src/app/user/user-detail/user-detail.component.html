@@ -1,1 +1,95 @@
-<p>user-detail works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 content-box">
+            <div class="content-box-inner">
+                <div id="user-header">
+                    <div id="user-header-image-warper">
+                        <img src="{{photo}}" alt="">
+                    </div>
+                    <div id="user-header-name-waprer">
+                        <h4>{{name}} {{lastName}}</h4>
+                    </div>
+                </div>
+                <div>
+                    <span><strong>Correo: </strong>{{email}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 content-box">
+            <div class="content-box-inner">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div><strong>Información personal</strong> Actualiza tu información visible a otros usaurios.
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div>
+                            <div class="form-group row">
+                                <label for="in-nombre" class="col-sm-2 col-form-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="in-nombre" placeholder="Nombre"
+                                        [(ngModel)]="name" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="in-apellido" class="col-sm-2 col-form-label">Apellido</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="in-apellido" disabled
+                                        placeholder="Apellido" [(ngModel)]="lastName">
+                                </div>
+                            </div>
+                            <strong>Información de contacto:</strong>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="in-email">Correo</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="far fa-envelope"></i>
+                                            </div>
+                                        </div>
+                                        <input type="email" class="form-control" id="in-email" placeholder="Correo"
+                                        disabled [(ngModel)]="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="in-phone">Teléfono</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <input type="tel" class="form-control" id="in-phone" placeholder="Teléfono"
+                                        disabled [(ngModel)]="phone">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="offset-lg-4 col-lg-8 content-box">
+            <div class="content-box-inner">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div>
+                            <strong>Información de Emergencia</strong> Actualiza tu información de emergencia.
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div *ngFor="let contact of emergencyContacts">
+                            <strong>{{contact.name}} {{contact.lastName}}</strong>
+                            <br>
+                            <span>{{contact.email || ''}}</span>
+                            <br>
+                            <small>{{contact.phone || ''}}</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
