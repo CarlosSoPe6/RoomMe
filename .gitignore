@@ -52,3 +52,5 @@ Thumbs.db
 /server/router/google-config.js
 
 # Angular buils
+
+/server/temp

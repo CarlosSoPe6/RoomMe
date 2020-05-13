@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./server/server.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -36,6 +36,7 @@
     "mongoose-sequence": "^5.2.2",
     "multer": "^1.4.2",
     "ngx-bootstrap": "^5.6.1",
+    "ngx-socket-io": "^3.0.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",

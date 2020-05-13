@@ -8114,7 +8114,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var environment = {
       production: false,
-      url: 'http://localhost:3000'
+      url: 'https://room-me-app.herokuapp.com/'
     };
     /*
      * For easier debugging in development mode, you can import the following file
