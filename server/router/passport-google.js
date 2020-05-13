@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 passport.use(new GoogleStrategy({
     clientID: googleConfig.clientID,
     clientSecret: googleConfig.clientSecret,
-    callbackURL: 'http://localhost:3000/auth/google/redirect'
+    callbackURL: 'https://room-me-app.herokuapp.com/auth/google/redirect'
 }, async function(accessToken, refreshToken, profile, done) {
     if(profile == null) {
         done(null, false, {error: "No fie posible autenticarse"});
