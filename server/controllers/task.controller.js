@@ -9,10 +9,10 @@ class TaskController {
             creationDate : Date.now(),
             complete : false
         }
-
+        console.log(newTask);
         try {
             await Task.addTask(newTask);
-            res.sendStatus(200);
+            res.status(200).send({msg : "Guardado exitoso."});
         } catch(err) {
             console.log(err);
             res.status(400).send({
@@ -66,7 +66,7 @@ class TaskController {
         
         try {
             await Task.deleteTask(taskId);
-            res.sendStatus(200);
+            res.status(200).send({msg : "Eliminado correctamente"});
         } catch(err) {
             console.log(err);
             res.status(400).send({
