@@ -12,6 +12,8 @@ if (process.env.NODE_ENV != 'production')
         dbCloud: process.env.DB_CLOUD, 
         cloud_Key: process.env.DB_KEY,
         cloud_Secret: process.env.DB_SECRET,
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         get dbUrl() {
             return `mongodb+srv://${this.dbUser}:${this.dbPassword}@${this.dbCluster}.mongodb.net/${this.dbName}?retryWrites=true&w=majority`
         },
