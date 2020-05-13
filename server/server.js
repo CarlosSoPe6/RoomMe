@@ -65,7 +65,7 @@ io.on('connection', function(socket){
 
 app.get('*', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 
-http.listen(3000, ()=> console.log("Server running!"));
+http.listen(process.env.PORT || 3000, ()=> console.log("Server running!"));
 
 module.exports = app;
 

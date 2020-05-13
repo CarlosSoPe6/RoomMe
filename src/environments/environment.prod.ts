@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: ''
+  url: 'https://room-me-app.herokuapp.com/'
 };
