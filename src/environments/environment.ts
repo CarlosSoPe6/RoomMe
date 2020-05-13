@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://room-me-app.herokuapp.com/'
+  url: 'http://localhost:3000'
 };
 
 /*
