@@ -3,6 +3,8 @@
 const UserModel = require('./../model/User');
 const ContactModel = require('./../model/Contact');
 const cloudinary = require('cloudinary');
+const download = require('download');
+const path = require('path');
 
 class UserController {
     constructor() {
@@ -115,10 +117,21 @@ class UserController {
 
     async updateUserHouse(req, res) {
         let id = req.user.uid;
-        let house = req.body.house;
         let doc = await UserModel.updateUser(id,
         {
-            house
+            house: req.body.house
+        });
+        // Convert result to JSON
+        doc = JSON.parse(JSON.stringify(doc));
+        console.log(doc);
+        res.json(doc);
+    }
+
+    async updateUsersHouse(req, res) {
+        let id = req.body.uid;
+        let doc = await UserModel.updateUser(id,
+        {
+            house: req.body.house
         });
         // Convert result to JSON
         doc = JSON.parse(JSON.stringify(doc));
@@ -142,6 +155,14 @@ class UserController {
         doc = JSON.parse(JSON.stringify(doc));
         console.log(doc);
         res.json(doc);
+    }
+
+    async getImage(req, res) {
+        let u = await UserModel.getSingleUser({'uid': req.params.id});
+        console.log("El usuario es: ");
+        console.log(u);
+        await download(u.photo,path.join(__dirname, '../temp/' ));
+        res.sendFile(path.join(__dirname, '../temp/' + path.basename(u.photo)));
     }
 }
 

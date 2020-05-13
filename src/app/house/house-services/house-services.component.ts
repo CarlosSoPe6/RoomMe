@@ -18,31 +18,32 @@ export class HouseServicesComponent implements OnInit {
   selected: number;
 
   constructor(private serviceService: ServicesService) {
-    this.services = this.serviceService.getServices();
-    this.serviceService.servicesSubject.subscribe(
-      (data) => {
-        this.services = data;
-      });
-    this.serviceService.houseServiceSubject.subscribe(
-      (data) => {
-        this.houseServices = data;
-      }
-    );
-    this.serviceService.getServicesId(this.houseServicesId);
-
    }
 
   ngOnInit(): void {
+    this.serviceService.getServicesId(this.houseServicesId);
+    this.serviceService.servicesSubject.subscribe(
+      (data) => {
+        this.services = data;
+        this.serviceService.getServicesId(this.houseServicesId);
+      });
+    this.serviceService.houseServiceSubject.subscribe(
+      (data) => {
+        console.log(data);
+        this.houseServices = data;
+      }
+    );
   }
 
   addService() {
-    this.houseServicesId.push(this.selected);
+    this.houseServicesId.push(Number(this.selected));
     this.serviceService.getServicesId(this.houseServicesId);
     this.updateIds.emit(this.houseServicesId);
+    console.log(this.houseServices);
   }
 
   removeService(removeS) {
-    const index = this.houseServicesId.findIndex(removeS);
+    const index = this.houseServicesId.findIndex((item) => item === removeS);
     this.houseServicesId.splice(index, 1);
     this.serviceService.getServicesId(this.houseServicesId);
     this.updateIds.emit(this.houseServicesId);

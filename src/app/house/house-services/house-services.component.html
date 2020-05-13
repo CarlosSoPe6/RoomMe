@@ -1,4 +1,6 @@
 <div>
+    
+
     <ul class="list-group">
         <li class="list-group-item active">Servicios</li>
         <li class="list-group-item" *ngFor="let hs of houseServices;">{{hs.name}}
@@ -7,7 +9,7 @@
         <li class="list-group-item">
             <div class="input-group mb-2">   
                 <select class="custom-select" id="inputGroupSelect04" [(ngModel)] = "selected">
-                    <option *ngFor="let s of services; let i = index" value="{s.sid}">s.name</option>
+                    <option *ngFor="let s of services; let i = index" value={{s.sid}}>{{s.name}}</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-success" type="button" (click)="addService()">Añadir</button>
