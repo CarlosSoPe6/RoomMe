@@ -1,6 +1,6 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const googleConfig = require('./google-config');
+const googleConfig = require('../../config/config');
 const User = require('../model/User');
 const jwt = require('jsonwebtoken');
 
