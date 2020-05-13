@@ -26,14 +26,14 @@ function login(req, res) {
         if(err) {
             res.send(401);
         }
-        console.log(user);
+        console.log("Logueando a: ", user);
         if(user) {
             let token = jwt.sign({email : user.email}, 'secret', {expiresIn: '1h'});
             req.logIn(user, function(err) {
                 if (err) { 
                     return next(err); 
                 }
-                res.send({token})
+                res.send({token});
               });
         } else {
             res.status(401).send(info);
@@ -47,7 +47,7 @@ passport.serializeUser((usr, done) => {
 
 passport.deserializeUser(async (email,done) => {
     let usr = await User.getSingleUser({email});
-    console.log(usr);
+    console.log("deserializando a: ", usr);
     done(null,usr);
 });
 

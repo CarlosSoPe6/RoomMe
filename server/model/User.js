@@ -132,14 +132,15 @@ class User extends DBClient {
         return await super.queryOne(query, this._listProjection, {});
     }
 
-    async createSelfUser(name, lastName, email, photo, passwordHash, phone) {
+    async createSelfUser(name, lastName, email, photo, passwordHash, phone, house) {
         let record = new this._model({
             name,
             lastName,
             email,
             photo,
             passwordHash,
-            phone
+            phone,
+            house
         });
         return await super.add(record);
     }

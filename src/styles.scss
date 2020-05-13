@@ -7,3 +7,22 @@
     padding-bottom: 20px;
     padding-top: 10px;
 }
+
+.content-box {
+    padding-bottom: 20px;
+}
+
+
+.content-box-inner {
+    
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+}
+
+.content-box-inner > div:not(.full-box) {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
