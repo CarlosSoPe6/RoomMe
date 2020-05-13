@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class HouseUserService {
    }
 
    loadUsers() {
-     this.http.get('http://localhost:3000/user').subscribe(
+     this.http.get(environment.url + '/user').subscribe(
        (data) => {
          this.users = data;
          this.userSubject.next(this.getUsers());
@@ -56,7 +57,7 @@ export class HouseUserService {
 
    updateUserHouse(houseId) {
      this.removedUsers.forEach((item) => {
-      this.http.put('http://localhost:3000/user/houses', {uid : item.uid, house : -1}).subscribe(
+      this.http.put(environment.url + '/user/houses', {uid : item.uid, house : -1}).subscribe(
         (data) => {
           console.log(data);
         }, (err) => {
@@ -65,7 +66,7 @@ export class HouseUserService {
       );
      });
      this.houseUsers.forEach((item) => {
-      this.http.put('http://localhost:3000/user/houses', {uid : item.uid, house : houseId}).subscribe(
+      this.http.put(environment.url + '/user/houses', {uid : item.uid, house : houseId}).subscribe(
         (data) => {
           console.log(data);
         }, (err) => {

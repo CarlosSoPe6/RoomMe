@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Service } from './Service';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class ServicesService {
 
    loadServices() {
 
-    this.http.get('http://localhost:3000/service').subscribe(
+    this.http.get(environment.url + '/service').subscribe(
       (data: Service[]) => {
         console.log(data);
         this.services = data,

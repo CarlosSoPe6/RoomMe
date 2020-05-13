@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject, Observable } from 'rxjs';
 import { House } from './House';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class HouseService {
   }
 
   loadHouse() {
-    this.http.get('http://localhost:3000/house').subscribe(
+    this.http.get(environment.url + '/house').subscribe(
       (data) => {
         this.house = data;
         console.log(data);
@@ -32,7 +33,7 @@ export class HouseService {
   }
 
   addHouse(newHouse) {
-    this.http.post('http://localhost:3000/house', newHouse).subscribe(
+    this.http.post(environment.url + '/house', newHouse).subscribe(
       (data) => {
         console.log(data);
       },
@@ -49,7 +50,7 @@ export class HouseService {
   }
 
   editHouse(newHouse) {
-    this.http.put('http://localhost:3000/house', newHouse).subscribe(
+    this.http.put(environment.url + '/house', newHouse).subscribe(
       (data) => {
         console.log(data);
         // maybe load or houseSubject

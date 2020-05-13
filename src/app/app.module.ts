@@ -16,6 +16,8 @@ import { HouseServicesComponent } from './house/house-services/house-services.co
 import { HouseUsersComponent } from './house/house-users/house-users.component';
 import { HouseDetailComponent } from './house/house-detail/house-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RecievedComponent } from './chat/recieved/recieved.component';
+import { SendComponent } from './chat/send/send.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     ShoppingComponent,
     HouseServicesComponent,
     HouseUsersComponent,
-    HouseDetailComponent
+    HouseDetailComponent,
+    RecievedComponent,
+    SendComponent
   ],
   imports: [
     BrowserModule,
