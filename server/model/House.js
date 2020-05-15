@@ -102,6 +102,10 @@ class House extends DBClient {
         return await this.queryOne({hid:Id},"",{});
     }
 
+    async getHouseByOwner(Id) {
+        return await this.queryOne({ownerId:Id},"",{});
+    }
+
 
 }
 

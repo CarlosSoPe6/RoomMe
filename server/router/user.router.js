@@ -13,5 +13,8 @@ router.put('/me/house', requireAuth, controller.updateUserHouse);
 
 router.get('/:id', controller.getUser);
 router.get('/:id/contacts', controller.getContacts);
+router.get('/:id/image', controller.getImage);
+
+router.put('/houses', requireAuth, controller.updateUsersHouse);
 
 module.exports = router;

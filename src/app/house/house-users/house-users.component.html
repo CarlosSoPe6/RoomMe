@@ -1,24 +1,32 @@
 <div>
     <ul class="list-group">
         <li class="list-group-item" style="background-color: goldenrod;">Residentes</li>
-        <li class="list-group-item">
-            <img class="mini-img-usr rounded-circle" src="https://randomuser.me/api/portraits/men/21.jpg" alt="">
-            Pedro Paramo
-            <button type="button" name="" id="" class="btn btn-danger float-right" btn-lg btn-block><i class="fa fa-times" aria-hidden="true"></i></button>
+        <li class="list-group-item" *ngFor="let hu of houseUsers">
+            <img class="mini-img-usr rounded-circle" src="/user/{{hu.uid}}/image" alt="">
+            {{hu.name + ' ' + hu.lastName}} <strong *ngIf="hu.uid === owner">(owner)</strong>
+            <button *ngIf="hu.uid !== owner" type="button" name="" id="" class="btn btn-danger float-right" btn-lg btn-block (click)="removeUser(hu.uid)"><i class="fa fa-times" aria-hidden="true"></i></button>
         </li>
         <li class="list-group-item">
             <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i>
                 </div>
-           
-            <input type="text" class="form-control" id="in-nombre" value=""
-                placeholder="Usuario">
+            
+                
+            <input type="text" class="form-control" id="in-nombre" list="users"
+                placeholder="Usuario" [(ngModel)] = "search" (input)="searchUsers()">
+                <datalist id="users" *ngIf="search !== ''" >
+                    <option *ngFor="let f of filtrados" data-id={{f.uid}} >{{f.name + ' ' + f.lastName}}</option>
+                </datalist>
+               
+
                 
             
                 
             </div>
-            <button class="btn btn-success" type="button">Añadir</button>
+           
+            <button class="btn btn-success" type="button" (click)="addUser()">Añadir</button>
         </li>
         
     </ul>
 </div>
+<!-- "https://randomuser.me/api/portraits/men/21.jpg" -->
