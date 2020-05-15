@@ -25,6 +25,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { HouseDashboardComponent } from './house-dashboard/house-dashboard.component';
 import { PollComponent } from './poll/poll/poll.component';
 
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { DashboardComponent } from './dashboard/dashboard.component'; // for FullCalendar!
 
 @NgModule({
   declarations: [
@@ -47,13 +49,15 @@ import { PollComponent } from './poll/poll/poll.component';
     RegisterComponent,
     TasksComponent,
     HouseDashboardComponent,
-    PollComponent
+    PollComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    , FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
