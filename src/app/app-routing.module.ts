@@ -9,6 +9,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { HouseDashboardComponent } from './house-dashboard/house-dashboard.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,8 +21,9 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'tasks', component: TasksComponent},
   {path: 'home', component: HouseDashboardComponent}
-  ,{path: 'me', component: UserEditComponent}
-  ,{path: 'usr/:id', component: UserDetailComponent}
+  , {path: 'me', component: UserEditComponent}
+  , {path: 'usr/:id', component: UserDetailComponent}
+  , {path: '', component: DashboardComponent}
 ];
 
 

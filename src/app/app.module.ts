@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecievedComponent } from './chat/recieved/recieved.component';
 import { SendComponent } from './chat/send/send.component';
 
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { DashboardComponent } from './dashboard/dashboard.component'; // for FullCalendar!
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { SendComponent } from './chat/send/send.component';
     TasksComponent,
     HouseDashboardComponent,
     PollComponent,
+    DashboardComponent,
     RecievedComponent,
     SendComponent
   ],
@@ -59,6 +62,7 @@ import { SendComponent } from './chat/send/send.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    , FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
