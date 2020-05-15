@@ -53,7 +53,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'; // for Ful
     TasksComponent,
     HouseDashboardComponent,
     PollComponent,
-    , DashboardComponent,
+    DashboardComponent,
     RecievedComponent,
     SendComponent
   ],
