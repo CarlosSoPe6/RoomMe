@@ -27,7 +27,7 @@ export class HouseDashboardComponent implements OnInit {
     this.dashService.getCurrentUser().subscribe((data) => {
       console.log("Current house dash user ", data);
       this.currentUser = data; 
-      this.dashService.getCurrentHouse(this.currentUser.house).subscribe((data: House) => {
+      this.dashService.getCurrentHouse().subscribe((data: House) => {
         console.log("Current house on house dash", data);
         this.currentHouse = data;
       });

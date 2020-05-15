@@ -14,7 +14,7 @@ export class DashboardService {
     return this.http.get(environment.url + '/user/me');
   }
 
-  public getCurrentHouse(houseId) {
+  public getCurrentHouse() {
     return this.http.get(environment.url + '/house');
   }
 

@@ -691,7 +691,7 @@ class DashboardService {
     getCurrentUser() {
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + '/user/me');
     }
-    getCurrentHouse(houseId) {
+    getCurrentHouse() {
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + '/house');
     }
     getTasks(houseId) {
@@ -738,9 +738,9 @@ function HouseDashboardComponent_li_21_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const user_r527 = ctx.$implicit;
+    const user_r546 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](user_r527.name + " " + user_r527.lastName);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](user_r546.name + " " + user_r546.lastName);
 } }
 function HouseDashboardComponent_div_96_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 29);
@@ -754,9 +754,9 @@ function HouseDashboardComponent_div_96_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const task_r528 = ctx.$implicit;
+    const task_r547 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](task_r528.description);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](task_r547.description);
 } }
 class HouseDashboardComponent {
     constructor(dashService, taskService, houseUserService) {
@@ -769,7 +769,7 @@ class HouseDashboardComponent {
         this.dashService.getCurrentUser().subscribe((data) => {
             console.log("Current house dash user ", data);
             this.currentUser = data;
-            this.dashService.getCurrentHouse(this.currentUser.house).subscribe((data) => {
+            this.dashService.getCurrentHouse().subscribe((data) => {
                 console.log("Current house on house dash", data);
                 this.currentHouse = data;
             });
