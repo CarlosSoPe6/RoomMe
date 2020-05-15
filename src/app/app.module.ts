@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +19,8 @@ import { HouseDetailComponent } from './house/house-detail/house-detail.componen
 import { HttpClientModule } from '@angular/common/http';
 import { RecievedComponent } from './chat/recieved/recieved.component';
 import { SendComponent } from './chat/send/send.component';
-
+import { environment } from 'src/environments/environment';
+const config: SocketIoConfig = {url: environment.url, options: {}};
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { SendComponent } from './chat/send/send.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

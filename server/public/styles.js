@@ -331,7 +331,7 @@ if (content.locals) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!*******************************!*\
   !*** multi ./src/styles.scss ***!
   \*******************************/
@@ -343,5 +343,5 @@ module.exports = __webpack_require__(/*! C:\Users\josel\OneDrive - ITESO\Escrito
 
 /***/ })
 
-},[[2,"runtime"]]]);
+},[[3,"runtime"]]]);
 //# sourceMappingURL=styles.js.map

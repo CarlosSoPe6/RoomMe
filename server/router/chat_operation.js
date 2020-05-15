@@ -1,6 +1,7 @@
 const chat = require('../model/Chat');
+const User = require('../model/User');
 
-exports = module.exports = function(socket, io) {
+exports = module.exports =  function(socket, io) {
 
     socket.on('entrar', (houseId) => {
         let room = 'room' + houseId;
@@ -8,9 +9,12 @@ exports = module.exports = function(socket, io) {
         socket.join(room);
     });
 
-    socket.on('chatear', (obj) => {
+    socket.on('chatear', async (obj) => {
+
+        let sender =  await User.getSingleUser({'uid':obj.user});
 
         let newMsg = {
+            authorName: `${sender.name} ${sender.lastName}`,
             authorId: obj.user,
             houseId: obj.house,
             message: obj.msg,

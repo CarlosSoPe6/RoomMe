@@ -48,7 +48,7 @@ app.use('/', authRouter);
 app.use('/house',houseRouter);
 app.use('/service',serviceRouter);
 app.use('/shoplist',shopRouter);
-app.use('/chat',chatRouter);
+app.use('/api/chat',chatRouter);
 
 app.use('/contact', contactRouter);
 app.use('/poll', pollRouter);
