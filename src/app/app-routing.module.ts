@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'home', component: HouseDashboardComponent}
   , {path: 'me', component: UserEditComponent}
   , {path: 'usr/:id', component: UserDetailComponent}
-  , {path: '', component: DashboardComponent}
+  , {path: '', component: HouseDashboardComponent}
 ];
 
 

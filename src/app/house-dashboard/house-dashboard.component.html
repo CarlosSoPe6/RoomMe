@@ -127,100 +127,6 @@
     <br>
     <div class="row">
       <div class="col-lg-4 content-box">
-        <div class="yellow content-box-inner">
-          <div id="calendar" style="    border-radius: 5px;">
-            <div id="toolbar"></div>
-            <div id="color-picker" class="show"></div>
-            <div id="dates" class="show">
-              <div id="lastMt">&lsaquo;</div>
-              <div id="nextMt">&rsaquo;</div>
-              <div id="months-cont">
-                <div id="months">
-                  <span class="active month">Enero</span><span class="month">Febrero</span><span
-                    class="month">Marzo</span><span class="month">Abril</span><span class="month">Mayo</span><span
-                    class="month">Junio</span><span class="month">Julio</span><span class="month">Agosto</span><span
-                    class="month">Septiembre</span><span class="month">Octubre</span><span
-                    class="month">Noviembre</span><span class="month">Diciembre</span>
-                </div>
-              </div>
-              <div id="daysotweek">
-                <div class="day">D</div>
-                <div class="day">L</div>
-                <div class="day">M</div>
-                <div class="day">M</div>
-                <div class="day">J</div>
-                <div class="day">V</div>
-                <div class="day">S</div>
-              </div>
-              <div id="days">
-              </div>
-            </div>
-            <div id="info" class="hide">
-              <div id="actual-date"></div>
-              <div id="back">
-              </div>
-              <div id="month-name"></div>
-              <div id="weather">
-                <div id="sun"></div>
-                <div id="mountains"></div>
-                <div id="rain">
-                  <div class="raindrop" id="drop-1"></div>
-                  <div class="raindrop center" id="drop-2"></div>
-                  <div class="raindrop center" id="drop-3"></div>
-                  <div class="raindrop" id="drop-4"></div>
-                </div>
-                <div id="temp">57&deg;<span>F</span></div>
-              </div>
-              <div id="bg-card">
-                <div class="content"></div>
-              </div>
-              <div id="card">
-                <div class="content">
-                  <div id="event-name"></div>
-                  <div id="event-details">
-                    <div class="col-3">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>
-                      <h3>Location</h3>
-                      <p>12345 Generic Ave., Some City, Some State, 12345
-                    </div>
-                    <div class="col-3">
-                      <i class="fa fa-clock-o" aria-hidden="true"></i>
-                      <h3>Time</h3>
-                      <p> 12:00 AM </p>
-                    </div>
-                    <div class="col-3">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      <h3>Attendee</h3>
-                      <p>Me, You, and 2+</p>
-                    </div>
-                    <div style="clear: both"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="colors" class="hide">
-              <div id="close">&times;</div>
-              <p>Choose theme color</p>
-              <div class="color" id="salmon"></div>
-              <div class="color" id="dkpink"></div>
-              <div class="color" id="red"></div>
-              <div class="color" id="redorg"></div>
-              <div class="color" id="orange"></div>
-              <div class="color" id="orgylw"></div>
-              <div class="color active" id="yellow"></div>
-              <div class="color" id="green"></div>
-              <div class="color" id="aqua"></div>
-              <div class="color" id="teal"></div>
-              <div class="color" id="sltbl"></div>
-              <div class="color" id="pwdbl"></div>
-              <div class="color" id="blue"></div>
-              <div class="color" id="purple"></div>
-              <div class="color" id="dkprpl"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 content-box">
         <div class="content-box-inner">
           <ul class="list-group">
             <li class="list-group-item">
@@ -289,6 +195,62 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-4 content-box">
+        <div class="content-box-inner">
+          <div class="content-box-inner">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div>
+                  <strong>Tareas</strong>
+                </div>
+              </li>
+              <li class="list-group-item" *ngFor="let t of taskList">
+                <div class="dashboard-task-entry warning">
+                  <div class="daskboard-task-entry-icon">
+                    <i class="fas fa-thumbtack"></i>
+                  </div>
+                  <div class="daskboard-task-entry-description">
+                    <a>{{t.description}}</a>
+                  </div>
+                  <div class="daskboard-task-entry-options">
+                    <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                  </div>
+                </div>
+                <div class="dashboard-task-entry">
+                  <div class="daskboard-task-entry-icon">
+                    <i class="fas fa-thumbtack"></i>
+                  </div>
+                  <div class="daskboard-task-entry-description">
+                    <a>Ejemplo de tarea</a>
+                  </div>
+                  <div class="daskboard-task-entry-options">
+                    <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 content-box">
+        <div class="content-box-inner">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div>
+                <strong>Calendario</strong>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins" [weekends]="false" [events]="[
+{ title: 'event 1', date: '2019-04-01' },
+{ title: 'event 2', date: '2019-04-02' }
+]"></full-calendar>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
