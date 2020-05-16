@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
       if(params.code) {
         this.authService.googleLogin(params).subscribe((data) => {
           if(this.authService.isLoggedIn()) {
-            this.router.navigateByUrl('/shopping');
+            this.router.navigateByUrl('/home');
           }
         });
       }
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(form.value.email, form.value.password)
         .subscribe((data) => {
           console.log(data);
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/home');
         }, (err) => console.log(err));
   }
 

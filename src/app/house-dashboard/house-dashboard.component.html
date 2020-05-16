@@ -5,12 +5,12 @@
         <div class="content-box-inner">
           <div id="house-header">
             <div id="header-image">
-              <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" alt=""
+              <img src="{{currentHouse.foto}}" alt=""
                 id="houseImg">
             </div><br>
             <div id="house-desc">
-              <h4 id="nombreCasa">Casa de Maki</h4>
-              <p id="descCasa"><i>Esta es la casa de Maki, y sus amigos. Arriba la fiesta!</i></p>
+              <h4 id="nombreCasa">{{currentHouse.title}}</h4>
+              <p id="descCasa"><i>{{currentHouse.description}}</i></p>
             </div>
           </div>
           <div id="house-members-info">
@@ -19,10 +19,7 @@
                 <h5>Habitantes</h5>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Pedro Paramo</li>
-                <li class="list-group-item">Homer Madriz</li>
-                <li class="list-group-item">Carlitos Soto</li>
-                <li class="list-group-item">Senpai Torrentera</li>
+                <li *ngFor="let user of houseUsers" class="list-group-item">{{user.name + ' ' + user.lastName}}</li>
               </ul>
             </div><br>
           </div>
@@ -37,23 +34,23 @@
                 <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     <h6>Dirección</h6>
-                    <h6><small class="text-muted">Av. Padre Xavier scheifler 755 </small></h6>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <h6>Colonia</h6>
-                    <h6><small class="text-muted">Parques del Bosque</small></h6>
+                    <h6><small class="text-muted">{{currentHouse.addressLine}}</small></h6>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     <h6>Ciudad</h6>
-                    <h6><small class="text-muted">San Pedro Tlaquepaque, Jalisco</small></h6>
+                    <h6><small class="text-muted">{{currentHouse.city}}</small></h6>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <h6>Estado</h6>
+                    <h6><small class="text-muted">{{currentHouse.state + ", " + currentHouse.country}}</small></h6>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <h6>Código Postal</h6>
+                    <h6><small class="text-muted">{{currentHouse.zipCode}}</small></h6>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     <h6>Contribución mensual</h6>
-                    <h6><small class="text-muted">$3,300</small></h6>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <h6>Proxima fecha de pago</h6>
-                    <h6><small class="text-muted">15 de Abril</small></h6>
+                    <h6><small class="text-muted">${{currentHouse.cost}}</small></h6>
                   </li>
                 </ul>
               </div>
@@ -63,25 +60,32 @@
         <div class="row">
           <div class="col content-box">
             <div class="content-box-inner">
-              <ul class="list-group list-group-flush">
+              <ul class="list-group">
                 <li class="list-group-item">
                   <div>
-                    <h2>Notificaciones</h2>
+                    <h2>Chat</h2>
                   </div>
                 </li>
-                <li class="list-group-item">
-                  <div class="dashboard-task-entry">
-                    <div>
-                      Notificación 1
-                    </div>
-                  </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="chat-user">
+                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/21.jpg" alt="sunil">
+                    Pedro Páramo
+                  </span>
+                  <span class="badge badge-primary badge-pill">14</span>
                 </li>
-                <li class="list-group-item">
-                  <div class="dashboard-task-entry warning">
-                    <div>
-                      Notificación 2
-                    </div>
-                  </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="chat-user">
+                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/22.jpg" alt="sunil">
+                    Carlitos Soto
+                  </span>
+                  <span class="badge badge-primary badge-pill">2</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="chat-user">
+                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/23.jpg" alt="sunil">
+                    Senpai Torrentera
+                  </span>
+                  <span class="badge badge-primary badge-pill">1</span>
                 </li>
               </ul>
             </div>
@@ -95,26 +99,12 @@
                   </div>
                 </li>
                 <li class="list-group-item">
-                  <div class="dashboard-task-entry warning">
+                  <div *ngFor="let task of taskList" class="dashboard-task-entry">
                     <div class="daskboard-task-entry-icon">
                       <i class="fas fa-thumbtack"></i>
                     </div>
                     <div class="daskboard-task-entry-description">
-                      <a>Ejemplo de tarea</a>
-                    </div>
-                    <div class="daskboard-task-entry-options">
-                      <a href="#"><i class="fas fa-ellipsis-h"></i></a>
-                    </div>
-                  </div>
-                  <div class="dashboard-task-entry">
-                    <div class="daskboard-task-entry-icon">
-                      <i class="fas fa-thumbtack"></i>
-                    </div>
-                    <div class="daskboard-task-entry-description">
-                      <a>Ejemplo de tarea</a>
-                    </div>
-                    <div class="daskboard-task-entry-options">
-                      <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                      <a>{{task.description}}</a>
                     </div>
                   </div>
                 </li>
@@ -125,76 +115,6 @@
       </div>
     </div>
     <br>
-    <div class="row">
-      <div class="col-lg-4 content-box">
-        <div class="content-box-inner">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div>
-                <h2>Chat</h2>
-              </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="chat-user">
-                <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/21.jpg" alt="sunil">
-                Pedro Páramo
-              </span>
-              <span class="badge badge-primary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="chat-user">
-                <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/22.jpg" alt="sunil">
-                Carlitos Soto
-              </span>
-              <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="chat-user">
-                <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/23.jpg" alt="sunil">
-                Senpai Torrentera
-              </span>
-              <span class="badge badge-primary badge-pill">1</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-4 content-box">
-        <div class="content-box-inner">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div>
-                <h2>Playlists</h2>
-              </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="playlist-item">
-                <img class="playlist-img" src="./images/EndOfLine.png" alt="End of line" srcset="">
-                <span class="playlist-title"><strong>End Of Line<br><small>5 canciones</small></strong></span>
-              </span>
-              <span><i class="fas fa-play-circle fa-2x"></i></span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="playlist-item">
-                <img class="playlist-img"
-                  src="https://cdn2.iconfinder.com/data/icons/people-3-2/128/Rapper-Rap-Musician-Hip-Hop-Urban-Man-512.png"
-                  alt="End of line" srcset="">
-                <span class="playlist-title"><strong>Hip-Hop Homie<br><small>15 canciones</small></strong></span>
-              </span>
-              <span><i class="fas fa-play-circle fa-2x"></i></span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="playlist-item">
-                <img class="playlist-img"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTPXepxg32JHWkmbCEdUdunbu6YfnJadopqnA5dp8nS1ZzStRMp"
-                  alt="End of line" srcset="">
-                <span class="playlist-title"><strong>Maki Jazz<br><small>20 canciones</small></strong></span>
-              </span>
-              <span><i class="fas fa-play-circle fa-2x"></i></span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <div class="row">
       <div class="col-lg-4 content-box">
         <div class="content-box-inner">

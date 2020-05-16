@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "cross-env NODE_ENV=development node ./server/server.js"
+    "dev": "cross-env NODE_ENV=development nodemon ./server/server.js"
   },
   "private": true,
   "dependencies": {
