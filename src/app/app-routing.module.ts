@@ -15,16 +15,16 @@ import { AuthGuardService } from './auth-guard.service';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'auth/google/redirect', component: LoginComponent},
-  {path: 'chat', component: ChatComponent},
-  {path: 'house/register', component: HouseComponent},
-  {path: 'house/edit', component: HouseComponent},
-  {path: 'shopping', component: ShoppingComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'chat', component: ChatComponent, canActivate: [AuthGuardService]},
+  {path: 'house/register', component: HouseComponent, canActivate: [AuthGuardService]},
+  {path: 'house/edit', component: HouseComponent, canActivate: [AuthGuardService]},
+  {path: 'shopping', component: ShoppingComponent, canActivate: [AuthGuardService]},
+  {path: 'register', component: RegisterComponent, canActivate: [AuthGuardService]},
   {path: 'tasks', component: TasksComponent, canActivate: [AuthGuardService]},
   {path: 'home', component: HouseDashboardComponent, canActivate: [AuthGuardService]}
-  , {path: 'me', component: UserEditComponent}
-  , {path: 'usr/:id', component: UserDetailComponent}
-  , {path: '', component: HouseDashboardComponent}
+  , {path: 'me', component: UserEditComponent, canActivate: [AuthGuardService]}
+  , {path: 'usr/:id', component: UserDetailComponent, canActivate: [AuthGuardService]}
+  , {path: '', component: HouseDashboardComponent, canActivate: [AuthGuardService]}
 ];
 
 
