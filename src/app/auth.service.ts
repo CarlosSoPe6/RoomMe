@@ -73,7 +73,7 @@ export class AuthService {
     this.http.get(environment.url + '/api/logout').subscribe((data) => {
       console.log(data);
     });
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
     this.logged.next(false);
   }
 

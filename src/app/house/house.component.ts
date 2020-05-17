@@ -63,14 +63,14 @@ export class HouseComponent implements OnInit {
       if (this.image !== undefined) {
         await this.houseService.addImage(this.image);
       }
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     } else {
       this.houseService.editHouse(this.house);
       if (this.image !== undefined) {
         await this.houseService.addImage(this.image);
       }
       this.houseUserService.updateUserHouse(this.house.hid);
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     }
 
   }

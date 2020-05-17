@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../user/user-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   sidebarCollapsed = false;
+  user = null; 
+  houseId = 1;
 
-  constructor() { }
+  constructor(private userService: UserServiceService) {
+    this.userService.userSubject.subscribe((user) => {
+      console.log("Usuario para sidebar ", user);
+      this.user = user;
+      this.houseId = user.house;
+    });
+  }
 
   ngOnInit(): void {
+
   }
 
   sidebarToggle() {
