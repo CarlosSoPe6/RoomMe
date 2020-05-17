@@ -22,7 +22,11 @@
                 </li>
                 <li>
                     <div class="app-sidebar-action-btn">
-                        <a href="#" id="" [routerLink] = "['/house/edit']">
+                        <a href="#" id=""  *ngIf="houseId != 1" [routerLink] = "['/house/edit']">
+                            <i class="fas fa-home"></i>
+                            <span>Casa</span>
+                        </a>
+                        <a href="#" id="" *ngIf="houseId == 1" [routerLink] = "['/house/register']">
                             <i class="fas fa-home"></i>
                             <span>Casa</span>
                         </a>
