@@ -7,17 +7,19 @@
                     <div class="messaging">
                         <div class="inbox_msg">
                             <div class="mesgs">
-                                <div class="msg_history">
-                                    
-                                    <app-recieved></app-recieved>
-                                    <app-send></app-send>
+                                <div #msg_box class="msg_history">
+                                    <div *ngFor="let ms of mensajes">
+                                        
+                                        <app-recieved *ngIf="ms.authorId !== user.uid" [msg] = "ms"></app-recieved>
+                                        <app-send *ngIf="ms.authorId === user.uid" [msg] = "ms"></app-send>
+                                    </div>
                                 </div>
                                 <div class="type_msg">
                                     <div class="input_msg_write">
-                                        <input type="text" class="write_msg" placeholder="Type a message" />
+                                        <input type="text" class="write_msg" placeholder="Type a message" [(ngModel)]="message"/>
 
-                                            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"
-                                                    aria-hidden="true"></i></button>
+                                            <button class="msg_send_btn" type="button" (click) = "sendMessage()"><i class="fa fa-paper-plane"
+                                                    aria-hidden="true" id="submit"></i></button>
 
                                     </div>
                                 </div>
@@ -29,3 +31,4 @@
         </div>
     </div>
 </div>
+
