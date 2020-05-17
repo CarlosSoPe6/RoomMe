@@ -3039,4 +3039,4 @@ module.exports = __webpack_require__(/*! D:\Desarrollo\PAE\RoomMe\src\polyfills.
 /***/ })
 
 },[[2,"runtime"]]]);
-//# sourceMappingURL=polyfills-es2015.js.map
+//# sourceMappingURL=polyfills.js.map

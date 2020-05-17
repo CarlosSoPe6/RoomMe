@@ -35,6 +35,11 @@ export class HouseComponent implements OnInit {
         (data) => {
           console.log(data);
           this.house = data;
+          if (this.house === undefined) {
+            this.mode = '/house/register';
+          } else {
+            this.mode = '/house/edit';
+          }
         }
       );
     }
