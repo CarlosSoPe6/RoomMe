@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'house/register', component: HouseComponent, canActivate: [AuthGuardService]},
   {path: 'house/edit', component: HouseComponent, canActivate: [AuthGuardService]},
   {path: 'shopping', component: ShoppingComponent, canActivate: [AuthGuardService]},
-  {path: 'register', component: RegisterComponent, canActivate: [AuthGuardService]},
+  {path: 'register', component: RegisterComponent},
   {path: 'tasks', component: TasksComponent, canActivate: [AuthGuardService]},
   {path: 'home', component: HouseDashboardComponent, canActivate: [AuthGuardService]}
   , {path: 'me', component: UserEditComponent, canActivate: [AuthGuardService]}
