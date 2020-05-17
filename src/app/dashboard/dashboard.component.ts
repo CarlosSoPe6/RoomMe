@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { TasksService } from '../tasks/tasks.service';
+import { Task } from '../register/Task';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +12,13 @@ export class DashboardComponent implements OnInit {
 
   calendarPlugins = [dayGridPlugin]; // important!
 
-  constructor() { }
+  taskList: Task[];
+
+  constructor(private taskService: TasksService) {
+    this.taskService.taskSubject.subscribe((data) => {
+      this.taskList = data;
+    });
+  }
 
   ngOnInit(): void {
   }

@@ -5,8 +5,7 @@
         <div class="content-box-inner">
           <div id="house-header">
             <div id="header-image">
-              <img src="{{currentHouse.foto}}" alt=""
-                id="houseImg">
+              <img src="{{currentHouse.foto}}" alt="" id="houseImg">
             </div><br>
             <div id="house-desc">
               <h4 id="nombreCasa">{{currentHouse.title}}</h4>
@@ -19,7 +18,9 @@
                 <h5>Habitantes</h5>
               </div>
               <ul class="list-group list-group-flush">
-                <li *ngFor="let user of houseUsers" class="list-group-item">{{user.name + ' ' + user.lastName}}</li>
+                <li *ngFor="let user of houseUsers" class="list-group-item">
+                  <a routerLink="/usr/{{user.uid}}">{{user.name + ' ' + user.lastName}}</a>
+                </li>
               </ul>
             </div><br>
           </div>
@@ -60,34 +61,28 @@
         <div class="row">
           <div class="col content-box">
             <div class="content-box-inner">
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <div>
-                    <h2>Chat</h2>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <span class="chat-user">
-                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/21.jpg" alt="sunil">
-                    Pedro Páramo
-                  </span>
-                  <span class="badge badge-primary badge-pill">14</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <span class="chat-user">
-                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/22.jpg" alt="sunil">
-                    Carlitos Soto
-                  </span>
-                  <span class="badge badge-primary badge-pill">2</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <span class="chat-user">
-                    <img class="rounded-circle msg_img" src="https://randomuser.me/api/portraits/men/23.jpg" alt="sunil">
-                    Senpai Torrentera
-                  </span>
-                  <span class="badge badge-primary badge-pill">1</span>
-                </li>
-              </ul>
+              <div class="content-box-inner">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div>
+                      <strong>Tareas</strong>
+                    </div>
+                  </li>
+                  <li class="list-group-item" *ngFor="let t of taskList">
+                    <div class="dashboard-task-entry warning">
+                      <div class="daskboard-task-entry-icon">
+                        <i class="fas fa-thumbtack"></i>
+                      </div>
+                      <div class="daskboard-task-entry-description">
+                        <a>{{t.description}}</a>
+                      </div>
+                      <div class="daskboard-task-entry-options">
+                        <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="col content-box">
@@ -95,18 +90,14 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <div>
-                    <h2>Tareas</h2>
+                    <strong>Calendario</strong>
                   </div>
                 </li>
                 <li class="list-group-item">
-                  <div *ngFor="let task of taskList" class="dashboard-task-entry">
-                    <div class="daskboard-task-entry-icon">
-                      <i class="fas fa-thumbtack"></i>
-                    </div>
-                    <div class="daskboard-task-entry-description">
-                      <a>{{task.description}}</a>
-                    </div>
-                  </div>
+                  <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins" [weekends]="false" [events]="[
+    { title: 'event 1', date: '2019-04-01' },
+    { title: 'event 2', date: '2019-04-02' }
+    ]"></full-calendar>
                 </li>
               </ul>
             </div>
@@ -115,9 +106,5 @@
       </div>
     </div>
     <br>
-    <div class="row">
-      
-    </div>
   </div>
 </div>
-
