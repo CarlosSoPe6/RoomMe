@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 content-box">
+            <div class="content-box-inner">
+                <div class="content-box-inner">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div>
+                                <strong>Tareas</strong>
+                            </div>
+                        </li>
+                        <li class="list-group-item" *ngFor="let t of taskList">
+                            <div class="dashboard-task-entry warning">
+                                <div class="daskboard-task-entry-icon">
+                                    <i class="fas fa-thumbtack"></i>
+                                </div>
+                                <div class="daskboard-task-entry-description">
+                                    <a>{{t.description}}</a>
+                                </div>
+                                <div class="daskboard-task-entry-options">
+                                    <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                </div>
+                            </div>
+                            <div class="dashboard-task-entry">
+                                <div class="daskboard-task-entry-icon">
+                                    <i class="fas fa-thumbtack"></i>
+                                </div>
+                                <div class="daskboard-task-entry-description">
+                                    <a>Ejemplo de tarea</a>
+                                </div>
+                                <div class="daskboard-task-entry-options">
+                                    <a href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 content-box">
+            <div class="content-box-inner">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div>
+                            <strong>Calendario</strong>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins" [weekends]="false"
+                            [events]="[
+    { title: 'event 1', date: '2019-04-01' },
+    { title: 'event 2', date: '2019-04-02' }
+  ]"></full-calendar>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

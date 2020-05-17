@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,11 @@ import { PollComponent } from './poll/poll/poll.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecievedComponent } from './chat/recieved/recieved.component';
 import { SendComponent } from './chat/send/send.component';
+import { environment } from 'src/environments/environment';
+const config: SocketIoConfig = {url: environment.url, options: {}};
 
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { DashboardComponent } from './dashboard/dashboard.component'; // for FullCalendar!
 
 @NgModule({
   declarations: [
@@ -51,6 +56,7 @@ import { SendComponent } from './chat/send/send.component';
     TasksComponent,
     HouseDashboardComponent,
     PollComponent,
+    DashboardComponent,
     RecievedComponent,
     SendComponent
   ],
@@ -58,7 +64,9 @@ import { SendComponent } from './chat/send/send.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(config)
+    , FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
