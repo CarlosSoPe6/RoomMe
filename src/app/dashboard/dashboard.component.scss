@@ -1,0 +1,58 @@
+.dashboard-activity-header {
+    padding: 20px 12px 20px 12px;
+}
+
+.dashboard-activity-body {
+    padding: 20px 12px 20px 12px;
+}
+
+.dashboard-activity-body .row {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.dashboard-activity-body .content-box {
+    padding: 5px;
+    color: #333333;
+}
+
+.dashboard-activity-body .content-box .content-box-inner {
+    height: 0px;
+    padding-top: 100%;
+}
+
+.dashboard-activity-body .content-box .content-box-inner>* {
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+}
+
+.dashboard-task-entry {
+    padding: 10px;
+    display: flex;
+    border-left: #0abb87 5px solid;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.dashboard-task-entry.warning {
+    border-left-color: #fd397a;
+}
+
+.dashboard-task-entry>div {
+    padding: 5px;
+}
+
+.dashboard-task-entry .daskboard-task-entry-icon {
+    flex-grow: 1;
+}
+
+.dashboard-task-entry .daskboard-task-entry-description {
+    flex-grow: 3;
+}
+
+.dashboard-task-entry .daskboard-task-entry-options {
+    flex-grow: 1;
+}

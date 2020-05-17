@@ -5,11 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./server/server.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "cross-env NODE_ENV=development node ./server/server.js"
+    "dev": "cross-env NODE_ENV=development nodemon ./server/server.js"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +21,9 @@
     "@angular/platform-browser": "~9.0.6",
     "@angular/platform-browser-dynamic": "~9.0.6",
     "@angular/router": "~9.0.6",
+    "@fullcalendar/angular": "^4.4.5-beta",
+    "@fullcalendar/core": "^4.4.0",
+    "@fullcalendar/daygrid": "^4.4.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "cloudinary": "^1.21.0",
@@ -30,6 +33,7 @@
     "dotenv": "^8.2.0",
     "download": "^8.0.0",
     "express": "^4.17.1",
+    "i": "^0.3.6",
     "jest": "^25.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.10",
@@ -41,6 +45,7 @@
     "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",
     "rxjs": "~6.5.4",
+    "socket.io": "^2.3.0",
     "supertest": "^4.0.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

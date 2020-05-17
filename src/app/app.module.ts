@@ -31,6 +31,9 @@ import { SendComponent } from './chat/send/send.component';
 import { environment } from 'src/environments/environment';
 const config: SocketIoConfig = {url: environment.url, options: {}};
 
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { DashboardComponent } from './dashboard/dashboard.component'; // for FullCalendar!
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +56,7 @@ const config: SocketIoConfig = {url: environment.url, options: {}};
     TasksComponent,
     HouseDashboardComponent,
     PollComponent,
+    DashboardComponent,
     RecievedComponent,
     SendComponent
   ],
@@ -62,6 +66,7 @@ const config: SocketIoConfig = {url: environment.url, options: {}};
     FormsModule,
     HttpClientModule,
     SocketIoModule.forRoot(config)
+    , FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
