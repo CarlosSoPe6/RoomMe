@@ -31,12 +31,14 @@ class User extends DBClient {
                 required: true
             },
             photo: {
-                type: String,
-                required: true
+                type: String
             },
             passwordHash: {
                 type: String,
                 required: true
+            },
+            houses: {
+                type: Array
             },
             GId: {
                 type: String
@@ -47,9 +49,6 @@ class User extends DBClient {
             verified: {
                 type: Boolean,
                 required: false
-            },
-            house: {
-                type: Number
             }
         });
         this._schema.plugin(AutoIncrement, {inc_field : 'uid'});
@@ -132,15 +131,12 @@ class User extends DBClient {
         return await super.queryOne(query, this._listProjection, {});
     }
 
-    async createSelfUser(name, lastName, email, photo, passwordHash, phone, house) {
+    async createSelfUser(name, lastName, email, passwordHash) {
         let record = new this._model({
             name,
             lastName,
             email,
-            photo,
-            passwordHash,
-            phone,
-            house
+            passwordHash
         });
         return await super.add(record);
     }
