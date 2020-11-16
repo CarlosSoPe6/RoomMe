@@ -51,6 +51,13 @@ class HouseControl {
         res.json(h);
     }
 
+
+    async getHouses(req, res) {
+        console.log("user:", req.user, "\n");
+        let houses = await house.getHousesById(req.user.houses);
+        res.json(houses);
+    }
+
     async editHouse(req, res) {
         // Validate User
 

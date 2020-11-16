@@ -7,6 +7,8 @@ route.get('/', requireAuth, HouseController.getHouse);
 route.post('/', requireAuth, HouseController.add);
 route.put('/', requireAuth, HouseController.editHouse);
 
+route.get('/all', requireAuth, HouseController.getHouses);
+
 route.get('/photo', requireAuth, HouseController.getHousePhoto);
 
 module.exports = route;

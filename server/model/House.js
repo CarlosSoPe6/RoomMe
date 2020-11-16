@@ -102,6 +102,17 @@ class House extends DBClient {
         return await this.queryOne({hid:Id},"",{});
     }
 
+    async getHousesById(Ids) {
+        let ids = [];
+        console.log('ids:', Ids);
+        for(let id of Ids)
+            ids.push({"hid": id});
+        let query = {
+            "$or": ids
+        };
+        return await this.query(query,"",{});
+    }
+
     async getHouseByOwner(Id) {
         return await this.queryOne({ownerId:Id},"",{});
     }
