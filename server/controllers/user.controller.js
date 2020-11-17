@@ -146,7 +146,12 @@ class UserController {
      */
     async updatePhoto(req, res) {
         let userId = req.user.uid;
-        const result = await cloudinary.v2.uploader.upload(req.file.path);
+      console.log(req.file);
+      console.log(req.files);
+      console.log(req.body.file);
+      console.log(req.body.files);
+        const file = req.file !== undefined ? req.file : req.body.file;
+        const result = await cloudinary.v2.uploader.upload(file.path);
         let obj = {
             photo: result.url
         };
