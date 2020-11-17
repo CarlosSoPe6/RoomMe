@@ -20,7 +20,7 @@ export class MessagesService {
     this.http.get(environment.url + '/user/me').subscribe((data: any) => {
       this.user = {
         uid: data.uid,
-        house: data.house
+        house: data.houses[0]
       };
       this.userSubject.next(this.getUser());
     }, (err: any) => {
