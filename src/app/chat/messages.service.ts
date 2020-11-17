@@ -21,7 +21,7 @@ export class MessagesService {
       console.log(data);
       this.user = {
         uid: data.uid,
-        house: data.houses[0]
+        house: 27
       };
       this.userSubject.next(this.getUser());
     }, (err: any) => {
