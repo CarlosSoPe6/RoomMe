@@ -30,7 +30,7 @@ export class MessagesService {
   }
 
   loadMessages() {
-    this.http.get(environment.url + '/api/chat/' + this.user.house).subscribe((data) => {
+    this.http.get(environment.url + '/api/chat/27').subscribe((data) => {
       this.historyMessages = data;
       this.historySubject.next(this.getHistory());
     }, (err: any) => {
