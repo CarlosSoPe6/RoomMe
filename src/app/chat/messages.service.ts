@@ -18,6 +18,7 @@ export class MessagesService {
 
   loadUser() {
     this.http.get(environment.url + '/user/me').subscribe((data: any) => {
+      console.log(data);
       this.user = {
         uid: data.uid,
         house: data.houses[0]
