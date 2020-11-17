@@ -45,8 +45,8 @@ class Chat extends DBClient {
         return await this.add(doc);
     }
 
-    async getMessages(House) {
-        return await this.query({houseId:House},"",{});
+    async getMessages(houseId) {
+        return await this.query({houseId:houseId},"",{});
     }
 }
 
