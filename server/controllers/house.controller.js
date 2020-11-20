@@ -30,13 +30,13 @@ class HouseControl {
             services: req.body.services
         }
         try{
-            await house.addHouse(newHouse);
+            const house = await house.addHouse(newHouse);
             let house_owner = await house.getHouseByOwner(newHouse.ownerId);
             await user.updateUser(newHouse.ownerId,
                 {
                     house: house_owner.hid
                 });
-            res.sendStatus(200);
+            res.send(200).json(house_owner.hid)
         }
         catch(err){
             console.log(err)
@@ -45,6 +45,12 @@ class HouseControl {
             });
         }
        
+    }
+
+    async getHouseById(req, res) {
+        const { id } = req.params;
+        const h = await house.getHouseById(id);
+        res.json(h);
     }
 
     async getHouse(req, res) {

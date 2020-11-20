@@ -18,9 +18,10 @@ export class MessagesService {
 
   loadUser() {
     this.http.get(environment.url + '/user/me').subscribe((data: any) => {
+      console.log(data);
       this.user = {
         uid: data.uid,
-        house: data.house
+        house: 27
       };
       this.userSubject.next(this.getUser());
     }, (err: any) => {
@@ -29,7 +30,7 @@ export class MessagesService {
   }
 
   loadMessages() {
-    this.http.get(environment.url + '/api/chat').subscribe((data) => {
+    this.http.get(environment.url + '/api/chat/27').subscribe((data) => {
       this.historyMessages = data;
       this.historySubject.next(this.getHistory());
     }, (err: any) => {
