@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./server/server.js",
-    "build": "ng build --prod",
+    "build": "echo Hola",
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
