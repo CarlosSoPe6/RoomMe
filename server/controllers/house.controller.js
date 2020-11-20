@@ -46,6 +46,12 @@ class HouseControl {
        
     }
 
+    async getHouseById(req, res) {
+        const { id } = req.params;
+        const h = await house.getHouseById(id);
+        res.json(h);
+    }
+
     async getHouse(req, res) {
         let h = await house.getHouseById(req.user.house);
         res.json(h);
