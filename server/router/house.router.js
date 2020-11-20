@@ -6,10 +6,10 @@ const requireAuth = require('./../middlewares/requireAuth');
 route.get('/', requireAuth, HouseController.getHouse);
 route.post('/', requireAuth, HouseController.add);
 route.put('/', requireAuth, HouseController.editHouse);
-route.get('/:id', requireAuth, HouseController.getHouseById);
-
 route.get('/all', requireAuth, HouseController.getHouses);
-
 route.get('/photo', requireAuth, HouseController.getHousePhoto);
+
+
+route.get('/:id', requireAuth, HouseController.getHouseById);
 
 module.exports = route;

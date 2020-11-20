@@ -58,37 +58,36 @@ class HouseControl {
         res.json(h);
     }
 
-
     async getHouses(req, res) {
-        if(req.user.houses.length == 0) {
+        if(req.user.houses.length == 0)
             res.json([]);
-            return;
+        else {
+            let docs = await house.getHousesById(req.user.houses);
+            let houses = [];
+            for(let doc of docs) {
+                houses.push({
+                    'hid': doc.hid,
+                    'members': await user.getUsersById(doc.members),
+                    'tasks': await task.getAllHouseTasks(doc.hid),
+                    "services": doc.services,
+                    "title": doc.title,
+                    "type": doc.type,
+                    "description": doc.description,
+                    "ownerId": doc.ownerId,
+                    "addressLine": doc.addressLine,
+                    "zipCode": doc.zipCode,
+                    "city": doc.city,
+                    "state": doc.state,
+                    "country": doc.country,
+                    "cost": doc.cost,
+                    "roommatesLimit": doc.roommatesLimit,
+                    "roommatesCount": doc.roommatesCount,
+                    "playlistURL": doc.playlistURL,
+                    "foto": doc.foto,
+                });
+            }
+            res.json(houses);
         }
-        let docs = await house.getHousesById(req.user.houses);
-        let houses = [];
-        for(let doc of docs) {
-            houses.push({
-                'hid': doc.hid,
-                'members': await user.getUsersById(doc.members),
-                'tasks': await task.getAllHouseTasks(doc.hid),
-                "services": doc.services,
-                "title": doc.title,
-                "type": doc.type,
-                "description": doc.description,
-                "ownerId": doc.ownerId,
-                "addressLine": doc.addressLine,
-                "zipCode": doc.zipCode,
-                "city": doc.city,
-                "state": doc.state,
-                "country": doc.country,
-                "cost": doc.cost,
-                "roommatesLimit": doc.roommatesLimit,
-                "roommatesCount": doc.roommatesCount,
-                "playlistURL": doc.playlistURL,
-                "foto": doc.foto,
-            });
-        }
-        res.json(houses);
     }
 
     async editHouse(req, res) {
