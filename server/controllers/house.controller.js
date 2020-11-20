@@ -60,6 +60,10 @@ class HouseControl {
 
 
     async getHouses(req, res) {
+        if(req.user.houses.length == 0) {
+            res.json([]);
+            return;
+        }
         let docs = await house.getHousesById(req.user.houses);
         let houses = [];
         for(let doc of docs) {
