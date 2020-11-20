@@ -131,6 +131,16 @@ class User extends DBClient {
         return await super.queryOne(query, this._listProjection, {});
     }
 
+    async getUsersById(ids) {
+        let id = [];
+        for(let i of ids)
+            id.push({"uid": i});
+        let query = {
+            "$or": id
+        };
+        return await super.query(query, {'name': 1, 'lastName': 1}, {});
+    }
+
     async createSelfUser(name, lastName, email, passwordHash) {
         let record = new this._model({
             name,

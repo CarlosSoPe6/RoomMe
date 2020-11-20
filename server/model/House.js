@@ -34,6 +34,10 @@ class House extends DBClient {
                 type: Number,
                 required: true
             },
+            members: {
+                type: Array,
+                requiresd: true
+            },
             addressLine: {
                 type: String
             },
@@ -104,7 +108,7 @@ class House extends DBClient {
 
     async getHousesById(Ids) {
         let ids = [];
-        console.log('ids:', Ids);
+        // console.log('ids:', Ids);
         for(let id of Ids)
             ids.push({"hid": id});
         let query = {

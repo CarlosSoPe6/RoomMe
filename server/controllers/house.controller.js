@@ -2,6 +2,7 @@
 
 const house = require('../model/House');
 const user = require('../model/User');
+const task = require('../model/Task');
 const download = require('download');
 const path = require('path');
 const cloudinary = require('cloudinary');
@@ -53,8 +54,30 @@ class HouseControl {
 
 
     async getHouses(req, res) {
-        console.log("user:", req.user, "\n");
-        let houses = await house.getHousesById(req.user.houses);
+        let docs = await house.getHousesById(req.user.houses);
+        let houses = [];
+        for(let doc of docs) {
+            houses.push({
+                'hid': doc.hid,
+                'members': await user.getUsersById(doc.members),
+                'tasks': await task.getAllHouseTasks(doc.hid),
+                "services": doc.services,
+                "title": doc.title,
+                "type": doc.type,
+                "description": doc.description,
+                "ownerId": doc.ownerId,
+                "addressLine": doc.addressLine,
+                "zipCode": doc.zipCode,
+                "city": doc.city,
+                "state": doc.state,
+                "country": doc.country,
+                "cost": doc.cost,
+                "roommatesLimit": doc.roommatesLimit,
+                "roommatesCount": doc.roommatesCount,
+                "playlistURL": doc.playlistURL,
+                "foto": doc.foto,
+            });
+        }
         res.json(houses);
     }
 

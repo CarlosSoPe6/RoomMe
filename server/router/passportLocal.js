@@ -47,7 +47,7 @@ passport.serializeUser((usr, done) => {
 
 passport.deserializeUser(async (email,done) => {
     let usr = await User.getSingleUser({email});
-    console.log("deserializando a: ", usr);
+    // console.log("deserializando a: ", usr);
     done(null,usr);
 });
 
