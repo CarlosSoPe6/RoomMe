@@ -3,7 +3,7 @@ const Task = require("../model/Task");
 class TaskController {
     async addTask(req, res) {
         let newTask = {
-            authorId : req.body.author,
+            authorId : req.user.uid,
             houseId : req.body.house,
             description : req.body.description,
             creationDate : Date.now(),

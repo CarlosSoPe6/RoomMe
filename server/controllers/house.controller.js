@@ -59,6 +59,7 @@ class HouseControl {
     }
 
     async getHouses(req, res) {
+        console.log(req.user.houses);
         if(req.user.houses.length == 0)
             res.json([]);
         else {
