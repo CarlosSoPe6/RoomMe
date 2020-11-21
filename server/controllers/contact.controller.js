@@ -88,19 +88,26 @@ class ContactController {
             return;
         }
 
-        let {name, lastName, email, phone}
-            = req.body;
-        let doc = await ContactModel.updateContact(id,
-        {
-            name, 
-            lastName, 
-            email,
-            phone
-        });
-        // Convert result to JSON
-        doc = JSON.parse(JSON.stringify(doc));
-        console.log(doc);
-        res.json(doc);
+        try {
+            let {name, lastName, email, phone}
+                = req.body;
+            console.log(req.body);
+            console.log(id);
+            let doc = await ContactModel.updateContact(id,
+            {
+                name, 
+                lastName, 
+                email,
+                phone
+            });
+            // Convert result to JSON
+            doc = JSON.parse(JSON.stringify(doc));
+            console.log(doc);
+            res.json(doc);
+        } catch (e) {
+            console.error(e);
+            res.sendStatus(500);
+        }
     }
 }
 
