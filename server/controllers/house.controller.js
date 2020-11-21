@@ -118,7 +118,8 @@ class HouseControl {
             services: req.body.services
         }
         try{
-            await house.updateHouse(newHouse);
+            const r = await house.updateHouse(newHouse);
+            console.log(r);
             res.sendStatus(200);
         }
         catch(err){
