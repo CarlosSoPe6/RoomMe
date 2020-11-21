@@ -25,18 +25,22 @@ class HouseControl {
             roommatesLimit: req.body.roommatesLimit,
             roommatesCount: 0,
             //calendarURL: req.body.calendar,
+            members: [
+                req.user.uid
+            ],
             playlistURL: req.body.playlist,
             foto: req.body.foto,
             services: req.body.services
         }
         try{
-            const house = await house.addHouse(newHouse);
-            let house_owner = await house.getHouseByOwner(newHouse.ownerId);
-            await user.updateUser(newHouse.ownerId,
-                {
-                    house: house_owner.hid
-                });
-            res.send(200).json(house_owner.hid)
+            const created = await house.addHouse(newHouse);
+            const owner = await user.getSingleUser({'uid': req.user.uid});
+            owner.houses.push(created.hid);
+            user.updateUser(req.user.uid, {
+                houses: owner.houses,
+            });
+            console.log('POST /house', {hid: created.hid});
+            res.json({hid: created.hid});
         }
         catch(err){
             console.log(err)
@@ -127,9 +131,10 @@ class HouseControl {
     }
 
     async addPhoto(req, res) {
+        const { id } = req.params;
         const result = await cloudinary.v2.uploader.upload(req.file.path);
-        let h = await house.getHouseById(req.user.house);
-        console.log(h);
+        let h = await house.getHouseById(id);
+        console.log(id, h);
         h.foto = result.url;
         house.updateHouse(h);
         res.sendStatus(200);
