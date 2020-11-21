@@ -25,7 +25,9 @@ class HouseControl {
             roommatesLimit: req.body.roommatesLimit,
             roommatesCount: 0,
             //calendarURL: req.body.calendar,
-            members: [],
+            members: [
+                req.user.uid
+            ],
             playlistURL: req.body.playlist,
             foto: req.body.foto,
             services: req.body.services
