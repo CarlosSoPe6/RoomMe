@@ -30,7 +30,7 @@ class HouseControl {
             services: req.body.services
         }
         try{
-            const house = await house.addHouse(newHouse);
+            await house.addHouse(newHouse);
             let house_owner = await house.getHouseByOwner(newHouse.ownerId);
             await user.updateUser(newHouse.ownerId,
                 {
@@ -39,7 +39,7 @@ class HouseControl {
             const ouner = await user.getUsersById(req.user.uid);
             owner.houses.push(house_owner.hid);
             user.updateUser(req.user.uid, {
-                houses,
+                houses: owner.houses,
             });
             res.send(200).json(house_owner.hid)
         }
