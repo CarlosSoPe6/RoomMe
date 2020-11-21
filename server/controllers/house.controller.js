@@ -30,18 +30,18 @@ class HouseControl {
             services: req.body.services
         }
         try{
-            await house.addHouse(newHouse);
+            const created = await house.addHouse(newHouse);
             let house_owner = await house.getHouseByOwner(newHouse.ownerId);
             await user.updateUser(newHouse.ownerId,
                 {
                     house: house_owner.hid
                 });
             const owner = await user.getSingleUser({'uid': req.user.uid});
-            owner.houses.push(house_owner.hid);
+            owner.houses.push(created.hid);
             user.updateUser(req.user.uid, {
                 houses: owner.houses,
             });
-            res.send(200).json(house_owner.hid)
+            res.send(200).json({hid: house_owner.hid});
         }
         catch(err){
             console.log(err)
