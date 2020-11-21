@@ -36,7 +36,7 @@ class HouseControl {
                 {
                     house: house_owner.hid
                 });
-            const owner = await user.getUsersById({'uid': req.user.uid});
+            const owner = await user.getSingleUser({'uid': req.user.uid});
             owner.houses.push(house_owner.hid);
             user.updateUser(req.user.uid, {
                 houses: owner.houses,
