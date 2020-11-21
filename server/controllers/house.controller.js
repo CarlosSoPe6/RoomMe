@@ -41,7 +41,7 @@ class HouseControl {
             user.updateUser(req.user.uid, {
                 houses: owner.houses,
             });
-            res.send(200).json(house_owner.hid)
+            res.send(200).json({hid: house_owner.hid});
         }
         catch(err){
             console.log(err)
