@@ -96,7 +96,7 @@ class Contact extends DBClient {
     }
 
     async updateContact(contactId, dataObject) {
-        let contact = await this.getSingleUser(contactId);
+        let contact = await this.getSingleContact(contactId);
         let query = { 'uid': contactId };
         // Iterate over the dataObject properties to update queried user.
         for (const prop in dataObject) {
