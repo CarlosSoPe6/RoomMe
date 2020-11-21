@@ -34,17 +34,13 @@ class HouseControl {
         }
         try{
             const created = await house.addHouse(newHouse);
-            let house_owner = await house.getHouseByOwner(newHouse.ownerId);
-            await user.updateUser(newHouse.ownerId,
-                {
-                    house: house_owner.hid
-                });
             const owner = await user.getSingleUser({'uid': req.user.uid});
             owner.houses.push(created.hid);
             user.updateUser(req.user.uid, {
                 houses: owner.houses,
             });
-            res.send(200).json({hid: house_owner.hid});
+            console.log('POST /house', {hid: created.hid});
+            res.send(200).json({hid: created.hid});
         }
         catch(err){
             console.log(err)
@@ -134,8 +130,9 @@ class HouseControl {
     }
 
     async addPhoto(req, res) {
+        const { id } = req.query;
         const result = await cloudinary.v2.uploader.upload(req.file.path);
-        let h = await house.getHouseById(req.user.house);
+        let h = await house.getHouseById(id);
         console.log(h);
         h.foto = result.url;
         house.updateHouse(h);
