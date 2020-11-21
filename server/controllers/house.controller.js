@@ -40,7 +40,7 @@ class HouseControl {
                 houses: owner.houses,
             });
             console.log('POST /house', {hid: created.hid});
-            res.send(200).json({hid: created.hid});
+            res.json({hid: created.hid});
         }
         catch(err){
             console.log(err)
