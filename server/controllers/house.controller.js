@@ -134,8 +134,9 @@ class HouseControl {
     }
 
     async addPhoto(req, res) {
+        const { id } = req.query;
         const result = await cloudinary.v2.uploader.upload(req.file.path);
-        let h = await house.getHouseById(req.user.house);
+        let h = await house.getHouseById(id);
         console.log(h);
         h.foto = result.url;
         house.updateHouse(h);
