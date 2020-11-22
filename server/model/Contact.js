@@ -100,11 +100,7 @@ class Contact extends DBClient {
         let query = { 'uid': contactId };
         console.log(contact);
         console.log(query);
-        // Iterate over the dataObject properties to update queried contact.
-        for (const prop in dataObject) {
-            contact[prop] = dataObject[prop];
-        }
-        return await super.update(query, contact);
+        return await super.update(query, dataObject);
     }
 
     async deleteContact(contactId, userId) {
