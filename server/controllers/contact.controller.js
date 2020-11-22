@@ -73,7 +73,7 @@ class ContactController {
      * @param {Express.Response} res 
      */
     async updateContact(req, res) {
-        let id = req.params.id;
+        let id = Number(req.params.id);
 
         if(req.body.name == undefined) {
             res.status(400).json({'error': 'No name'});
