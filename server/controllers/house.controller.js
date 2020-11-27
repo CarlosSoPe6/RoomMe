@@ -116,7 +116,8 @@ class HouseControl {
             //calendarURL: req.body.calendar,
             playlistURL: req.body.playlist,
             foto: req.body.foto,
-            services: req.body.services
+            services: req.body.services,
+            members: req.body.members
         }
         try{
             const r = await house.updateHouse(newHouse);
