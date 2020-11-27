@@ -70,6 +70,7 @@ class HouseControl {
             let docs = await house.getHousesById(req.user.houses);
             let houses = [];
             for(let doc of docs) {
+                console-log(doc.members);
                 houses.push({
                     'hid': doc.hid,
                     'members': await user.getUsersById(doc.members),
