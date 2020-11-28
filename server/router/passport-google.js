@@ -32,9 +32,8 @@ passport.use(new GoogleStrategy({
             newUser.name, 
             newUser.lastName, 
             newUser.email, 
-            newUser.photo, 
             'newUser.password', 
-            ''
+            newUser.photo
             );
         done(null, newUser);
     }

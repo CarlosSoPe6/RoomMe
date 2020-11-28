@@ -141,12 +141,13 @@ class User extends DBClient {
         return await super.query(query, {'name': 1, 'lastName': 1}, {});
     }
 
-    async createSelfUser(name, lastName, email, passwordHash) {
+    async createSelfUser(name, lastName, email, passwordHash, photo) {
         let record = new this._model({
             name,
             lastName,
             email,
-            passwordHash
+            passwordHash,
+            photo
         });
         return await super.add(record);
     }

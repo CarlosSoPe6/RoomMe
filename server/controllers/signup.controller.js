@@ -7,7 +7,8 @@ class RegisterController {
                 req.body.name, 
                 req.body.lastName,
                 req.body.email,
-                req.body.password
+                req.body.password,
+                ""
             );
             res.send({msg : "Succes!"});
         } catch(err) {
