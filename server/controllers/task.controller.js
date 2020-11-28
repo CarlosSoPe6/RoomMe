@@ -62,7 +62,7 @@ class TaskController {
     }
 
     async deleteTask(req, res) {
-        let taskId = req.body.id;
+        let taskId = req.params.id;
         
         try {
             await Task.deleteTask(taskId);
