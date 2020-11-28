@@ -166,8 +166,14 @@ class UserController {
         let u = await UserModel.getSingleUser({'uid': req.params.id});
         console.log("El usuario es: ");
         console.log(u);
-        await download(u.photo,path.join(__dirname, '../temp/' ));
-        res.sendFile(path.join(__dirname, '../temp/' + path.basename(u.photo)));
+        try{
+            await download(u.photo,path.join(__dirname, '../temp/' ));
+            res.sendFile(path.join(__dirname, '../temp/' + path.basename(u.photo)));
+        }catch(e) {
+            await download('https://vimcare.com/assets/empty_user-e28be29d09f6ea715f3916ebebb525103ea068eea8842da42b414206c2523d01.png',path.join(__dirname, '../temp/' ));
+            res.sendFile(path.join(__dirname, '../temp/' + path.basename('https://vimcare.com/assets/empty_user-e28be29d09f6ea715f3916ebebb525103ea068eea8842da42b414206c2523d01.png')));
+        }
+        
     }
 }
 
